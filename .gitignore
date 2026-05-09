@@ -1,0 +1,6 @@
+node_modules/
+output/
+uploads/
+data/qc_issues.json
+*.log
+.env

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CareGen Alliance — Revenue Intelligence</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+    .analytics-grid { max-width:1400px; margin:0 auto; padding:0 24px 40px; display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+    .full-width { grid-column:1 / -1; }
+    .nav-tabs { max-width:1400px; margin:16px auto; padding:0 24px; display:flex; gap:8px; }
+    .nav-tab { padding:8px 20px; border-radius:20px; font-size:13px; font-weight:500; cursor:pointer; border:1px solid var(--border); background:var(--bg-card); color:var(--text-secondary); text-decoration:none; transition:var(--transition); }
+    .nav-tab:hover, .nav-tab.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+    .metric-row { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-bottom:20px; }
+    .metric-card { background:var(--bg-input); border-radius:var(--radius-sm); padding:16px; text-align:center; border:1px solid var(--border); }
+    .metric-value { font-size:28px; font-weight:800; color:var(--accent); display:block; }
+    .metric-label { font-size:11px; color:var(--text-tertiary); text-transform:uppercase; letter-spacing:0.5px; margin-top:2px; }
+    .metric-sub { font-size:11px; color:var(--text-secondary); margin-top:4px; }
+    .change-up { color:var(--success)!important; }
+    .change-down { color:var(--error)!important; }
+    .alert-list { display:flex; flex-direction:column; gap:8px; max-height:500px; overflow-y:auto; }
+    .alert-item { padding:12px 16px; border-radius:var(--radius-sm); display:flex; gap:12px; align-items:flex-start; }
+    .alert-item.high { background:var(--error-bg); border-left:3px solid var(--error); }
+    .alert-item.medium { background:var(--warning-bg); border-left:3px solid var(--warning); }
+    .alert-icon { font-size:20px; flex-shrink:0; }
+    .alert-content { flex:1; }
+    .alert-title { font-size:13px; font-weight:600; }
+    .alert-desc { font-size:12px; color:var(--text-secondary); margin-top:2px; }
+    .alert-amount { font-size:16px; font-weight:700; color:var(--error); }
+    .comparison-grid { display:grid; grid-template-columns:1fr auto 1fr; gap:16px; align-items:center; }
+    .comparison-card { background:var(--bg-input); border-radius:var(--radius); padding:20px; text-align:center; }
+    .comparison-vs { font-size:14px; font-weight:700; color:var(--text-tertiary); }
+    .comparison-value { font-size:28px; font-weight:800; }
+    .comparison-label { font-size:11px; color:var(--text-tertiary); text-transform:uppercase; }
+    .comparison-change { font-size:16px; font-weight:700; margin-top:8px; }
+    .chart-container { position:relative; height:300px; margin-top:12px; }
+    .yoy-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; }
+    .yoy-card { background:var(--bg-input); border-radius:var(--radius); padding:16px; text-align:center; border:1px solid var(--border); }
+    .yoy-period { font-size:12px; font-weight:600; color:var(--text-secondary); margin-bottom:8px; }
+    .yoy-row { display:flex; justify-content:space-between; padding:4px 0; font-size:13px; }
+    .yoy-change { font-size:18px; font-weight:800; margin-top:8px; padding-top:8px; border-top:1px solid var(--border); }
+    .season-bar { display:flex; align-items:flex-end; gap:4px; height:120px; padding:8px 0; }
+    .season-col { flex:1; display:flex; flex-direction:column; align-items:center; gap:4px; }
+    .season-fill { width:100%; border-radius:4px 4px 0 0; background:var(--accent); min-height:4px; transition:var(--transition); }
+    .season-fill:hover { background:var(--accent-hover); }
+    .season-label { font-size:10px; color:var(--text-tertiary); }
+    .season-val { font-size:10px; color:var(--text-secondary); font-weight:600; }
+    @media(max-width:900px) { .analytics-grid { grid-template-columns:1fr; } .metric-row { grid-template-columns:1fr 1fr; } .yoy-grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <header id="main-header">
+    <div class="header-content">
+      <div class="logo-area">
+        <div class="logo-icon">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="url(#lg)"/><path d="M6 22L12 12L18 17L26 8" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="lg" x1="0" y1="0" x2="32" y2="32"><stop stop-color="#6366f1"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient></defs></svg>
+        </div>
+        <div><h1>CareGen Alliance</h1><span class="subtitle">Revenue Intelligence Dashboard</span></div>
+      </div>
+      <div class="header-actions">
+        <div class="status-badge active"><span class="status-dot"></span><span id="inv-count">Loading...</span></div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="nav-tabs">
+    <a href="/" class="nav-tab">Invoice Pipeline</a>
+    <a href="/analytics" class="nav-tab active">Revenue Intelligence</a>
+  </nav>
+
+  <main>
+    <!-- TOP METRICS -->
+    <div class="analytics-grid">
+      <div class="full-width" id="top-metrics"></div>
+
+      <!-- MISSING MONEY ALERTS -->
+      <div class="card full-width" id="card-missing">
+        <div class="card-header">
+          <h2>💰 Missing Money Detection</h2>
+          <span class="badge badge-error" id="alert-count">—</span>
+        </div>
+        <div class="card-body" id="missing-body"><div class="empty-state">Analyzing...</div></div>
+      </div>
+
+      <!-- WEEK OVER WEEK -->
+      <div class="card">
+        <div class="card-header"><h2>📊 Week-over-Week</h2></div>
+        <div class="card-body" id="wow-body"><div class="empty-state">Loading...</div></div>
+      </div>
+
+      <!-- YEAR OVER YEAR -->
+      <div class="card">
+        <div class="card-header"><h2>📅 Year-over-Year</h2></div>
+        <div class="card-body" id="yoy-body"><div class="empty-state">Loading...</div></div>
+      </div>
+
+      <!-- REVENUE TREND CHART -->
+      <div class="card full-width">
+        <div class="card-header"><h2>📈 Weekly Revenue Trend</h2></div>
+        <div class="card-body"><div class="chart-container"><canvas id="trendChart"></canvas></div></div>
+      </div>
+
+      <!-- MONTHLY TREND -->
+      <div class="card">
+        <div class="card-header"><h2>📆 Monthly Revenue</h2></div>
+        <div class="card-body"><div class="chart-container"><canvas id="monthlyChart"></canvas></div></div>
+      </div>
+
+      <!-- SEASONALITY -->
+      <div class="card">
+        <div class="card-header"><h2>🌡️ Seasonality Pattern</h2></div>
+        <div class="card-body" id="season-body"><div class="empty-state">Loading...</div></div>
+      </div>
+
+      <!-- TECH PERFORMANCE -->
+      <div class="card full-width">
+        <div class="card-header"><h2>👷 Technician Performance (Historical)</h2></div>
+        <div class="card-body" id="tech-body"><div class="empty-state">Loading...</div></div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+  let analyticsData = null;
+
+  document.addEventListener('DOMContentLoaded', loadAnalytics);
+
+  async function loadAnalytics() {
+    try {
+      const res = await fetch('/api/analytics');
+      analyticsData = await res.json();
+      renderAll(analyticsData);
+    } catch (e) { console.error('Failed to load analytics:', e); }
+  }
+
+  function renderAll(data) {
+    renderMetrics(data.overview);
+    renderMissingMoney(data.missingMoney);
+    renderWeekComparison(data.weekComparison);
+    renderYearOverYear(data.yearOverYear);
+    renderTrendChart(data.weeklyTrend);
+    renderMonthlyChart(data.monthlyTrend);
+    renderSeasonality(data.seasonality);
+    renderTechPerformance(data.techPerformance);
+    const gapCount = data.invoiceGaps ? data.invoiceGaps.length : 0;
+    const gapText = gapCount > 0 ? ` • ${gapCount} Gaps` : ' • Complete';
+    document.getElementById('inv-count').textContent = `${data.overview.totalInvoices} Invoices${gapText}`;
+  }
+
+  function renderMetrics(ov) {
+    const efRev = ov.everfastRevenue || 0;
+    const amtRev = ov.amtRevenue || 0;
+    const efCount = ov.everfastCount || 0;
+    const amtCount = ov.amtCount || 0;
+    document.getElementById('top-metrics').innerHTML = `<div class="metric-row">
+      <div class="metric-card"><span class="metric-value">$${(ov.totalRevenue/1000).toFixed(0)}K</span><span class="metric-label">Total Revenue</span><span class="metric-sub">Everfast: $${(efRev/1000).toFixed(0)}K (${efCount}) • AMT: $${(amtRev/1000).toFixed(0)}K (${amtCount})</span></div>
+      <div class="metric-card"><span class="metric-value">$${ov.avgWeeklyRevenue.toLocaleString()}</span><span class="metric-label">Avg Weekly (Everfast)</span><span class="metric-sub">Median: $${ov.medianWeeklyRevenue.toLocaleString()}</span></div>
+      <div class="metric-card"><span class="metric-value">${ov.avgWorkOrdersPerWeek}</span><span class="metric-label">Avg WOs/Week</span><span class="metric-sub">$${ov.avgRevenuePerWorkOrder}/WO</span></div>
+      <div class="metric-card"><span class="metric-value">$${ov.last4WeekAvg.toLocaleString()}</span><span class="metric-label">Last 4-Week Avg</span><span class="metric-sub">12wk: $${ov.last12WeekAvg.toLocaleString()}</span></div>
+    </div>`;
+  }
+
+  function renderMissingMoney(mm) {
+    document.getElementById('alert-count').textContent = `${mm.alertCount} alerts • $${mm.totalPotentialMissing.toLocaleString()} potential`;
+    if (!mm.alerts.length) {
+      document.getElementById('missing-body').innerHTML = '<div class="empty-state" style="color:var(--success)">✅ No significant revenue anomalies detected</div>';
+      return;
+    }
+    let html = '<div class="alert-list">';
+    for (const alert of mm.alerts.slice(0, 20)) {
+      const icon = alert.type === 'missing_invoices' ? '📋' : alert.type === 'revenue_drop' ? '📉' : alert.type === 'work_order_drop' ? '🔧' : '💵';
+      html += `<div class="alert-item ${alert.severity}">
+        <span class="alert-icon">${icon}</span>
+        <div class="alert-content">
+          <div class="alert-title">${alert.type === 'revenue_drop' ? 'Revenue Drop' : alert.type === 'work_order_drop' ? 'Work Order Drop' : alert.type === 'low_revenue_per_wo' ? 'Low Revenue/WO' : 'Missing Invoices'}</div>
+          <div class="alert-desc">${alert.message}</div>
+        </div>
+        ${alert.potentialMissing ? `<div class="alert-amount">-$${alert.potentialMissing.toLocaleString()}</div>` : ''}
+      </div>`;
+    }
+    html += '</div>';
+    document.getElementById('missing-body').innerHTML = html;
+  }
+
+  function renderWeekComparison(wc) {
+    if (!wc) { document.getElementById('wow-body').innerHTML = '<div class="empty-state">Not enough data</div>'; return; }
+    const dir = wc.changes.direction;
+    const arrow = dir === 'up' ? '↑' : '↓';
+    const cls = dir === 'up' ? 'change-up' : 'change-down';
+    let html = `<div class="comparison-grid">
+      <div class="comparison-card">
+        <div class="comparison-label">Previous Week</div>
+        <div class="comparison-value">$${wc.previous.revenue.toLocaleString()}</div>
+        <div style="font-size:12px;color:var(--text-tertiary)">Inv #${wc.previous.invoiceNumber} • ${wc.previous.workOrders} WOs<br>${wc.previous.week}</div>
+      </div>
+      <div class="comparison-vs">VS</div>
+      <div class="comparison-card" style="border:1px solid var(--accent)">
+        <div class="comparison-label">Current Week</div>
+        <div class="comparison-value" style="color:var(--accent)">$${wc.current.revenue.toLocaleString()}</div>
+        <div style="font-size:12px;color:var(--text-tertiary)">Inv #${wc.current.invoiceNumber} • ${wc.current.workOrders} WOs<br>${wc.current.week}</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:16px;">
+      <span class="comparison-change ${cls}">${arrow} $${Math.abs(wc.changes.revenue).toLocaleString()} (${wc.changes.revenuePct > 0 ? '+' : ''}${wc.changes.revenuePct}%)</span>
+      <div style="font-size:11px;color:var(--text-tertiary);margin-top:4px;">Work Orders: ${wc.changes.workOrders > 0 ? '+' : ''}${wc.changes.workOrders} (${wc.changes.workOrdersPct > 0 ? '+' : ''}${wc.changes.workOrdersPct}%)</div>
+    </div>`;
+    // Mini sparkline of recent 6 weeks
+    html += '<div style="margin-top:16px"><h4 style="font-size:11px;color:var(--text-tertiary);margin-bottom:8px;">RECENT 6 WEEKS</h4>';
+    for (const w of wc.recentWeeks) {
+      const pct = wc.recentWeeks.length ? (w.revenue / Math.max(...wc.recentWeeks.map(r => r.revenue))) * 100 : 0;
+      html += `<div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
+        <span style="font-size:10px;color:var(--text-tertiary);width:70px;">#${w.invoiceNumber}</span>
+        <div style="flex:1;height:16px;background:var(--bg-primary);border-radius:4px;overflow:hidden;">
+          <div style="height:100%;width:${pct}%;background:linear-gradient(90deg,var(--accent),var(--accent-hover));border-radius:4px;"></div>
+        </div>
+        <span style="font-size:11px;font-weight:600;width:65px;text-align:right;">$${w.revenue.toLocaleString()}</span>
+      </div>`;
+    }
+    html += '</div>';
+    document.getElementById('wow-body').innerHTML = html;
+  }
+
+  function renderYearOverYear(yoy) {
+    if (!yoy) { document.getElementById('yoy-body').innerHTML = '<div class="empty-state">Not enough data</div>'; return; }
+    let html = '<div class="yoy-grid" style="grid-template-columns:1fr;">';
+    
+    // Same week comparison
+    if (yoy.sameWeekLastYear) {
+      const sw = yoy.sameWeekLastYear;
+      const cls = sw.change >= 0 ? 'change-up' : 'change-down';
+      html += `<div class="yoy-card">
+        <div class="yoy-period">Same Week Last Year</div>
+        <div class="yoy-row"><span>This Year (${sw.current.week})</span><strong>$${sw.current.revenue.toLocaleString()}</strong></div>
+        <div class="yoy-row"><span>Last Year (${sw.lastYear.week})</span><strong>$${sw.lastYear.revenue.toLocaleString()}</strong></div>
+        <div class="yoy-change ${cls}">${sw.change >= 0 ? '+' : ''}$${sw.change.toLocaleString()} (${sw.changePct > 0 ? '+' : ''}${sw.changePct}%)</div>
+      </div>`;
+    }
+
+    // Monthly comparison
+    if (yoy.monthlyComparison) {
+      const mc = yoy.monthlyComparison;
+      const cls = mc.change >= 0 ? 'change-up' : 'change-down';
+      html += `<div class="yoy-card">
+        <div class="yoy-period">${mc.monthName} YoY</div>
+        <div class="yoy-row"><span>${mc.currentYear.year} (${mc.currentYear.weeks} wks)</span><strong>$${mc.currentYear.total.toLocaleString()}</strong></div>
+        <div class="yoy-row"><span>${mc.lastYear.year} (${mc.lastYear.weeks} wks)</span><strong>$${mc.lastYear.total.toLocaleString()}</strong></div>
+        <div class="yoy-change ${cls}">${mc.change >= 0 ? '+' : ''}$${mc.change.toLocaleString()} ${mc.changePct !== null ? `(${mc.changePct > 0 ? '+' : ''}${mc.changePct}%)` : ''}</div>
+      </div>`;
+    }
+
+    // Quarterly comparison
+    if (yoy.quarterlyComparison) {
+      const qc = yoy.quarterlyComparison;
+      const cls = qc.change >= 0 ? 'change-up' : 'change-down';
+      html += `<div class="yoy-card">
+        <div class="yoy-period">${qc.quarter} YoY</div>
+        <div class="yoy-row"><span>${qc.currentYear.year} (${qc.currentYear.weeks} wks)</span><strong>$${qc.currentYear.total.toLocaleString()}</strong></div>
+        <div class="yoy-row"><span>${qc.lastYear.year} (${qc.lastYear.weeks} wks)</span><strong>$${qc.lastYear.total.toLocaleString()}</strong></div>
+        <div class="yoy-change ${cls}">${qc.change >= 0 ? '+' : ''}$${qc.change.toLocaleString()} ${qc.changePct !== null ? `(${qc.changePct > 0 ? '+' : ''}${qc.changePct}%)` : ''}</div>
+      </div>`;
+    }
+
+    html += '</div>';
+    document.getElementById('yoy-body').innerHTML = html;
+  }
+
+  function renderTrendChart(trend) {
+    if (!trend || !trend.length) return;
+    const ctx = document.getElementById('trendChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: trend.map(t => t.week),
+        datasets: [{
+          label: 'Weekly Revenue',
+          data: trend.map(t => t.revenue),
+          borderColor: '#6366f1',
+          backgroundColor: 'rgba(99,102,241,0.1)',
+          fill: true, tension: 0.3, pointRadius: 2, pointHoverRadius: 5,
+        }],
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { ticks: { color: '#606075', maxTicksLimit: 20, font: { size: 9 } }, grid: { color: 'rgba(255,255,255,0.05)' } },
+          y: { ticks: { color: '#606075', callback: v => '$' + (v/1000).toFixed(0) + 'K' }, grid: { color: 'rgba(255,255,255,0.05)' } },
+        },
+      },
+    });
+  }
+
+  function renderMonthlyChart(monthly) {
+    if (!monthly || !monthly.length) return;
+    const ctx = document.getElementById('monthlyChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: monthly.map(m => m.month),
+        datasets: [{
+          label: 'Monthly Revenue',
+          data: monthly.map(m => m.revenue),
+          backgroundColor: monthly.map((m, i) => {
+            const recent = i >= monthly.length - 3;
+            return recent ? 'rgba(99,102,241,0.8)' : 'rgba(99,102,241,0.3)';
+          }),
+          borderRadius: 4,
+        }],
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { ticks: { color: '#606075', font: { size: 9 }, maxTicksLimit: 15 }, grid: { display: false } },
+          y: { ticks: { color: '#606075', callback: v => '$' + (v/1000).toFixed(0) + 'K' }, grid: { color: 'rgba(255,255,255,0.05)' } },
+        },
+      },
+    });
+  }
+
+  function renderSeasonality(season) {
+    if (!season) return;
+    const maxAvg = Math.max(...season.map(s => s.avgRevenue));
+    let html = '<div class="season-bar">';
+    for (const s of season) {
+      const pct = maxAvg > 0 ? (s.avgRevenue / maxAvg) * 100 : 0;
+      html += `<div class="season-col" title="${s.month}: Avg $${s.avgRevenue.toLocaleString()} (${s.weeks} weeks)">
+        <div class="season-val">$${(s.avgRevenue/1000).toFixed(1)}K</div>
+        <div class="season-fill" style="height:${pct}%"></div>
+        <div class="season-label">${s.month}</div>
+      </div>`;
+    }
+    html += '</div>';
+    html += '<div style="font-size:11px;color:var(--text-tertiary);text-align:center;margin-top:8px;">Average weekly revenue by month (all years)</div>';
+    document.getElementById('season-body').innerHTML = html;
+  }
+
+  function renderTechPerformance(techs) {
+    if (!techs || !techs.length) return;
+    let html = '<div style="max-height:350px;overflow-y:auto;">';
+    html += '<div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:8px;padding:6px 0;border-bottom:1px solid var(--border);font-size:11px;color:var(--text-tertiary);font-weight:600;text-transform:uppercase;">'+
+      '<span>Technician</span><span style="text-align:right">Total Revenue</span><span style="text-align:right">Work Orders</span><span style="text-align:right">Avg/WO</span></div>';
+    for (const tech of techs.slice(0, 25)) {
+      const barPct = techs[0].totalRevenue > 0 ? (tech.totalRevenue / techs[0].totalRevenue) * 100 : 0;
+      html += `<div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:8px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.03);font-size:12px;align-items:center;">
+        <span style="font-weight:500;">${tech.name}</span>
+        <span style="text-align:right;font-weight:600;color:var(--success);">$${tech.totalRevenue.toLocaleString()}</span>
+        <span style="text-align:right;">${tech.workOrders}</span>
+        <span style="text-align:right;color:var(--accent);">$${tech.avgPerWO}</span>
+      </div>`;
+    }
+    html += '</div>';
+    document.getElementById('tech-body').innerHTML = html;
+  }
+  </script>
+</body>
+</html>
