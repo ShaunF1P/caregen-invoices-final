@@ -37,6 +37,15 @@ const USERS = {
   'marcus': { password: 'CareGen!',     role: 'viewer', name: 'Marcus Martin' },
 };
 
+// Role middleware — admin only for destructive operations
+function requireAdmin(req, res, next) {
+  const session = getSession(req);
+  if (!session || session.user.role !== 'admin') {
+    return res.status(403).json({ error: 'Admin access required' });
+  }
+  next();
+}
+
 function generateToken() {
   return crypto.randomBytes(32).toString('hex');
 }
@@ -126,6 +135,13 @@ app.get('/api/auth/me', (req, res) => {
   const session = getSession(req);
   if (!session) return res.json({ authenticated: false });
   res.json({ authenticated: true, user: session.user });
+});
+
+// Role check endpoint
+app.get('/api/auth/role', (req, res) => {
+  const session = getSession(req);
+  if (!session) return res.status(401).json({ error: 'Not authenticated' });
+  res.json({ role: session.user.role, name: session.user.name });
 });
 
 // Protected static files (after auth guard)
@@ -253,8 +269,8 @@ app.post('/api/upload/weekly', upload.single('file'), (req, res) => {
   }
 });
 
-// POST /api/qc - Run QC on loaded data
-app.post('/api/qc', (req, res) => {
+// POST /api/qc - Run QC on loaded data (admin only)
+app.post('/api/qc', requireAdmin, (req, res) => {
   try {
     let records = [];
     
@@ -285,8 +301,8 @@ app.post('/api/qc', (req, res) => {
   }
 });
 
-// POST /api/reconcile - Reconcile daily vs weekly
-app.post('/api/reconcile', (req, res) => {
+// POST /api/reconcile - Reconcile daily vs weekly (admin only)
+app.post('/api/reconcile', requireAdmin, (req, res) => {
   try {
     if (currentSession.dailyReports.length === 0 || !currentSession.weeklyDataset) {
       return res.status(400).json({
@@ -319,8 +335,8 @@ app.post('/api/reconcile', (req, res) => {
   }
 });
 
-// POST /api/generate-invoice - Generate invoice package
-app.post('/api/generate-invoice', async (req, res) => {
+// POST /api/generate-invoice - Generate invoice package (admin only)
+app.post('/api/generate-invoice', requireAdmin, async (req, res) => {
   try {
     const { invoiceNumber, weekEnding, invoiceDate } = req.body;
     
@@ -378,8 +394,8 @@ app.post('/api/generate-invoice', async (req, res) => {
   }
 });
 
-// POST /api/reset - Reset current session
-app.post('/api/reset', (req, res) => {
+// POST /api/reset - Reset current session (admin only)
+app.post('/api/reset', requireAdmin, (req, res) => {
   currentSession = {
     dailyReports: [],
     weeklyDataset: null,
@@ -465,7 +481,6 @@ app.get('/api/output-files', (req, res) => {
 app.get('/api/invoices', (req, res) => {
   try {
     const invoices = generator.getInvoiceHistory();
-    // Add download links
     const enriched = invoices.map(inv => ({
       ...inv,
       downloadLinks: {
@@ -479,6 +494,158 @@ app.get('/api/invoices', (req, res) => {
   }
 });
 
+// ============================================================
+// DATASET MANAGEMENT
+// ============================================================
+const DATASET_REGISTRY = path.join(config.paths.dataDir, 'dataset_registry.json');
+const DATASET_DIR = path.join(config.paths.dataDir, 'datasets');
+if (!fs.existsSync(DATASET_DIR)) fs.mkdirSync(DATASET_DIR, { recursive: true });
+
+function loadDatasetRegistry() {
+  if (!fs.existsSync(DATASET_REGISTRY)) return { datasets: [] };
+  try { return JSON.parse(fs.readFileSync(DATASET_REGISTRY, 'utf8')); }
+  catch (e) { return { datasets: [] }; }
+}
+
+function saveDatasetRegistry(registry) {
+  fs.writeFileSync(DATASET_REGISTRY, JSON.stringify(registry, null, 2));
+}
+
+// POST /api/datasets - Upload & register a new dataset
+app.post('/api/datasets', upload.single('file'), (req, res) => {
+  try {
+    if (!req.file) return res.status(400).json({ error: 'No file uploaded' });
+
+    const session = getSession(req);
+    const id = 'ds_' + Date.now();
+    const ext = path.extname(req.file.originalname);
+    const savedName = `${id}${ext}`;
+    const savedPath = path.join(DATASET_DIR, savedName);
+
+    // Move uploaded file to datasets directory
+    fs.copyFileSync(req.file.path, savedPath);
+    fs.unlinkSync(req.file.path);
+
+    // Parse to get record count and metadata
+    let recordCount = 0, grandTotal = 0, weekEnding = '', invoiceNumber = '';
+    try {
+      const parsed = processor.parseWeeklyDataset(savedPath);
+      recordCount = parsed.totalRecords;
+      grandTotal = parsed.allRecords.reduce((s, r) => s + (r.total || 0), 0);
+      if (parsed.sheets.length > 0 && parsed.sheets[0].metadata) {
+        weekEnding = parsed.sheets[0].metadata.weekEnding || '';
+        invoiceNumber = parsed.sheets[0].metadata.invoiceNumber || '';
+      }
+    } catch (e) { /* non-fatal */ }
+
+    const dataset = {
+      id,
+      fileName: req.file.originalname,
+      savedName,
+      uploadedAt: new Date().toISOString(),
+      uploadedBy: session ? session.user.username : 'unknown',
+      weekEnding: req.body.weekEnding || weekEnding || '',
+      invoiceNumber: req.body.invoiceNumber || invoiceNumber || '',
+      status: 'new', // new, processing, invoiced, archived
+      paymentStatus: 'unpaid', // paid, unpaid
+      recordCount,
+      grandTotal,
+      notes: req.body.notes || '',
+    };
+
+    const registry = loadDatasetRegistry();
+    registry.datasets.unshift(dataset);
+    saveDatasetRegistry(registry);
+
+    addLog('success', `Dataset registered: ${req.file.originalname} (${recordCount} records, $${grandTotal.toLocaleString()})`);
+    res.json({ success: true, dataset });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// GET /api/datasets - List all datasets
+app.get('/api/datasets', (req, res) => {
+  try {
+    const registry = loadDatasetRegistry();
+    res.json(registry);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// PATCH /api/datasets/:id - Update dataset status, notes, payment
+app.patch('/api/datasets/:id', (req, res) => {
+  try {
+    const registry = loadDatasetRegistry();
+    const dataset = registry.datasets.find(d => d.id === req.params.id);
+    if (!dataset) return res.status(404).json({ error: 'Dataset not found' });
+
+    const { status, notes, paymentStatus, weekEnding, invoiceNumber } = req.body;
+    if (status) dataset.status = status;
+    if (notes !== undefined) dataset.notes = notes;
+    if (paymentStatus) dataset.paymentStatus = paymentStatus;
+    if (weekEnding) dataset.weekEnding = weekEnding;
+    if (invoiceNumber) dataset.invoiceNumber = invoiceNumber;
+    dataset.updatedAt = new Date().toISOString();
+
+    saveDatasetRegistry(registry);
+    addLog('info', `Dataset ${dataset.fileName} updated: status=${dataset.status}, payment=${dataset.paymentStatus}`);
+    res.json({ success: true, dataset });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// DELETE /api/datasets/:id - Remove dataset (admin only)
+app.delete('/api/datasets/:id', requireAdmin, (req, res) => {
+  try {
+    const registry = loadDatasetRegistry();
+    const idx = registry.datasets.findIndex(d => d.id === req.params.id);
+    if (idx === -1) return res.status(404).json({ error: 'Dataset not found' });
+
+    const dataset = registry.datasets[idx];
+    // Delete the file
+    const filePath = path.join(DATASET_DIR, dataset.savedName);
+    if (fs.existsSync(filePath)) fs.unlinkSync(filePath);
+
+    registry.datasets.splice(idx, 1);
+    saveDatasetRegistry(registry);
+
+    addLog('info', `Dataset deleted: ${dataset.fileName}`);
+    res.json({ success: true });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// GET /api/datasets/:id/load - Load a saved dataset into the pipeline
+app.get('/api/datasets/:id/load', (req, res) => {
+  try {
+    const registry = loadDatasetRegistry();
+    const dataset = registry.datasets.find(d => d.id === req.params.id);
+    if (!dataset) return res.status(404).json({ error: 'Dataset not found' });
+
+    const filePath = path.join(DATASET_DIR, dataset.savedName);
+    if (!fs.existsSync(filePath)) return res.status(404).json({ error: 'Dataset file missing' });
+
+    // Parse and load into session
+    const parsed = processor.parseWeeklyDataset(filePath);
+    currentSession.weeklyDataset = parsed;
+    currentSession.status = 'data_loaded';
+
+    // Update dataset status
+    dataset.status = 'processing';
+    dataset.updatedAt = new Date().toISOString();
+    saveDatasetRegistry(registry);
+
+    addLog('success', `Loaded dataset ${dataset.fileName} into pipeline (${parsed.totalRecords} records)`);
+    res.json({ success: true, totalRecords: parsed.totalRecords, sheets: parsed.sheets.length });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 // Serve archive files
 app.use('/archive', express.static(config.paths.archiveDir));
 
@@ -487,6 +654,36 @@ app.get('/api/analytics', (req, res) => {
   try {
     analytics.loadHistoricalData();
     const data = analytics.getAnalytics();
+    res.json(data);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// GET /api/analytics/forecast - Revenue forecasting
+app.get('/api/analytics/forecast', (req, res) => {
+  try {
+    const data = analytics.getForecasts();
+    res.json(data);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// POST /api/analytics/scenario - What-if scenario
+app.post('/api/analytics/scenario', requireAdmin, (req, res) => {
+  try {
+    const data = analytics.runScenario(req.body);
+    res.json(data);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// GET /api/analytics/pnl - P&L summary
+app.get('/api/analytics/pnl', (req, res) => {
+  try {
+    const data = analytics.getPnLSummary();
     res.json(data);
   } catch (error) {
     res.status(500).json({ error: error.message });

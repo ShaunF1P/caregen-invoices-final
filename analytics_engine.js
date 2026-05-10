@@ -459,6 +459,222 @@ class AnalyticsEngine {
     if (!recent.length) return 0;
     return Math.round(recent.reduce((s, i) => s + i.grandTotal, 0) / recent.length);
   }
+
+  // ============================================================
+  // REVENUE FORECASTING (Internal)
+  // ============================================================
+
+  /**
+   * Get revenue forecasts using weighted moving average
+   */
+  getForecasts() {
+    this.loadHistoricalData();
+    const allInvoices = this.historicalData.invoices || [];
+    const invoices = this._getEverfastInvoices(allInvoices)
+      .filter(i => i.weekEndingDate && i.grandTotal > 0)
+      .sort((a, b) => a.weekEndingDate.localeCompare(b.weekEndingDate));
+
+    if (invoices.length < 4) return { error: 'Not enough data for forecasting' };
+
+    // Weighted moving average — recent weeks weighted more
+    const forecast4 = this._weightedForecast(invoices, 4);
+    const forecast8 = this._weightedForecast(invoices, 8);
+    const forecast12 = this._weightedForecast(invoices, 12);
+
+    // Monthly projection
+    const monthlyProjection = this._monthlyProjection(invoices);
+
+    // Confidence based on variance
+    const recent12 = invoices.slice(-12).map(i => i.grandTotal);
+    const mean = recent12.reduce((s, v) => s + v, 0) / recent12.length;
+    const variance = recent12.reduce((s, v) => s + Math.pow(v - mean, 2), 0) / recent12.length;
+    const stdDev = Math.sqrt(variance);
+    const confidencePct = Math.max(0, Math.min(100, Math.round(100 - (stdDev / mean) * 100)));
+
+    // Actual vs forecast for chart overlay
+    const actualVsForecast = invoices.slice(-20).map((inv, i, arr) => {
+      const windowStart = Math.max(0, i - 4);
+      const window = arr.slice(windowStart, i);
+      const predicted = window.length > 0 ? Math.round(window.reduce((s, w) => s + w.grandTotal, 0) / window.length) : null;
+      return {
+        week: inv.weekEndingDate,
+        actual: inv.grandTotal,
+        predicted,
+      };
+    });
+
+    return {
+      nextWeek: {
+        forecast4: forecast4.next,
+        forecast8: forecast8.next,
+        forecast12: forecast12.next,
+        range: { low: Math.round(mean - stdDev), high: Math.round(mean + stdDev) },
+      },
+      next4Weeks: {
+        projected: forecast4.next * 4,
+        range: { low: Math.round((mean - stdDev) * 4), high: Math.round((mean + stdDev) * 4) },
+      },
+      next12Weeks: {
+        projected: forecast8.next * 12,
+        range: { low: Math.round((mean - stdDev) * 12), high: Math.round((mean + stdDev) * 12) },
+      },
+      confidence: confidencePct,
+      monthlyProjection,
+      actualVsForecast,
+      trendDirection: forecast4.trend,
+      currentAvg: Math.round(mean),
+    };
+  }
+
+  _weightedForecast(invoices, windowSize) {
+    const recent = invoices.slice(-windowSize);
+    if (recent.length === 0) return { next: 0, trend: 'flat' };
+
+    // Exponential weights — more recent = higher weight
+    let totalWeight = 0, weightedSum = 0;
+    for (let i = 0; i < recent.length; i++) {
+      const weight = (i + 1); // Linear weight
+      weightedSum += recent[i].grandTotal * weight;
+      totalWeight += weight;
+    }
+    const next = Math.round(weightedSum / totalWeight);
+
+    // Trend: compare first half avg vs second half avg
+    const mid = Math.floor(recent.length / 2);
+    const firstHalf = recent.slice(0, mid).reduce((s, i) => s + i.grandTotal, 0) / mid;
+    const secondHalf = recent.slice(mid).reduce((s, i) => s + i.grandTotal, 0) / (recent.length - mid);
+    const trend = secondHalf > firstHalf * 1.05 ? 'up' : secondHalf < firstHalf * 0.95 ? 'down' : 'flat';
+
+    return { next, trend };
+  }
+
+  _monthlyProjection(invoices) {
+    // Average weeks per month ≈ 4.33
+    const months = {};
+    for (const inv of invoices) {
+      const m = inv.weekEndingDate.substring(0, 7);
+      if (!months[m]) months[m] = { revenue: 0, weeks: 0 };
+      months[m].revenue += inv.grandTotal;
+      months[m].weeks++;
+    }
+
+    const sorted = Object.entries(months).sort(([a], [b]) => a.localeCompare(b));
+    const last6 = sorted.slice(-6);
+    const avgMonthlyRevenue = last6.reduce((s, [_, d]) => s + d.revenue, 0) / last6.length;
+
+    // Project next 3 months
+    const lastMonth = sorted[sorted.length - 1];
+    const lastDate = new Date(lastMonth[0] + '-01');
+
+    const projections = [];
+    for (let i = 1; i <= 3; i++) {
+      const d = new Date(lastDate);
+      d.setMonth(d.getMonth() + i);
+      projections.push({
+        month: d.toISOString().substring(0, 7),
+        monthName: d.toLocaleString('default', { month: 'long', year: 'numeric' }),
+        projected: Math.round(avgMonthlyRevenue),
+      });
+    }
+
+    return {
+      avgMonthly: Math.round(avgMonthlyRevenue),
+      projections,
+      recentMonths: last6.map(([m, d]) => ({
+        month: m,
+        revenue: d.revenue,
+        weeks: d.weeks,
+      })),
+    };
+  }
+
+  /**
+   * What-if scenario modeling
+   */
+  runScenario(params) {
+    this.loadHistoricalData();
+    const invoices = this._getEverfastInvoices(this.historicalData.invoices || [])
+      .filter(i => i.grandTotal > 0);
+
+    if (invoices.length === 0) return { error: 'No data' };
+
+    const records = this.historicalData.records || [];
+    const currentTechs = {};
+    records.forEach(r => {
+      if (r.tech) currentTechs[r.tech] = (currentTechs[r.tech] || 0) + (r.total || 0);
+    });
+
+    const techCount = Object.keys(currentTechs).length;
+    const totalRevenue = Object.values(currentTechs).reduce((s, v) => s + v, 0);
+    const avgRevenuePerTech = techCount > 0 ? totalRevenue / techCount : 0;
+    const weekCount = invoices.length;
+    const avgWeeklyTotal = totalRevenue / weekCount;
+
+    // Apply scenario adjustments
+    const techAdjustment = (params.techCountChange || 0);
+    const rateAdjustment = (params.rateChangePct || 0) / 100;
+
+    const newTechCount = techCount + techAdjustment;
+    const adjustedWeekly = avgWeeklyTotal * (newTechCount / techCount) * (1 + rateAdjustment);
+
+    return {
+      current: {
+        techCount,
+        avgWeeklyRevenue: Math.round(avgWeeklyTotal),
+        avgMonthlyRevenue: Math.round(avgWeeklyTotal * 4.33),
+        avgRevenuePerTech: Math.round(avgRevenuePerTech / weekCount),
+      },
+      scenario: {
+        techCount: newTechCount,
+        techChange: techAdjustment,
+        rateChange: params.rateChangePct || 0,
+        projectedWeekly: Math.round(adjustedWeekly),
+        projectedMonthly: Math.round(adjustedWeekly * 4.33),
+        weeklyDelta: Math.round(adjustedWeekly - avgWeeklyTotal),
+        monthlyDelta: Math.round((adjustedWeekly - avgWeeklyTotal) * 4.33),
+      },
+    };
+  }
+
+  /**
+   * Monthly P&L variance summary
+   */
+  getPnLSummary() {
+    this.loadHistoricalData();
+    const invoices = this._getEverfastInvoices(this.historicalData.invoices || [])
+      .filter(i => i.weekEndingDate && i.grandTotal > 0)
+      .sort((a, b) => a.weekEndingDate.localeCompare(b.weekEndingDate));
+
+    const months = {};
+    for (const inv of invoices) {
+      const m = inv.weekEndingDate.substring(0, 7);
+      if (!months[m]) months[m] = { revenue: 0, weeks: 0, workOrders: 0 };
+      months[m].revenue += inv.grandTotal;
+      months[m].weeks++;
+      months[m].workOrders += inv.workOrderCount || 0;
+    }
+
+    const sorted = Object.entries(months).sort(([a], [b]) => a.localeCompare(b));
+    let runningTotal = 0;
+
+    return sorted.map(([month, data], i) => {
+      const prevMonth = i > 0 ? sorted[i - 1][1] : null;
+      const variance = prevMonth ? data.revenue - prevMonth.revenue : 0;
+      const variancePct = prevMonth && prevMonth.revenue ? Math.round((variance / prevMonth.revenue) * 1000) / 10 : 0;
+      runningTotal += data.revenue;
+
+      return {
+        month,
+        revenue: data.revenue,
+        weeks: data.weeks,
+        workOrders: data.workOrders,
+        variance,
+        variancePct,
+        runningTotal,
+        avgPerWeek: Math.round(data.revenue / data.weeks),
+      };
+    });
+  }
 }
 
 module.exports = AnalyticsEngine;

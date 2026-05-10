@@ -249,6 +249,29 @@
           </div>
         </div>
 
+        <!-- Dataset Library -->
+        <div class="card card-compact" id="card-datasets">
+          <div class="card-header">
+            <h2>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 22h14a2 2 0 002-2V7.5L14.5 2H6a2 2 0 00-2 2v4"/><polyline points="14 2 14 8 20 8"/><path d="M3 15h6"/><path d="M6 12v6"/></svg>
+              Dataset Library
+            </h2>
+            <span class="badge" id="dataset-count">—</span>
+          </div>
+          <div class="card-body">
+            <div style="margin-bottom:12px;">
+              <input type="file" id="input-dataset-save" accept=".xlsx,.xls,.csv" style="display:none;" onchange="saveDataset(this)">
+              <label for="input-dataset-save" class="btn btn-primary btn-sm" style="width:100%;text-align:center;display:block;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-2px;margin-right:4px;"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                Save Dataset to Library
+              </label>
+            </div>
+            <div id="dataset-list" style="max-height:300px;overflow-y:auto;">
+              <div class="empty-state-sm">No datasets saved yet</div>
+            </div>
+          </div>
+        </div>
+
         <!-- Activity Log -->
         <div class="card card-compact" id="card-log">
           <div class="card-header">

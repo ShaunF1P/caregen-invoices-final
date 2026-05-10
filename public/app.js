@@ -8,13 +8,16 @@ const API = '';
 // STATE & INIT
 // ============================================================
 let state = { status: 'idle' };
+let currentUserRole = 'admin';
 
 document.addEventListener('DOMContentLoaded', () => {
+  checkUserRole();
   refreshStatus();
   loadRates();
   loadContacts();
   loadFiles();
   loadInvoiceHistory();
+  loadDatasets();
   setInterval(refreshStatus, 10000);
 
   // Set default dates
@@ -445,5 +448,147 @@ async function loadInvoiceHistory() {
     console.error('Failed to load invoice history:', e);
     document.getElementById('history-body').innerHTML = '<div class="empty-state-sm">Could not load invoice history</div>';
   }
+}
+
+// ============================================================
+// ROLE-BASED ACCESS CONTROL
+// ============================================================
+async function checkUserRole() {
+  try {
+    const res = await fetch(`${API}/api/auth/me`);
+    const data = await res.json();
+    if (data.authenticated && data.user) {
+      currentUserRole = data.user.role;
+      applyRoleRestrictions(data.user);
+    }
+  } catch (e) { console.error('Role check failed:', e); }
+}
+
+function applyRoleRestrictions(user) {
+  if (user.role === 'admin') return;
+
+  // Viewers: hide QC, Reconcile, Generate, Reset
+  ['btn-qc', 'btn-reconcile', 'btn-generate', 'btn-reset'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.style.display = 'none';
+  });
+
+  // Hide invoice generation form
+  const invBody = document.getElementById('invoice-body');
+  if (invBody) {
+    invBody.innerHTML = '<div class="empty-state-sm" style="padding:20px;">🔒 Invoice generation requires admin access</div>';
+  }
+
+  // Add viewer badge to header
+  const headerActions = document.querySelector('.header-actions');
+  if (headerActions) {
+    const badge = document.createElement('span');
+    badge.className = 'badge';
+    badge.style.cssText = 'background:var(--accent-gold);color:#000;font-size:11px;';
+    badge.textContent = `${user.name} (Viewer)`;
+    headerActions.prepend(badge);
+  }
+}
+
+// ============================================================
+// DATASET LIBRARY
+// ============================================================
+async function saveDataset(input) {
+  if (!input.files.length) return;
+  const formData = new FormData();
+  formData.append('file', input.files[0]);
+
+  try {
+    const res = await fetch(`${API}/api/datasets`, { method: 'POST', body: formData });
+    const data = await res.json();
+    if (data.success) {
+      loadDatasets();
+      input.value = '';
+    } else {
+      alert(data.error || 'Upload failed');
+    }
+  } catch (e) { alert('Upload failed: ' + e.message); }
+}
+
+async function loadDatasets() {
+  try {
+    const res = await fetch(`${API}/api/datasets`);
+    const data = await res.json();
+    const container = document.getElementById('dataset-list');
+    const badge = document.getElementById('dataset-count');
+
+    if (!data.datasets || data.datasets.length === 0) {
+      container.innerHTML = '<div class="empty-state-sm">No datasets saved yet</div>';
+      badge.textContent = '0';
+      return;
+    }
+
+    badge.textContent = data.datasets.length;
+    let html = '';
+    for (const ds of data.datasets) {
+      const sColor = { new:'#3b82f6', processing:'#f59e0b', invoiced:'#10b981', archived:'#6b7280' }[ds.status] || '#6b7280';
+      const payBg = ds.paymentStatus === 'paid' ? '#10b981' : '#ef4444';
+      const payLabel = ds.paymentStatus === 'paid' ? 'PAID' : 'UNPAID';
+
+      html += `<div style="padding:10px;border-bottom:1px solid var(--border);">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:4px;">
+          <span style="font-weight:600;font-size:12px;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="${ds.fileName}">${ds.fileName}</span>
+          <span style="background:${sColor};color:#fff;font-size:9px;padding:2px 6px;border-radius:8px;text-transform:uppercase;flex-shrink:0;">${ds.status}</span>
+          <span style="background:${payBg};color:#fff;font-size:9px;padding:2px 6px;border-radius:8px;flex-shrink:0;">${payLabel}</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--text-tertiary);margin-top:4px;">
+          <span>${ds.recordCount} records • $${(ds.grandTotal||0).toLocaleString()}</span>
+          <span>${ds.weekEnding || '—'}</span>
+        </div>
+        <div style="display:flex;gap:4px;margin-top:6px;flex-wrap:wrap;">
+          <button class="btn btn-ghost btn-sm" onclick="loadDatasetIntoPipeline('${ds.id}')" style="font-size:10px;padding:2px 8px;">📂 Load</button>
+          <select onchange="updateDatasetField('${ds.id}','status',this.value)" style="font-size:10px;padding:2px 4px;border:1px solid var(--border);border-radius:4px;background:var(--bg-card);color:var(--text-primary);">
+            ${['new','processing','invoiced','archived'].map(s => `<option value="${s}" ${ds.status===s?'selected':''}>${s.charAt(0).toUpperCase()+s.slice(1)}</option>`).join('')}
+          </select>
+          <select onchange="updateDatasetField('${ds.id}','paymentStatus',this.value)" style="font-size:10px;padding:2px 4px;border:1px solid var(--border);border-radius:4px;background:var(--bg-card);color:var(--text-primary);">
+            <option value="unpaid" ${ds.paymentStatus==='unpaid'?'selected':''}>Unpaid</option>
+            <option value="paid" ${ds.paymentStatus==='paid'?'selected':''}>Paid</option>
+          </select>
+          ${currentUserRole==='admin' ? `<button class="btn btn-ghost btn-sm" onclick="deleteDataset('${ds.id}')" style="font-size:10px;padding:2px 6px;color:var(--error);">✕</button>` : ''}
+        </div>
+        ${ds.notes ? `<div style="font-size:10px;color:var(--text-tertiary);font-style:italic;margin-top:4px;">📝 ${ds.notes}</div>` : ''}
+      </div>`;
+    }
+    container.innerHTML = html;
+  } catch (e) { console.error('Failed to load datasets:', e); }
+}
+
+async function loadDatasetIntoPipeline(id) {
+  try {
+    const res = await fetch(`${API}/api/datasets/${id}/load`);
+    const data = await res.json();
+    if (data.success) {
+      const el = document.getElementById('weekly-status');
+      if (el) { el.textContent = `✓ Loaded from library: ${data.totalRecords} records`; el.className = 'upload-status success'; }
+      refreshStatus();
+      loadDatasets();
+    } else { alert(data.error || 'Load failed'); }
+  } catch (e) { alert('Load failed: ' + e.message); }
+}
+
+async function updateDatasetField(id, field, value) {
+  try {
+    await fetch(`${API}/api/datasets/${id}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ [field]: value }),
+    });
+    loadDatasets();
+  } catch (e) { console.error(e); }
+}
+
+async function deleteDataset(id) {
+  if (!confirm('Delete this dataset permanently?')) return;
+  try {
+    const res = await fetch(`${API}/api/datasets/${id}`, { method: 'DELETE' });
+    const data = await res.json();
+    if (data.success) loadDatasets();
+    else alert(data.error || 'Delete failed');
+  } catch (e) { alert('Delete failed: ' + e.message); }
 }
 
