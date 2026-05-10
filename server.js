@@ -8,6 +8,7 @@ const multer = require('multer');
 const cors = require('cors');
 const path = require('path');
 const fs = require('fs');
+const crypto = require('crypto');
 const config = require('./config');
 const DataProcessor = require('./data_processor');
 const InvoiceGenerator = require('./invoice_generator');
@@ -21,6 +22,113 @@ const analytics = new AnalyticsEngine();
 // Middleware
 app.use(cors());
 app.use(express.json());
+
+// ============================================================
+// AUTH SYSTEM
+// ============================================================
+const AUTH_SECRET = process.env.AUTH_SECRET || 'caregen-alliance-2026-secret-key';
+const activeSessions = new Map(); // token -> { user, created }
+const SESSION_TTL = 24 * 60 * 60 * 1000; // 24 hours
+
+// Users — add more here as needed
+const USERS = {
+  'admin':  { password: 'CareGen2026!', role: 'admin',  name: 'Admin' },
+  'shaun':  { password: 'F1rst2026!',   role: 'admin',  name: 'Shaun Muhammad' },
+  'marcus': { password: 'CareGen!',     role: 'viewer', name: 'Marcus Martin' },
+};
+
+function generateToken() {
+  return crypto.randomBytes(32).toString('hex');
+}
+
+function parseCookies(req) {
+  const cookies = {};
+  (req.headers.cookie || '').split(';').forEach(c => {
+    const [key, val] = c.trim().split('=');
+    if (key) cookies[key] = decodeURIComponent(val || '');
+  });
+  return cookies;
+}
+
+function getSession(req) {
+  const cookies = parseCookies(req);
+  const token = cookies['cg_session'];
+  if (!token) return null;
+  const session = activeSessions.get(token);
+  if (!session) return null;
+  if (Date.now() - session.created > SESSION_TTL) {
+    activeSessions.delete(token);
+    return null;
+  }
+  return session;
+}
+
+// Auth middleware — protects all routes except login page & auth API
+function authGuard(req, res, next) {
+  // Allow auth endpoints
+  if (req.path.startsWith('/api/auth/')) return next();
+  // Allow login page assets
+  if (req.path === '/login' || req.path === '/login.html') return next();
+  // Allow static assets needed by login page (fonts, etc)
+  if (req.path.match(/\.(css|js|woff2?|ttf|ico|png|svg)$/)) return next();
+
+  const session = getSession(req);
+  if (!session) {
+    // API calls get JSON error, pages get redirected
+    if (req.path.startsWith('/api/')) {
+      return res.status(401).json({ error: 'Unauthorized', message: 'Please log in' });
+    }
+    return res.redirect('/login');
+  }
+  req.user = session.user;
+  next();
+}
+
+app.use(authGuard);
+
+// Login page route (before static middleware to take priority)
+app.get('/login', (req, res) => {
+  // If already logged in, redirect to dashboard
+  const session = getSession(req);
+  if (session) return res.redirect('/');
+  res.sendFile(path.join(__dirname, 'public', 'login.html'));
+});
+
+// Auth API
+app.post('/api/auth/login', (req, res) => {
+  const { username, password } = req.body;
+  const lower = (username || '').toLowerCase().trim();
+  const user = USERS[lower];
+
+  if (!user || user.password !== password) {
+    return res.json({ success: false, message: 'Invalid username or password' });
+  }
+
+  const token = generateToken();
+  activeSessions.set(token, {
+    user: { username: lower, name: user.name, role: user.role },
+    created: Date.now(),
+  });
+
+  res.setHeader('Set-Cookie', `cg_session=${token}; Path=/; HttpOnly; SameSite=Lax; Max-Age=${SESSION_TTL / 1000}`);
+  res.json({ success: true, redirect: '/', user: { name: user.name, role: user.role } });
+});
+
+app.post('/api/auth/logout', (req, res) => {
+  const cookies = parseCookies(req);
+  const token = cookies['cg_session'];
+  if (token) activeSessions.delete(token);
+  res.setHeader('Set-Cookie', 'cg_session=; Path=/; HttpOnly; Max-Age=0');
+  res.json({ success: true });
+});
+
+app.get('/api/auth/me', (req, res) => {
+  const session = getSession(req);
+  if (!session) return res.json({ authenticated: false });
+  res.json({ authenticated: true, user: session.user });
+});
+
+// Protected static files (after auth guard)
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/output', express.static(config.paths.outputDir));
 
