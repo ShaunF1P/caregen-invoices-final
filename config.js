@@ -97,6 +97,6 @@ module.exports = {
 
   // Server
   server: {
-    port: 3500,
+    port: process.env.PORT || 3500,
   },
 };
