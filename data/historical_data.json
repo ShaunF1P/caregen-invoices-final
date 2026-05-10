@@ -8,10 +8,10 @@
       "invoiceNumber": 1,
       "invoiceDate": "2021-09-27",
       "weekEnding": "2021-10-02",
-      "grandTotal": 13850,
+      "grandTotal": 5080,
       "weekEndingDate": "2021-10-02",
       "invoiceDateStr": "9/27/2021",
-      "workOrderCount": 45,
+      "workOrderCount": 30,
       "billTo": "Consolidated Communications, 121 South 17th Street, Matoon, IL 61938",
       "type": "Installation"
     },
@@ -21,10 +21,10 @@
       "invoiceNumber": 2,
       "invoiceDate": "2021-10-04",
       "weekEnding": "2021-10-09",
-      "grandTotal": 44060,
+      "grandTotal": 4085,
       "weekEndingDate": "2021-10-09",
       "invoiceDateStr": "10/4/2021",
-      "workOrderCount": 79,
+      "workOrderCount": 30,
       "billTo": "Consolidated Communications, 121 South 17th Street, Matoon, IL 61938",
       "type": "Installation"
     },
@@ -86,10 +86,10 @@
       "invoiceNumber": 7,
       "invoiceDate": "2021-11-16",
       "weekEnding": "2021-11-14",
-      "grandTotal": 4440,
+      "grandTotal": 935,
       "weekEndingDate": "2021-11-14",
       "invoiceDateStr": "11/16/2021",
-      "workOrderCount": 16,
+      "workOrderCount": 7,
       "billTo": "Consolidated Communications, 121 South 17th Street, Matoon, IL 61938",
       "type": "Installation"
     },
@@ -504,10 +504,10 @@
       "invoiceNumber": 38,
       "invoiceDate": "2022-07-15",
       "weekEnding": null,
-      "grandTotal": 13740,
+      "grandTotal": 4125,
       "weekEndingDate": "2022-07-09",
       "invoiceDateStr": "7/15/2022",
-      "workOrderCount": 53
+      "workOrderCount": 31
     },
     {
       "sheetName": "Invoice 39",
@@ -545,10 +545,10 @@
       "invoiceDate": 44752,
       "weekEnding": 44751,
       "invoiceNumber": 41,
-      "grandTotal": 6785,
+      "grandTotal": 1100,
       "weekEndingDate": "2022-07-09",
       "invoiceDateStr": "2022-07-10",
-      "workOrderCount": 52
+      "workOrderCount": 9
     },
     {
       "sheetName": "Inv 42",
@@ -556,10 +556,10 @@
       "invoiceDate": 44758,
       "weekEnding": 44759,
       "invoiceNumber": 42,
-      "grandTotal": 21300,
+      "grandTotal": 5375,
       "weekEndingDate": "2022-07-17",
       "invoiceDateStr": "2022-07-16",
-      "workOrderCount": 83
+      "workOrderCount": 42
     },
     {
       "sheetName": "Inv 43",
@@ -567,10 +567,10 @@
       "invoiceDate": 44766,
       "weekEnding": 44765,
       "invoiceNumber": 43,
-      "grandTotal": 12160,
+      "grandTotal": 1495,
       "weekEndingDate": "2022-07-23",
       "invoiceDateStr": "2022-07-24",
-      "workOrderCount": 95
+      "workOrderCount": 10
     },
     {
       "sheetName": "Inv 44",
@@ -578,10 +578,10 @@
       "invoiceDate": 44771,
       "weekEnding": 44772,
       "invoiceNumber": 44,
-      "grandTotal": 24910,
+      "grandTotal": 1875,
       "weekEndingDate": "2022-07-30",
       "invoiceDateStr": "2022-07-29",
-      "workOrderCount": 96
+      "workOrderCount": 12
     },
     {
       "sheetName": "Inv 45",
@@ -589,10 +589,10 @@
       "invoiceDate": 44780,
       "weekEnding": 44779,
       "invoiceNumber": 45,
-      "grandTotal": 21830,
+      "grandTotal": 1530,
       "weekEndingDate": "2022-08-06",
       "invoiceDateStr": "2022-08-07",
-      "workOrderCount": 85
+      "workOrderCount": 11
     },
     {
       "sheetName": "Inv 46",
@@ -600,10 +600,10 @@
       "invoiceDate": 44787,
       "weekEnding": 44786,
       "invoiceNumber": 46,
-      "grandTotal": 10805,
+      "grandTotal": 1495,
       "weekEndingDate": "2022-08-13",
       "invoiceDateStr": "2022-08-14",
-      "workOrderCount": 79
+      "workOrderCount": 10
     },
     {
       "sheetName": "Inv 47",
@@ -611,10 +611,10 @@
       "invoiceDate": 44794,
       "weekEnding": 44793,
       "invoiceNumber": 47,
-      "grandTotal": 34900,
+      "grandTotal": 12840,
       "weekEndingDate": "2022-08-20",
       "invoiceDateStr": "2022-08-21",
-      "workOrderCount": 131
+      "workOrderCount": 92
     },
     {
       "sheetName": "Inv 48",
@@ -622,10 +622,10 @@
       "invoiceDate": 44801,
       "weekEnding": 44800,
       "invoiceNumber": 48,
-      "grandTotal": 30940,
+      "grandTotal": 10405,
       "weekEndingDate": "2022-08-27",
       "invoiceDateStr": "2022-08-28",
-      "workOrderCount": 120
+      "workOrderCount": 74
     },
     {
       "sheetName": "Inv 49",
@@ -633,10 +633,10 @@
       "invoiceDate": 44808,
       "weekEnding": 44807,
       "invoiceNumber": 49,
-      "grandTotal": 28900,
+      "grandTotal": 10590,
       "weekEndingDate": "2022-09-03",
       "invoiceDateStr": "2022-09-04",
-      "workOrderCount": 103
+      "workOrderCount": 71
     },
     {
       "sheetName": "Inv 50",
@@ -644,10 +644,10 @@
       "invoiceDate": 44815,
       "weekEnding": 44814,
       "invoiceNumber": 50,
-      "grandTotal": 22830,
+      "grandTotal": 7690,
       "weekEndingDate": "2022-09-10",
       "invoiceDateStr": "2022-09-11",
-      "workOrderCount": 86
+      "workOrderCount": 55
     },
     {
       "sheetName": "Inv 51",
@@ -848,10 +848,10 @@
       "invoiceDate": 45011,
       "weekEnding": 45010,
       "invoiceNumber": 77,
-      "grandTotal": 7245,
+      "grandTotal": 4930,
       "weekEndingDate": "2023-03-25",
       "invoiceDateStr": "2023-03-26",
-      "workOrderCount": 58
+      "workOrderCount": 34
     },
     {
       "sheetName": "Inv 78",
@@ -859,10 +859,10 @@
       "invoiceDate": 45018,
       "weekEnding": 45017,
       "invoiceNumber": 78,
-      "grandTotal": 18490,
+      "grandTotal": 5260,
       "weekEndingDate": "2023-04-01",
       "invoiceDateStr": "2023-04-02",
-      "workOrderCount": 67
+      "workOrderCount": 37
     },
     {
       "sheetName": "Inv 79",
@@ -881,10 +881,10 @@
       "invoiceNumber": 80,
       "invoiceDate": null,
       "weekEnding": null,
-      "grandTotal": 19690,
+      "grandTotal": 6710,
       "weekEndingDate": null,
       "invoiceDateStr": null,
-      "workOrderCount": 69
+      "workOrderCount": 45
     },
     {
       "sheetName": "INV 81",
@@ -916,10 +916,10 @@
       "invoiceDate": 45053,
       "weekEnding": 45052,
       "invoiceNumber": 83,
-      "grandTotal": 12830,
+      "grandTotal": 5265,
       "weekEndingDate": "2023-05-06",
       "invoiceDateStr": "2023-05-07",
-      "workOrderCount": 45
+      "workOrderCount": 35
     },
     {
       "sheetName": "Inv 84",
@@ -927,10 +927,10 @@
       "invoiceDate": 45054,
       "weekEnding": 45060,
       "invoiceNumber": 84,
-      "grandTotal": 6820,
+      "grandTotal": 4840,
       "weekEndingDate": "2023-05-14",
       "invoiceDateStr": "2023-05-08",
-      "workOrderCount": 45
+      "workOrderCount": 33
     },
     {
       "sheetName": "Inv 85",
@@ -938,10 +938,10 @@
       "invoiceDate": 45026,
       "weekEnding": 45032,
       "invoiceNumber": 85,
-      "grandTotal": 11090,
+      "grandTotal": 4325,
       "weekEndingDate": "2023-04-16",
       "invoiceDateStr": "2023-04-10",
-      "workOrderCount": 72
+      "workOrderCount": 58
     },
     {
       "sheetName": "Inv 86",
@@ -949,10 +949,10 @@
       "invoiceDate": 45067,
       "weekEnding": 45066,
       "invoiceNumber": 86,
-      "grandTotal": 14270,
+      "grandTotal": 4825,
       "weekEndingDate": "2023-05-20",
       "invoiceDateStr": "2023-05-21",
-      "workOrderCount": 53
+      "workOrderCount": 34
     },
     {
       "sheetName": "Inv 87",
@@ -971,10 +971,10 @@
       "invoiceDate": 45081,
       "weekEnding": 45080,
       "invoiceNumber": 88,
-      "grandTotal": 13950,
+      "grandTotal": 4055,
       "weekEndingDate": "2023-06-03",
       "invoiceDateStr": "2023-06-04",
-      "workOrderCount": 53
+      "workOrderCount": 30
     },
     {
       "sheetName": "Inv 89",
@@ -982,10 +982,10 @@
       "invoiceDate": 45095,
       "weekEnding": 45094,
       "invoiceNumber": 89,
-      "grandTotal": 16500,
+      "grandTotal": 5920,
       "weekEndingDate": "2023-06-17",
       "invoiceDateStr": "2023-06-18",
-      "workOrderCount": 60
+      "workOrderCount": 40
     },
     {
       "sheetName": "Dataset 90",
@@ -993,10 +993,10 @@
       "invoiceNumber": 90,
       "invoiceDate": null,
       "weekEnding": null,
-      "grandTotal": 14460,
+      "grandTotal": 4715,
       "weekEndingDate": null,
       "invoiceDateStr": null,
-      "workOrderCount": 54
+      "workOrderCount": 33
     },
     {
       "sheetName": "Inv 91",
@@ -1004,10 +1004,10 @@
       "invoiceDate": 45102,
       "weekEnding": 45101,
       "invoiceNumber": 91,
-      "grandTotal": 14230,
+      "grandTotal": 3340,
       "weekEndingDate": "2023-06-24",
       "invoiceDateStr": "2023-06-25",
-      "workOrderCount": 56
+      "workOrderCount": 27
     },
     {
       "sheetName": "Inv 92",
@@ -1015,10 +1015,10 @@
       "invoiceDate": 45109,
       "weekEnding": 45108,
       "invoiceNumber": 92,
-      "grandTotal": 15760,
+      "grandTotal": 5015,
       "weekEndingDate": "2023-07-01",
       "invoiceDateStr": "2023-07-02",
-      "workOrderCount": 60
+      "workOrderCount": 36
     },
     {
       "sheetName": "Inv 93",
@@ -1026,10 +1026,10 @@
       "invoiceDate": 45116,
       "weekEnding": 45115,
       "invoiceNumber": 93,
-      "grandTotal": 13560,
+      "grandTotal": 4600,
       "weekEndingDate": "2023-07-08",
       "invoiceDateStr": "2023-07-09",
-      "workOrderCount": 53
+      "workOrderCount": 36
     },
     {
       "sheetName": "Inv 94",
@@ -1037,10 +1037,10 @@
       "invoiceDate": 45123,
       "weekEnding": 45122,
       "invoiceNumber": 94,
-      "grandTotal": 30160,
+      "grandTotal": 4900,
       "weekEndingDate": "2023-07-15",
       "invoiceDateStr": "2023-07-16",
-      "workOrderCount": 60
+      "workOrderCount": 37
     },
     {
       "sheetName": "Inv 95",
@@ -1059,10 +1059,10 @@
       "invoiceDate": 45134,
       "weekEnding": 45133,
       "invoiceNumber": 96,
-      "grandTotal": 9030,
+      "grandTotal": 6900,
       "weekEndingDate": "2023-07-26",
       "invoiceDateStr": "2023-07-27",
-      "workOrderCount": 75
+      "workOrderCount": 46
     },
     {
       "sheetName": "Inv 97",
@@ -1081,10 +1081,10 @@
       "invoiceDate": 45151,
       "weekEnding": 45150,
       "invoiceNumber": 98,
-      "grandTotal": 19200,
+      "grandTotal": 5460,
       "weekEndingDate": "2023-08-12",
       "invoiceDateStr": "2023-08-13",
-      "workOrderCount": 68
+      "workOrderCount": 39
     },
     {
       "sheetName": "Inv 99",
@@ -1092,10 +1092,10 @@
       "invoiceDate": 45158,
       "weekEnding": 45157,
       "invoiceNumber": 99,
-      "grandTotal": 39940,
+      "grandTotal": 6500,
       "weekEndingDate": "2023-08-19",
       "invoiceDateStr": "2023-08-20",
-      "workOrderCount": 74
+      "workOrderCount": 45
     },
     {
       "sheetName": "Inv 100",
@@ -1114,10 +1114,10 @@
       "invoiceDate": 45172,
       "weekEnding": 45171,
       "invoiceNumber": 101,
-      "grandTotal": 44060,
+      "grandTotal": 5855,
       "weekEndingDate": "2023-09-02",
       "invoiceDateStr": "2023-09-03",
-      "workOrderCount": 79
+      "workOrderCount": 41
     },
     {
       "sheetName": "Inv 102",
@@ -1125,10 +1125,10 @@
       "invoiceDate": 45179,
       "weekEnding": 45178,
       "invoiceNumber": 102,
-      "grandTotal": 18620,
+      "grandTotal": 4620,
       "weekEndingDate": "2023-09-09",
       "invoiceDateStr": "2023-09-10",
-      "workOrderCount": 65
+      "workOrderCount": 32
     },
     {
       "sheetName": "Inv 103",
@@ -1147,10 +1147,10 @@
       "invoiceDate": 45193,
       "weekEnding": 45192,
       "invoiceNumber": 104,
-      "grandTotal": 21910,
+      "grandTotal": 6435,
       "weekEndingDate": "2023-09-23",
       "invoiceDateStr": "2023-09-24",
-      "workOrderCount": 77
+      "workOrderCount": 43
     },
     {
       "sheetName": "Inv 105",
@@ -1169,10 +1169,10 @@
       "invoiceDate": 45207,
       "weekEnding": 45206,
       "invoiceNumber": 106,
-      "grandTotal": 24420,
+      "grandTotal": 7900,
       "weekEndingDate": "2023-10-07",
       "invoiceDateStr": "2023-10-08",
-      "workOrderCount": 86
+      "workOrderCount": 55
     },
     {
       "sheetName": "Inv 107",
@@ -1180,10 +1180,10 @@
       "invoiceDate": 45214,
       "weekEnding": 45213,
       "invoiceNumber": 107,
-      "grandTotal": 17170,
+      "grandTotal": 4900,
       "weekEndingDate": "2023-10-14",
       "invoiceDateStr": "2023-10-15",
-      "workOrderCount": 61
+      "workOrderCount": 34
     },
     {
       "sheetName": "Inv 108",
@@ -1191,10 +1191,10 @@
       "invoiceDate": 45221,
       "weekEnding": 45220,
       "invoiceNumber": 108,
-      "grandTotal": 8335,
+      "grandTotal": 5350,
       "weekEndingDate": "2023-10-21",
       "invoiceDateStr": "2023-10-22",
-      "workOrderCount": 58
+      "workOrderCount": 37
     },
     {
       "sheetName": "Inv 109",
@@ -1202,10 +1202,10 @@
       "invoiceDate": 45228,
       "weekEnding": 45227,
       "invoiceNumber": 109,
-      "grandTotal": 15960,
+      "grandTotal": 4245,
       "weekEndingDate": "2023-10-28",
       "invoiceDateStr": "2023-10-29",
-      "workOrderCount": 57
+      "workOrderCount": 31
     },
     {
       "sheetName": "Inv 110",
@@ -1213,10 +1213,10 @@
       "invoiceDate": 45235,
       "weekEnding": 45234,
       "invoiceNumber": 110,
-      "grandTotal": 13230,
+      "grandTotal": 3385,
       "weekEndingDate": "2023-11-04",
       "invoiceDateStr": "2023-11-05",
-      "workOrderCount": 51
+      "workOrderCount": 26
     },
     {
       "sheetName": "Inv 111",
@@ -1224,10 +1224,10 @@
       "invoiceDate": 45242,
       "weekEnding": 45241,
       "invoiceNumber": 111,
-      "grandTotal": 15790,
+      "grandTotal": 5660,
       "weekEndingDate": "2023-11-11",
       "invoiceDateStr": "2023-11-12",
-      "workOrderCount": 53
+      "workOrderCount": 37
     },
     {
       "sheetName": "Inv 112",
@@ -1235,10 +1235,10 @@
       "invoiceDate": 45249,
       "weekEnding": 45248,
       "invoiceNumber": 112,
-      "grandTotal": 14420,
+      "grandTotal": 4680,
       "weekEndingDate": "2023-11-18",
       "invoiceDateStr": "2023-11-19",
-      "workOrderCount": 50
+      "workOrderCount": 31
     },
     {
       "sheetName": "Inv 113",
@@ -1246,10 +1246,10 @@
       "invoiceDate": 45256,
       "weekEnding": 45255,
       "invoiceNumber": 113,
-      "grandTotal": 10715,
+      "grandTotal": 3565,
       "weekEndingDate": "2023-11-25",
       "invoiceDateStr": "2023-11-26",
-      "workOrderCount": 41
+      "workOrderCount": 25
     },
     {
       "sheetName": "Inv 114",
@@ -1268,10 +1268,10 @@
       "invoiceDate": 45270,
       "weekEnding": 45269,
       "invoiceNumber": 115,
-      "grandTotal": 14650,
+      "grandTotal": 5395,
       "weekEndingDate": "2023-12-09",
       "invoiceDateStr": "2023-12-10",
-      "workOrderCount": 50
+      "workOrderCount": 35
     },
     {
       "sheetName": "Inv 116",
@@ -1279,10 +1279,10 @@
       "invoiceDate": 45277,
       "weekEnding": 45276,
       "invoiceNumber": 116,
-      "grandTotal": 15220,
+      "grandTotal": 5390,
       "weekEndingDate": "2023-12-16",
       "invoiceDateStr": "2023-12-17",
-      "workOrderCount": 54
+      "workOrderCount": 37
     },
     {
       "sheetName": "Inv 117",
@@ -1290,10 +1290,10 @@
       "invoiceDate": 45284,
       "weekEnding": 45283,
       "invoiceNumber": 117,
-      "grandTotal": 6845,
+      "grandTotal": 5245,
       "weekEndingDate": "2023-12-23",
       "invoiceDateStr": "2023-12-24",
-      "workOrderCount": 51
+      "workOrderCount": 37
     },
     {
       "sheetName": "Inv 118",
@@ -1301,10 +1301,10 @@
       "invoiceDate": 45291,
       "weekEnding": 45290,
       "invoiceNumber": 118,
-      "grandTotal": 12270,
+      "grandTotal": 3480,
       "weekEndingDate": "2023-12-30",
       "invoiceDateStr": "2023-12-31",
-      "workOrderCount": 45
+      "workOrderCount": 24
     },
     {
       "sheetName": "INV 119",
@@ -1312,10 +1312,10 @@
       "invoiceDate": 45298,
       "weekEnding": 45297,
       "invoiceNumber": 119,
-      "grandTotal": 11670,
+      "grandTotal": 3535,
       "weekEndingDate": "2024-01-06",
       "invoiceDateStr": "2024-01-07",
-      "workOrderCount": 43
+      "workOrderCount": 26
     },
     {
       "sheetName": "INV 120A",
@@ -1323,10 +1323,10 @@
       "invoiceDate": 45305,
       "weekEnding": 45304,
       "invoiceNumber": 120,
-      "grandTotal": 9600,
+      "grandTotal": 3470,
       "weekEndingDate": "2024-01-13",
       "invoiceDateStr": "2024-01-14",
-      "workOrderCount": 37
+      "workOrderCount": 26
     },
     {
       "sheetName": "Inv 121",
@@ -1334,10 +1334,10 @@
       "invoiceDate": 45312,
       "weekEnding": 45311,
       "invoiceNumber": 121,
-      "grandTotal": 7498,
+      "grandTotal": 3499,
       "weekEndingDate": "2024-01-20",
       "invoiceDateStr": "2024-01-21",
-      "workOrderCount": 30
+      "workOrderCount": 27
     },
     {
       "sheetName": "Inv 122",
@@ -1345,10 +1345,10 @@
       "invoiceDate": 45319,
       "weekEnding": 45318,
       "invoiceNumber": 122,
-      "grandTotal": 9450,
+      "grandTotal": 2770,
       "weekEndingDate": "2024-01-27",
       "invoiceDateStr": "2024-01-28",
-      "workOrderCount": 39
+      "workOrderCount": 22
     },
     {
       "sheetName": "Inv 123",
@@ -1356,10 +1356,10 @@
       "invoiceDate": 45326,
       "weekEnding": 45325,
       "invoiceNumber": 123,
-      "grandTotal": 8220,
+      "grandTotal": 3315,
       "weekEndingDate": "2024-02-03",
       "invoiceDateStr": "2024-02-04",
-      "workOrderCount": 31
+      "workOrderCount": 23
     },
     {
       "sheetName": "Inv 124",
@@ -1367,10 +1367,10 @@
       "invoiceDate": 45326,
       "weekEnding": 45325,
       "invoiceNumber": 124,
-      "grandTotal": 10160,
+      "grandTotal": 5080,
       "weekEndingDate": "2024-02-03",
       "invoiceDateStr": "2024-02-04",
-      "workOrderCount": 36
+      "workOrderCount": 35
     },
     {
       "sheetName": "Inv 125",
@@ -1378,10 +1378,10 @@
       "invoiceDate": 45340,
       "weekEnding": 45339,
       "invoiceNumber": 125,
-      "grandTotal": 12050,
+      "grandTotal": 5705,
       "weekEndingDate": "2024-02-17",
       "invoiceDateStr": "2024-02-18",
-      "workOrderCount": 44
+      "workOrderCount": 41
     },
     {
       "sheetName": "Inv 126",
@@ -1389,10 +1389,10 @@
       "invoiceDate": 45346,
       "weekEnding": 45347,
       "invoiceNumber": 126,
-      "grandTotal": 11610,
+      "grandTotal": 5290,
       "weekEndingDate": "2024-02-25",
       "invoiceDateStr": "2024-02-24",
-      "workOrderCount": 40
+      "workOrderCount": 36
     },
     {
       "sheetName": "Inv 127",
@@ -1400,10 +1400,10 @@
       "invoiceDate": 45354,
       "weekEnding": 45353,
       "invoiceNumber": 127,
-      "grandTotal": 12610,
+      "grandTotal": 6015,
       "weekEndingDate": "2024-03-02",
       "invoiceDateStr": "2024-03-03",
-      "workOrderCount": 42
+      "workOrderCount": 39
     },
     {
       "sheetName": "Inv 128",
@@ -1411,10 +1411,10 @@
       "invoiceDate": 45361,
       "weekEnding": 45360,
       "invoiceNumber": 128,
-      "grandTotal": 16620,
+      "grandTotal": 7115,
       "weekEndingDate": "2024-03-09",
       "invoiceDateStr": "2024-03-10",
-      "workOrderCount": 55
+      "workOrderCount": 47
     },
     {
       "sheetName": "Inv 129",
@@ -1422,10 +1422,10 @@
       "invoiceDate": 45368,
       "weekEnding": 45367,
       "invoiceNumber": 129,
-      "grandTotal": 16190,
+      "grandTotal": 7590,
       "weekEndingDate": "2024-03-16",
       "invoiceDateStr": "2024-03-17",
-      "workOrderCount": 59
+      "workOrderCount": 55
     },
     {
       "sheetName": "Inv 130",
@@ -1444,10 +1444,10 @@
       "invoiceDate": 45375,
       "weekEnding": 45374,
       "invoiceNumber": 131,
-      "grandTotal": 12320,
+      "grandTotal": 5870,
       "weekEndingDate": "2024-03-23",
       "invoiceDateStr": "2024-03-24",
-      "workOrderCount": 45
+      "workOrderCount": 42
     },
     {
       "sheetName": "Inv 132",
@@ -1455,10 +1455,10 @@
       "invoiceDate": 45389,
       "weekEnding": 45388,
       "invoiceNumber": 132,
-      "grandTotal": 18710,
+      "grandTotal": 8735,
       "weekEndingDate": "2024-04-06",
       "invoiceDateStr": "2024-04-07",
-      "workOrderCount": 65
+      "workOrderCount": 60
     },
     {
       "sheetName": "Inv 133",
@@ -1466,10 +1466,10 @@
       "invoiceDate": 45396,
       "weekEnding": 45395,
       "invoiceNumber": 133,
-      "grandTotal": 17130,
+      "grandTotal": 7735,
       "weekEndingDate": "2024-04-13",
       "invoiceDateStr": "2024-04-14",
-      "workOrderCount": 66
+      "workOrderCount": 57
     },
     {
       "sheetName": "Inv 134",
@@ -1477,10 +1477,10 @@
       "invoiceDate": 45403,
       "weekEnding": 45402,
       "invoiceNumber": 134,
-      "grandTotal": 16500,
+      "grandTotal": 7750,
       "weekEndingDate": "2024-04-20",
       "invoiceDateStr": "2024-04-21",
-      "workOrderCount": 64
+      "workOrderCount": 59
     },
     {
       "sheetName": "Inv 135",
@@ -1488,10 +1488,10 @@
       "invoiceDate": 45410,
       "weekEnding": 45409,
       "invoiceNumber": 135,
-      "grandTotal": 17110,
+      "grandTotal": 7760,
       "weekEndingDate": "2024-04-27",
       "invoiceDateStr": "2024-04-28",
-      "workOrderCount": 62
+      "workOrderCount": 54
     },
     {
       "sheetName": "Inv 136",
@@ -1499,10 +1499,10 @@
       "invoiceDate": 45416,
       "weekEnding": 45415,
       "invoiceNumber": 136,
-      "grandTotal": 15510,
+      "grandTotal": 7100,
       "weekEndingDate": "2024-05-03",
       "invoiceDateStr": "2024-05-04",
-      "workOrderCount": 66
+      "workOrderCount": 59
     },
     {
       "sheetName": "Inv 137",
@@ -1510,10 +1510,10 @@
       "invoiceDate": 45424,
       "weekEnding": 45423,
       "invoiceNumber": 137,
-      "grandTotal": 16620,
+      "grandTotal": 8030,
       "weekEndingDate": "2024-05-11",
       "invoiceDateStr": "2024-05-12",
-      "workOrderCount": 63
+      "workOrderCount": 60
     },
     {
       "sheetName": "Inv 138",
@@ -1521,10 +1521,10 @@
       "invoiceDate": 45431,
       "weekEnding": 45430,
       "invoiceNumber": 138,
-      "grandTotal": 17060,
+      "grandTotal": 7865,
       "weekEndingDate": "2024-05-18",
       "invoiceDateStr": "2024-05-19",
-      "workOrderCount": 59
+      "workOrderCount": 52
     },
     {
       "sheetName": "Inv 139",
@@ -1532,10 +1532,10 @@
       "invoiceDate": 45438,
       "weekEnding": 45437,
       "invoiceNumber": 139,
-      "grandTotal": 13970,
+      "grandTotal": 6860,
       "weekEndingDate": "2024-05-25",
       "invoiceDateStr": "2024-05-26",
-      "workOrderCount": 50
+      "workOrderCount": 47
     },
     {
       "sheetName": "Inv 140",
@@ -1543,10 +1543,10 @@
       "invoiceDate": 45445,
       "weekEnding": 45444,
       "invoiceNumber": 140,
-      "grandTotal": 15660,
+      "grandTotal": 7455,
       "weekEndingDate": "2024-06-01",
       "invoiceDateStr": "2024-06-02",
-      "workOrderCount": 54
+      "workOrderCount": 50
     },
     {
       "sheetName": "Inv 141",
@@ -1554,10 +1554,10 @@
       "invoiceDate": 45452,
       "weekEnding": 45451,
       "invoiceNumber": 141,
-      "grandTotal": 19710,
+      "grandTotal": 9565,
       "weekEndingDate": "2024-06-08",
       "invoiceDateStr": "2024-06-09",
-      "workOrderCount": 67
+      "workOrderCount": 64
     },
     {
       "sheetName": "Inv 142",
@@ -1565,10 +1565,10 @@
       "invoiceDate": 45458,
       "weekEnding": 45459,
       "invoiceNumber": 142,
-      "grandTotal": 16200,
+      "grandTotal": 7675,
       "weekEndingDate": "2024-06-16",
       "invoiceDateStr": "2024-06-15",
-      "workOrderCount": 56
+      "workOrderCount": 52
     },
     {
       "sheetName": "Inv 143",
@@ -1576,10 +1576,10 @@
       "invoiceDate": 45466,
       "weekEnding": 45465,
       "invoiceNumber": 143,
-      "grandTotal": 17380,
+      "grandTotal": 8275,
       "weekEndingDate": "2024-06-22",
       "invoiceDateStr": "2024-06-23",
-      "workOrderCount": 67
+      "workOrderCount": 62
     },
     {
       "sheetName": "Inv 144",
@@ -1587,10 +1587,10 @@
       "invoiceDate": 45473,
       "weekEnding": 45472,
       "invoiceNumber": 144,
-      "grandTotal": 19280,
+      "grandTotal": 9265,
       "weekEndingDate": "2024-06-29",
       "invoiceDateStr": "2024-06-30",
-      "workOrderCount": 74
+      "workOrderCount": 69
     },
     {
       "sheetName": "Inv 145 ",
@@ -1598,10 +1598,10 @@
       "invoiceDate": 45480,
       "weekEnding": 45479,
       "invoiceNumber": 145,
-      "grandTotal": 14170,
+      "grandTotal": 6920,
       "weekEndingDate": "2024-07-06",
       "invoiceDateStr": "2024-07-07",
-      "workOrderCount": 51
+      "workOrderCount": 49
     },
     {
       "sheetName": "Inv 146",
@@ -1609,10 +1609,10 @@
       "invoiceDate": 45487,
       "weekEnding": 45486,
       "invoiceNumber": 146,
-      "grandTotal": 20158,
+      "grandTotal": 10079,
       "weekEndingDate": "2024-07-13",
       "invoiceDateStr": "2024-07-14",
-      "workOrderCount": 70
+      "workOrderCount": 69
     },
     {
       "sheetName": "Inv 147",
@@ -1620,10 +1620,10 @@
       "invoiceDate": 45494,
       "weekEnding": 45493,
       "invoiceNumber": 147,
-      "grandTotal": 20810,
+      "grandTotal": 10155,
       "weekEndingDate": "2024-07-20",
       "invoiceDateStr": "2024-07-21",
-      "workOrderCount": 71
+      "workOrderCount": 68
     },
     {
       "sheetName": "Inv 148",
@@ -1631,10 +1631,10 @@
       "invoiceDate": 45501,
       "weekEnding": 45500,
       "invoiceNumber": 148,
-      "grandTotal": 18540,
+      "grandTotal": 9185,
       "weekEndingDate": "2024-07-27",
       "invoiceDateStr": "2024-07-28",
-      "workOrderCount": 72
+      "workOrderCount": 70
     },
     {
       "sheetName": "Inv 149",
@@ -1642,10 +1642,10 @@
       "invoiceDate": 45508,
       "weekEnding": 45507,
       "invoiceNumber": 149,
-      "grandTotal": 23110,
+      "grandTotal": 11265,
       "weekEndingDate": "2024-08-03",
       "invoiceDateStr": "2024-08-04",
-      "workOrderCount": 82
+      "workOrderCount": 79
     },
     {
       "sheetName": "Inv 150",
@@ -1653,10 +1653,10 @@
       "invoiceDate": 45515,
       "weekEnding": 45514,
       "invoiceNumber": 150,
-      "grandTotal": 23540,
+      "grandTotal": 11770,
       "weekEndingDate": "2024-08-10",
       "invoiceDateStr": "2024-08-11",
-      "workOrderCount": 85
+      "workOrderCount": 84
     },
     {
       "sheetName": "Inv 151",
@@ -1664,10 +1664,10 @@
       "invoiceDate": 45522,
       "weekEnding": 45521,
       "invoiceNumber": 151,
-      "grandTotal": 26600,
+      "grandTotal": 13300,
       "weekEndingDate": "2024-08-17",
       "invoiceDateStr": "2024-08-18",
-      "workOrderCount": 93
+      "workOrderCount": 92
     },
     {
       "sheetName": "Inv 152",
@@ -1675,10 +1675,10 @@
       "invoiceDate": 45529,
       "weekEnding": 45528,
       "invoiceNumber": 152,
-      "grandTotal": 30210,
+      "grandTotal": 14910,
       "weekEndingDate": "2024-08-24",
       "invoiceDateStr": "2024-08-25",
-      "workOrderCount": 105
+      "workOrderCount": 103
     },
     {
       "sheetName": "Inv 153",
@@ -1686,10 +1686,10 @@
       "invoiceDate": 45536,
       "weekEnding": 45535,
       "invoiceNumber": 153,
-      "grandTotal": 32730,
+      "grandTotal": 16200,
       "weekEndingDate": "2024-08-31",
       "invoiceDateStr": "2024-09-01",
-      "workOrderCount": 110
+      "workOrderCount": 108
     },
     {
       "sheetName": "Inv 154",
@@ -1719,10 +1719,10 @@
       "invoiceDate": 45550,
       "weekEnding": 45549,
       "invoiceNumber": 156,
-      "grandTotal": 51780,
+      "grandTotal": 19540,
       "weekEndingDate": "2024-09-14",
       "invoiceDateStr": "2024-09-15",
-      "workOrderCount": 169
+      "workOrderCount": 130
     },
     {
       "sheetName": "Inv 157",
@@ -1730,10 +1730,10 @@
       "invoiceDate": 45564,
       "weekEnding": 45563,
       "invoiceNumber": 157,
-      "grandTotal": 45020,
+      "grandTotal": 13475,
       "weekEndingDate": "2024-09-28",
       "invoiceDateStr": "2024-09-29",
-      "workOrderCount": 161
+      "workOrderCount": 98
     },
     {
       "sheetName": "Inv 158",
@@ -1752,10 +1752,10 @@
       "invoiceDate": 45578,
       "weekEnding": 45577,
       "invoiceNumber": 159,
-      "grandTotal": 21550,
+      "grandTotal": 11605,
       "weekEndingDate": "2024-10-12",
       "invoiceDateStr": "2024-10-13",
-      "workOrderCount": 155
+      "workOrderCount": 83
     },
     {
       "sheetName": "Inv 160",
@@ -1763,10 +1763,10 @@
       "invoiceDate": 45585,
       "weekEnding": 45584,
       "invoiceNumber": 160,
-      "grandTotal": 43100,
+      "grandTotal": 12375,
       "weekEndingDate": "2024-10-19",
       "invoiceDateStr": "2024-10-20",
-      "workOrderCount": 158
+      "workOrderCount": 89
     },
     {
       "sheetName": "Inv 161",
@@ -1774,10 +1774,10 @@
       "invoiceDate": 45592,
       "weekEnding": 45591,
       "invoiceNumber": 161,
-      "grandTotal": 23755,
+      "grandTotal": 12805,
       "weekEndingDate": "2024-10-26",
       "invoiceDateStr": "2024-10-27",
-      "workOrderCount": 160
+      "workOrderCount": 93
     },
     {
       "sheetName": "Inv 162",
@@ -1785,10 +1785,10 @@
       "invoiceDate": 45599,
       "weekEnding": 45598,
       "invoiceNumber": 162,
-      "grandTotal": 47510,
+      "grandTotal": 14655,
       "weekEndingDate": "2024-11-02",
       "invoiceDateStr": "2024-11-03",
-      "workOrderCount": 164
+      "workOrderCount": 103
     },
     {
       "sheetName": "Inv 163",
@@ -1796,10 +1796,10 @@
       "invoiceDate": 45606,
       "weekEnding": 45605,
       "invoiceNumber": 163,
-      "grandTotal": 44830,
+      "grandTotal": 15890,
       "weekEndingDate": "2024-11-09",
       "invoiceDateStr": "2024-11-10",
-      "workOrderCount": 161
+      "workOrderCount": 113
     },
     {
       "sheetName": "Inv 164",
@@ -1807,10 +1807,10 @@
       "invoiceDate": 45613,
       "weekEnding": 45612,
       "invoiceNumber": 164,
-      "grandTotal": 46120,
+      "grandTotal": 14055,
       "weekEndingDate": "2024-11-16",
       "invoiceDateStr": "2024-11-17",
-      "workOrderCount": 162
+      "workOrderCount": 101
     },
     {
       "sheetName": "Inv 165",
@@ -1818,10 +1818,10 @@
       "invoiceDate": 45620,
       "weekEnding": 45619,
       "invoiceNumber": 165,
-      "grandTotal": 26320,
+      "grandTotal": 8125,
       "weekEndingDate": "2024-11-23",
       "invoiceDateStr": "2024-11-24",
-      "workOrderCount": 102
+      "workOrderCount": 61
     },
     {
       "sheetName": "Inv 166",
@@ -1829,10 +1829,10 @@
       "invoiceDate": 45627,
       "weekEnding": 45626,
       "invoiceNumber": 166,
-      "grandTotal": 25330,
+      "grandTotal": 7050,
       "weekEndingDate": "2024-11-30",
       "invoiceDateStr": "2024-12-01",
-      "workOrderCount": 100
+      "workOrderCount": 55
     },
     {
       "sheetName": "Inv 167",
@@ -1840,10 +1840,10 @@
       "invoiceDate": 45634,
       "weekEnding": 45603,
       "invoiceNumber": 167,
-      "grandTotal": 9390,
+      "grandTotal": 3880,
       "weekEndingDate": "2024-11-07",
       "invoiceDateStr": "2024-12-08",
-      "workOrderCount": 64
+      "workOrderCount": 31
     },
     {
       "sheetName": "Inv 168",
@@ -1851,10 +1851,10 @@
       "invoiceDate": 45641,
       "weekEnding": 45640,
       "invoiceNumber": 168,
-      "grandTotal": 8690,
+      "grandTotal": 6345,
       "weekEndingDate": "2024-12-14",
       "invoiceDateStr": "2024-12-15",
-      "workOrderCount": 74
+      "workOrderCount": 44
     },
     {
       "sheetName": "Inv 169",
@@ -1862,10 +1862,10 @@
       "invoiceDate": 45641,
       "weekEnding": 45640,
       "invoiceNumber": 169,
-      "grandTotal": 17380,
+      "grandTotal": 5900,
       "weekEndingDate": "2024-12-14",
       "invoiceDateStr": "2024-12-15",
-      "workOrderCount": 76
+      "workOrderCount": 48
     },
     {
       "sheetName": "Invoice 170",
@@ -1886,10 +1886,10 @@
       "invoiceDate": 45662,
       "weekEnding": 45661,
       "invoiceNumber": 171,
-      "grandTotal": 18600,
+      "grandTotal": 3610,
       "weekEndingDate": "2025-01-04",
       "invoiceDateStr": "2025-01-05",
-      "workOrderCount": 71
+      "workOrderCount": 29
     },
     {
       "sheetName": "Inv 172",
@@ -1897,10 +1897,10 @@
       "invoiceDate": 45676,
       "weekEnding": 45675,
       "invoiceNumber": 172,
-      "grandTotal": 11090,
+      "grandTotal": 3690,
       "weekEndingDate": "2025-01-18",
       "invoiceDateStr": "2025-01-19",
-      "workOrderCount": 48
+      "workOrderCount": 29
     },
     {
       "sheetName": "Inv 173",
@@ -1908,10 +1908,10 @@
       "invoiceDate": 45676,
       "weekEnding": 45675,
       "invoiceNumber": 173,
-      "grandTotal": 14770,
+      "grandTotal": 4850,
       "weekEndingDate": "2025-01-18",
       "invoiceDateStr": "2025-01-19",
-      "workOrderCount": 56
+      "workOrderCount": 37
     },
     {
       "sheetName": "Inv 174",
@@ -1919,10 +1919,10 @@
       "invoiceDate": 45683,
       "weekEnding": 45682,
       "invoiceNumber": 174,
-      "grandTotal": 10040,
+      "grandTotal": 3145,
       "weekEndingDate": "2025-01-25",
       "invoiceDateStr": "2025-01-26",
-      "workOrderCount": 35
+      "workOrderCount": 20
     },
     {
       "sheetName": "Inv 175",
@@ -1930,10 +1930,10 @@
       "invoiceDate": 45683,
       "weekEnding": 45682,
       "invoiceNumber": 175,
-      "grandTotal": 13390,
+      "grandTotal": 4510,
       "weekEndingDate": "2025-01-25",
       "invoiceDateStr": "2025-01-26",
-      "workOrderCount": 50
+      "workOrderCount": 32
     },
     {
       "sheetName": "Inv 177",
@@ -1941,10 +1941,10 @@
       "invoiceDate": 45697,
       "weekEnding": 45696,
       "invoiceNumber": 176,
-      "grandTotal": 9000,
+      "grandTotal": 3940,
       "weekEndingDate": "2025-02-08",
       "invoiceDateStr": "2025-02-09",
-      "workOrderCount": 79
+      "workOrderCount": 27
     },
     {
       "sheetName": "Data Set 177",
@@ -1952,10 +1952,10 @@
       "invoiceNumber": 177,
       "invoiceDate": null,
       "weekEnding": null,
-      "grandTotal": 18000,
+      "grandTotal": 4430,
       "weekEndingDate": "2025-02-15",
       "invoiceDateStr": "2025-02-16",
-      "workOrderCount": 81
+      "workOrderCount": 36
     },
     {
       "sheetName": "Inv 178",
@@ -1963,10 +1963,10 @@
       "invoiceDate": 45711,
       "weekEnding": 45710,
       "invoiceNumber": 178,
-      "grandTotal": 17220,
+      "grandTotal": 6620,
       "weekEndingDate": "2025-02-22",
       "invoiceDateStr": "2025-02-23",
-      "workOrderCount": 89
+      "workOrderCount": 65
     },
     {
       "sheetName": "Inv 179",
@@ -1974,10 +1974,10 @@
       "invoiceDate": 45718,
       "weekEnding": 45717,
       "invoiceNumber": 179,
-      "grandTotal": 19170,
+      "grandTotal": 8705,
       "weekEndingDate": "2025-03-01",
       "invoiceDateStr": "2025-03-02",
-      "workOrderCount": 78
+      "workOrderCount": 68
     },
     {
       "sheetName": "Inv 180",
@@ -1985,10 +1985,10 @@
       "invoiceDate": 45725,
       "weekEnding": 45724,
       "invoiceNumber": 180,
-      "grandTotal": 9530,
+      "grandTotal": 4765,
       "weekEndingDate": "2025-03-08",
       "invoiceDateStr": "2025-03-09",
-      "workOrderCount": 40
+      "workOrderCount": 39
     },
     {
       "sheetName": "Inv 181",
@@ -1996,10 +1996,10 @@
       "invoiceDate": 45732,
       "weekEnding": 45731,
       "invoiceNumber": 181,
-      "grandTotal": 11430,
+      "grandTotal": 5715,
       "weekEndingDate": "2025-03-15",
       "invoiceDateStr": "2025-03-16",
-      "workOrderCount": 43
+      "workOrderCount": 42
     },
     {
       "sheetName": "Inv 182",
@@ -2007,10 +2007,10 @@
       "invoiceDate": 45739,
       "weekEnding": 45738,
       "invoiceNumber": 182,
-      "grandTotal": 14700,
+      "grandTotal": 7350,
       "weekEndingDate": "2025-03-22",
       "invoiceDateStr": "2025-03-23",
-      "workOrderCount": 51
+      "workOrderCount": 50
     },
     {
       "sheetName": "Inv 183",
@@ -2018,10 +2018,10 @@
       "invoiceDate": 45746,
       "weekEnding": 45745,
       "invoiceNumber": 183,
-      "grandTotal": 17020,
+      "grandTotal": 6920,
       "weekEndingDate": "2025-03-29",
       "invoiceDateStr": "2025-03-30",
-      "workOrderCount": 55
+      "workOrderCount": 48
     },
     {
       "sheetName": "Inv 184",
@@ -2040,10 +2040,10 @@
       "invoiceDate": 45760,
       "weekEnding": 45759,
       "invoiceNumber": 185,
-      "grandTotal": 16540,
+      "grandTotal": 8270,
       "weekEndingDate": "2025-04-12",
       "invoiceDateStr": "2025-04-13",
-      "workOrderCount": 57
+      "workOrderCount": 56
     },
     {
       "sheetName": "Inv 186",
@@ -2051,10 +2051,10 @@
       "invoiceDate": 45767,
       "weekEnding": 45766,
       "invoiceNumber": 186,
-      "grandTotal": 14220,
+      "grandTotal": 7110,
       "weekEndingDate": "2025-04-19",
       "invoiceDateStr": "2025-04-20",
-      "workOrderCount": 51
+      "workOrderCount": 50
     },
     {
       "sheetName": "Inv 187",
@@ -2062,10 +2062,10 @@
       "invoiceDate": 45774,
       "weekEnding": 45773,
       "invoiceNumber": 187,
-      "grandTotal": 13700,
+      "grandTotal": 3850,
       "weekEndingDate": "2025-04-26",
       "invoiceDateStr": "2025-04-27",
-      "workOrderCount": 50
+      "workOrderCount": 28
     },
     {
       "sheetName": "Inv 188",
@@ -2084,10 +2084,10 @@
       "invoiceDate": 45788,
       "weekEnding": 45787,
       "invoiceNumber": 189,
-      "grandTotal": 10970,
+      "grandTotal": 5485,
       "weekEndingDate": "2025-05-10",
       "invoiceDateStr": "2025-05-11",
-      "workOrderCount": 43
+      "workOrderCount": 42
     },
     {
       "sheetName": "Inv 190",
@@ -2095,10 +2095,10 @@
       "invoiceDate": 45795,
       "weekEnding": 45794,
       "invoiceNumber": 190,
-      "grandTotal": 10360,
+      "grandTotal": 5180,
       "weekEndingDate": "2025-05-17",
       "invoiceDateStr": "2025-05-18",
-      "workOrderCount": 45
+      "workOrderCount": 44
     },
     {
       "sheetName": "Inv 191",
@@ -2106,10 +2106,10 @@
       "invoiceDate": 45802,
       "weekEnding": 45801,
       "invoiceNumber": 191,
-      "grandTotal": 13810,
+      "grandTotal": 6905,
       "weekEndingDate": "2025-05-24",
       "invoiceDateStr": "2025-05-25",
-      "workOrderCount": 52
+      "workOrderCount": 51
     },
     {
       "sheetName": "Inv 192",
@@ -2117,10 +2117,10 @@
       "invoiceDate": 45809,
       "weekEnding": 45808,
       "invoiceNumber": 192,
-      "grandTotal": 14840,
+      "grandTotal": 7420,
       "weekEndingDate": "2025-05-31",
       "invoiceDateStr": "2025-06-01",
-      "workOrderCount": 60
+      "workOrderCount": 59
     },
     {
       "sheetName": "Inv 193",
@@ -2128,10 +2128,10 @@
       "invoiceDate": 45816,
       "weekEnding": 45815,
       "invoiceNumber": 193,
-      "grandTotal": 16690,
+      "grandTotal": 8265,
       "weekEndingDate": "2025-06-07",
       "invoiceDateStr": "2025-06-08",
-      "workOrderCount": 62
+      "workOrderCount": 59
     },
     {
       "sheetName": "Inv 194",
@@ -2139,10 +2139,10 @@
       "invoiceDate": 45823,
       "weekEnding": 45822,
       "invoiceNumber": 194,
-      "grandTotal": 13180,
+      "grandTotal": 6550,
       "weekEndingDate": "2025-06-14",
       "invoiceDateStr": "2025-06-15",
-      "workOrderCount": 46
+      "workOrderCount": 44
     },
     {
       "sheetName": "Inv 195",
@@ -2150,10 +2150,10 @@
       "invoiceDate": 45830,
       "weekEnding": 45829,
       "invoiceNumber": 195,
-      "grandTotal": 14040,
+      "grandTotal": 7020,
       "weekEndingDate": "2025-06-21",
       "invoiceDateStr": "2025-06-22",
-      "workOrderCount": 50
+      "workOrderCount": 49
     },
     {
       "sheetName": "Inv 196",
@@ -2161,10 +2161,10 @@
       "invoiceDate": 45837,
       "weekEnding": 45836,
       "invoiceNumber": 196,
-      "grandTotal": 15960,
+      "grandTotal": 6485,
       "weekEndingDate": "2025-06-28",
       "invoiceDateStr": "2025-06-29",
-      "workOrderCount": 59
+      "workOrderCount": 47
     },
     {
       "sheetName": "Inv 197",
@@ -2172,10 +2172,10 @@
       "invoiceDate": 45844,
       "weekEnding": 45843,
       "invoiceNumber": 197,
-      "grandTotal": 16560,
+      "grandTotal": 8280,
       "weekEndingDate": "2025-07-05",
       "invoiceDateStr": "2025-07-06",
-      "workOrderCount": 58
+      "workOrderCount": 57
     },
     {
       "sheetName": "Inv 198",
@@ -2183,10 +2183,10 @@
       "invoiceDate": 45851,
       "weekEnding": 45850,
       "invoiceNumber": 198,
-      "grandTotal": 13630,
+      "grandTotal": 6815,
       "weekEndingDate": "2025-07-12",
       "invoiceDateStr": "2025-07-13",
-      "workOrderCount": 53
+      "workOrderCount": 52
     },
     {
       "sheetName": "Inv 199",
@@ -2194,10 +2194,10 @@
       "invoiceDate": 45858,
       "weekEnding": 45857,
       "invoiceNumber": 199,
-      "grandTotal": 17918,
+      "grandTotal": 8959,
       "weekEndingDate": "2025-07-19",
       "invoiceDateStr": "2025-07-20",
-      "workOrderCount": 68
+      "workOrderCount": 67
     },
     {
       "sheetName": "Inv 200",
@@ -2205,10 +2205,10 @@
       "invoiceDate": 45865,
       "weekEnding": 45864,
       "invoiceNumber": 200,
-      "grandTotal": 19340,
+      "grandTotal": 9670,
       "weekEndingDate": "2025-07-26",
       "invoiceDateStr": "2025-07-27",
-      "workOrderCount": 62
+      "workOrderCount": 61
     },
     {
       "sheetName": "Inv 201",
@@ -2216,10 +2216,10 @@
       "invoiceDate": 45872,
       "weekEnding": 45871,
       "invoiceNumber": 201,
-      "grandTotal": 21380,
+      "grandTotal": 9190,
       "weekEndingDate": "2025-08-02",
       "invoiceDateStr": "2025-08-03",
-      "workOrderCount": 75
+      "workOrderCount": 62
     },
     {
       "sheetName": "Inv 202",
@@ -2227,10 +2227,10 @@
       "invoiceDate": 45878,
       "weekEnding": 45877,
       "invoiceNumber": 202,
-      "grandTotal": 27030,
+      "grandTotal": 13515,
       "weekEndingDate": "2025-08-08",
       "invoiceDateStr": "2025-08-09",
-      "workOrderCount": 95
+      "workOrderCount": 94
     },
     {
       "sheetName": "Inv 203",
@@ -2238,10 +2238,10 @@
       "invoiceDate": 45886,
       "weekEnding": 45885,
       "invoiceNumber": 203,
-      "grandTotal": 18640,
+      "grandTotal": 9320,
       "weekEndingDate": "2025-08-16",
       "invoiceDateStr": "2025-08-17",
-      "workOrderCount": 65
+      "workOrderCount": 64
     },
     {
       "sheetName": "Inv 204",
@@ -2249,10 +2249,10 @@
       "invoiceDate": 45893,
       "weekEnding": 45892,
       "invoiceNumber": 204,
-      "grandTotal": 18150,
+      "grandTotal": 9075,
       "weekEndingDate": "2025-08-23",
       "invoiceDateStr": "2025-08-24",
-      "workOrderCount": 66
+      "workOrderCount": 65
     },
     {
       "sheetName": "Inv 205",
@@ -2260,10 +2260,10 @@
       "invoiceDate": 45900,
       "weekEnding": 45899,
       "invoiceNumber": 205,
-      "grandTotal": 19560,
+      "grandTotal": 9615,
       "weekEndingDate": "2025-08-30",
       "invoiceDateStr": "2025-08-31",
-      "workOrderCount": 68
+      "workOrderCount": 66
     },
     {
       "sheetName": "Inv 206",
@@ -2271,10 +2271,10 @@
       "invoiceDate": 45907,
       "weekEnding": 45906,
       "invoiceNumber": 206,
-      "grandTotal": 16070,
+      "grandTotal": 8035,
       "weekEndingDate": "2025-09-06",
       "invoiceDateStr": "2025-09-07",
-      "workOrderCount": 54
+      "workOrderCount": 53
     },
     {
       "sheetName": "Inv 207",
@@ -2282,10 +2282,10 @@
       "invoiceDate": 45914,
       "weekEnding": 45913,
       "invoiceNumber": 207,
-      "grandTotal": 19970,
+      "grandTotal": 9945,
       "weekEndingDate": "2025-09-13",
       "invoiceDateStr": "2025-09-14",
-      "workOrderCount": 67
+      "workOrderCount": 65
     },
     {
       "sheetName": "Inv 209 error",
@@ -2293,10 +2293,10 @@
       "invoiceDate": 45914,
       "weekEnding": 45913,
       "invoiceNumber": 208,
-      "grandTotal": 19300,
+      "grandTotal": 9650,
       "weekEndingDate": "2025-09-13",
       "invoiceDateStr": "2025-09-14",
-      "workOrderCount": 62
+      "workOrderCount": 61
     },
     {
       "sheetName": "Inv 208 error",
@@ -2304,10 +2304,10 @@
       "invoiceDate": 45914,
       "weekEnding": 45913,
       "invoiceNumber": 209,
-      "grandTotal": 9780,
+      "grandTotal": 4560,
       "weekEndingDate": "2025-09-13",
       "invoiceDateStr": "2025-09-14",
-      "workOrderCount": 59
+      "workOrderCount": 29
     },
     {
       "sheetName": "Inv 210",
@@ -2326,10 +2326,10 @@
       "invoiceDate": 45935,
       "weekEnding": 45934,
       "invoiceNumber": 211,
-      "grandTotal": 14510,
+      "grandTotal": 6840,
       "weekEndingDate": "2025-10-04",
       "invoiceDateStr": "2025-10-05",
-      "workOrderCount": 49
+      "workOrderCount": 45
     },
     {
       "sheetName": "Inv 212",
@@ -2337,10 +2337,10 @@
       "invoiceDate": 45942,
       "weekEnding": 45941,
       "invoiceNumber": 212,
-      "grandTotal": 12030,
+      "grandTotal": 6015,
       "weekEndingDate": "2025-10-11",
       "invoiceDateStr": "2025-10-12",
-      "workOrderCount": 40
+      "workOrderCount": 39
     },
     {
       "sheetName": "Inv 213",
@@ -2348,10 +2348,10 @@
       "invoiceDate": 45949,
       "weekEnding": 45948,
       "invoiceNumber": 213,
-      "grandTotal": 11610,
+      "grandTotal": 5805,
       "weekEndingDate": "2025-10-18",
       "invoiceDateStr": "2025-10-19",
-      "workOrderCount": 43
+      "workOrderCount": 42
     },
     {
       "sheetName": "Inv 214",
@@ -2359,10 +2359,10 @@
       "invoiceDate": 45956,
       "weekEnding": 45955,
       "invoiceNumber": 214,
-      "grandTotal": 15300,
+      "grandTotal": 7650,
       "weekEndingDate": "2025-10-25",
       "invoiceDateStr": "2025-10-26",
-      "workOrderCount": 51
+      "workOrderCount": 50
     },
     {
       "sheetName": "Inv 215",
@@ -2370,10 +2370,10 @@
       "invoiceDate": 45963,
       "weekEnding": 45962,
       "invoiceNumber": 215,
-      "grandTotal": 11440,
+      "grandTotal": 5720,
       "weekEndingDate": "2025-11-01",
       "invoiceDateStr": "2025-11-02",
-      "workOrderCount": 43
+      "workOrderCount": 42
     },
     {
       "sheetName": "Inv 216",
@@ -2381,10 +2381,10 @@
       "invoiceDate": 45970,
       "weekEnding": 45969,
       "invoiceNumber": 216,
-      "grandTotal": 18500,
+      "grandTotal": 9250,
       "weekEndingDate": "2025-11-08",
       "invoiceDateStr": "2025-11-09",
-      "workOrderCount": 60
+      "workOrderCount": 59
     },
     {
       "sheetName": "Inv 217",
@@ -2392,10 +2392,10 @@
       "invoiceDate": 45977,
       "weekEnding": 45976,
       "invoiceNumber": 217,
-      "grandTotal": 9438,
+      "grandTotal": 4594,
       "weekEndingDate": "2025-11-15",
       "invoiceDateStr": "2025-11-16",
-      "workOrderCount": 37
+      "workOrderCount": 35
     },
     {
       "sheetName": "Inv 218",
@@ -2403,10 +2403,10 @@
       "invoiceDate": 45984,
       "weekEnding": 45983,
       "invoiceNumber": 218,
-      "grandTotal": 9778,
+      "grandTotal": 4889,
       "weekEndingDate": "2025-11-22",
       "invoiceDateStr": "2025-11-23",
-      "workOrderCount": 32
+      "workOrderCount": 31
     },
     {
       "sheetName": "Inv 219",
@@ -2414,10 +2414,10 @@
       "invoiceDate": 45991,
       "weekEnding": 45990,
       "invoiceNumber": 219,
-      "grandTotal": 9850,
+      "grandTotal": 4925,
       "weekEndingDate": "2025-11-29",
       "invoiceDateStr": "2025-11-30",
-      "workOrderCount": 35
+      "workOrderCount": 34
     },
     {
       "sheetName": "Inv 220",
@@ -2425,10 +2425,10 @@
       "invoiceDate": 45998,
       "weekEnding": 45997,
       "invoiceNumber": 220,
-      "grandTotal": 14130,
+      "grandTotal": 6985,
       "weekEndingDate": "2025-12-06",
       "invoiceDateStr": "2025-12-07",
-      "workOrderCount": 51
+      "workOrderCount": 48
     },
     {
       "sheetName": "Inv 221",
@@ -2436,10 +2436,10 @@
       "invoiceDate": 46005,
       "weekEnding": 46004,
       "invoiceNumber": 221,
-      "grandTotal": 9260,
+      "grandTotal": 4630,
       "weekEndingDate": "2025-12-13",
       "invoiceDateStr": "2025-12-14",
-      "workOrderCount": 32
+      "workOrderCount": 31
     },
     {
       "sheetName": "Data Set 222",
@@ -2645,10 +2645,10 @@
       "invoiceNumber": 240,
       "invoiceDate": null,
       "weekEnding": null,
-      "grandTotal": 11270,
+      "grandTotal": 5635,
       "weekEndingDate": "2026-04-25",
       "invoiceDateStr": "2026-04-26",
-      "workOrderCount": 38
+      "workOrderCount": 37
     },
     {
       "sheetName": "Inv 241",
@@ -2656,10 +2656,10 @@
       "invoiceDate": 46145,
       "weekEnding": 46144,
       "invoiceNumber": 241,
-      "grandTotal": 16320,
+      "grandTotal": 8160,
       "weekEndingDate": "2026-05-02",
       "invoiceDateStr": "2026-05-03",
-      "workOrderCount": 56
+      "workOrderCount": 55
     }
   ],
   "records": [
@@ -2760,20 +2760,6 @@
       "additional1": 45,
       "additional2": 0,
       "total": 170
-    },
-    {
-      "invoiceNumber": 7,
-      "weekEnding": null,
-      "date": null,
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 1385
     },
     {
       "invoiceNumber": 41,
@@ -3798,20 +3784,6 @@
       "total": 125
     },
     {
-      "invoiceNumber": 38,
-      "weekEnding": "2022-07-09",
-      "date": null,
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 6870
-    },
-    {
       "invoiceNumber": 42,
       "weekEnding": "2022-07-16",
       "date": "Jul 11, 2022",
@@ -4398,20 +4370,6 @@
       "additional1": 0,
       "additional2": 0,
       "total": 40
-    },
-    {
-      "invoiceNumber": 42,
-      "weekEnding": "2022-07-16",
-      "date": null,
-      "tech": "Derrick Martin",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 10650
     },
     {
       "invoiceNumber": 47,
@@ -5700,20 +5658,6 @@
       "additional1": 40,
       "additional2": 0,
       "total": 165
-    },
-    {
-      "invoiceNumber": 47,
-      "weekEnding": null,
-      "date": null,
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 17450
     },
     {
       "invoiceNumber": 48,
@@ -6752,20 +6696,6 @@
       "total": 125
     },
     {
-      "invoiceNumber": 48,
-      "weekEnding": null,
-      "date": null,
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 15470
-    },
-    {
       "invoiceNumber": 49,
       "weekEnding": null,
       "date": "Aug 29, 2022",
@@ -7760,20 +7690,6 @@
       "total": 165
     },
     {
-      "invoiceNumber": 49,
-      "weekEnding": null,
-      "date": null,
-      "tech": "Marcus Martin",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 14450
-    },
-    {
       "invoiceNumber": 50,
       "weekEnding": null,
       "date": "Sep 6, 2022",
@@ -8544,20 +8460,6 @@
       "total": 125
     },
     {
-      "invoiceNumber": 50,
-      "weekEnding": null,
-      "date": null,
-      "tech": "Chris Ambler",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 11415
-    },
-    {
       "invoiceNumber": 46,
       "weekEnding": "2022-08-13",
       "date": null,
@@ -9174,20 +9076,6 @@
       "total": 125
     },
     {
-      "invoiceNumber": 77,
-      "weekEnding": null,
-      "date": null,
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 7245
-    },
-    {
       "invoiceNumber": 78,
       "weekEnding": null,
       "date": "Mar 27, 2023",
@@ -9704,20 +9592,6 @@
       "additional1": 40,
       "additional2": 0,
       "total": 165
-    },
-    {
-      "invoiceNumber": 78,
-      "weekEnding": null,
-      "date": null,
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 9245
     },
     {
       "invoiceNumber": 1,
@@ -10140,20 +10014,6 @@
       "total": 195
     },
     {
-      "invoiceNumber": 1,
-      "weekEnding": null,
-      "date": null,
-      "tech": "Levi Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 6925
-    },
-    {
       "invoiceNumber": 80,
       "weekEnding": null,
       "date": "Apr 10, 2023",
@@ -10784,20 +10644,6 @@
       "total": 125
     },
     {
-      "invoiceNumber": 80,
-      "weekEnding": null,
-      "date": "2023-04-10",
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 9845
-    },
-    {
       "invoiceNumber": 2,
       "weekEnding": null,
       "date": "Apr 24, 2023",
@@ -11216,34 +11062,6 @@
       "additional1": 40,
       "additional2": 0,
       "total": 125
-    },
-    {
-      "invoiceNumber": 2,
-      "weekEnding": null,
-      "date": null,
-      "tech": "Levi Johnson",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 5955
-    },
-    {
-      "invoiceNumber": 2,
-      "weekEnding": null,
-      "date": null,
-      "tech": "Levi Johnson",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 11910
     },
     {
       "invoiceNumber": 83,
@@ -11734,20 +11552,6 @@
       "additional1": 0,
       "additional2": 0,
       "total": 125
-    },
-    {
-      "invoiceNumber": 83,
-      "weekEnding": null,
-      "date": null,
-      "tech": "Chris Ambler",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 6415
     },
     {
       "invoiceNumber": 84,
@@ -13024,20 +12828,6 @@
       "total": 165
     },
     {
-      "invoiceNumber": 85,
-      "weekEnding": null,
-      "date": null,
-      "tech": "Levi Johnson",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 5545
-    },
-    {
       "invoiceNumber": 86,
       "weekEnding": null,
       "date": "May 15, 2023",
@@ -13514,20 +13304,6 @@
       "total": 40
     },
     {
-      "invoiceNumber": 86,
-      "weekEnding": null,
-      "date": null,
-      "tech": "Levi Johnson",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 7135
-    },
-    {
       "invoiceNumber": 88,
       "weekEnding": null,
       "date": "May 30, 2023",
@@ -13946,20 +13722,6 @@
       "additional1": 0,
       "additional2": 0,
       "total": 85
-    },
-    {
-      "invoiceNumber": 88,
-      "weekEnding": null,
-      "date": null,
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 6975
     },
     {
       "invoiceNumber": 89,
@@ -14522,20 +14284,6 @@
       "total": 330
     },
     {
-      "invoiceNumber": 89,
-      "weekEnding": null,
-      "date": "2023-06-10",
-      "tech": "Levi Johnson",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 8250
-    },
-    {
       "invoiceNumber": 90,
       "weekEnding": null,
       "date": "Jun 12, 2023",
@@ -14998,20 +14746,6 @@
       "total": 125
     },
     {
-      "invoiceNumber": 90,
-      "weekEnding": null,
-      "date": null,
-      "tech": "Levi Johnson",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 7230
-    },
-    {
       "invoiceNumber": 91,
       "weekEnding": null,
       "date": "Jun 19, 2023",
@@ -15388,20 +15122,6 @@
       "additional1": 40,
       "additional2": 45,
       "total": 210
-    },
-    {
-      "invoiceNumber": 91,
-      "weekEnding": null,
-      "date": null,
-      "tech": "Levi Johnson",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 7115
     },
     {
       "invoiceNumber": 92,
@@ -15908,20 +15628,6 @@
       "total": 165
     },
     {
-      "invoiceNumber": 92,
-      "weekEnding": null,
-      "date": null,
-      "tech": "Levi Johnson",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 7880
-    },
-    {
       "invoiceNumber": 93,
       "weekEnding": null,
       "date": "Jul 3, 2023",
@@ -16424,20 +16130,6 @@
       "additional1": 40,
       "additional2": 0,
       "total": 145
-    },
-    {
-      "invoiceNumber": 93,
-      "weekEnding": null,
-      "date": null,
-      "tech": "Levi Johnson",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 6780
     },
     {
       "invoiceNumber": 94,
@@ -16956,34 +16648,6 @@
       "additional1": 40,
       "additional2": 0,
       "total": 145
-    },
-    {
-      "invoiceNumber": 94,
-      "weekEnding": null,
-      "date": null,
-      "tech": "Levi Johnson",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 7540
-    },
-    {
-      "invoiceNumber": 94,
-      "weekEnding": null,
-      "date": null,
-      "tech": "Levi Johnson",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 15080
     },
     {
       "invoiceNumber": 96,
@@ -17630,20 +17294,6 @@
       "total": 240
     },
     {
-      "invoiceNumber": 96,
-      "weekEnding": null,
-      "date": "2023-07-29",
-      "tech": "Chris Ambler",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 9030
-    },
-    {
       "invoiceNumber": 98,
       "weekEnding": null,
       "date": "2023-08-07",
@@ -18188,20 +17838,6 @@
       "additional1": 0,
       "additional2": 0,
       "total": 40
-    },
-    {
-      "invoiceNumber": 98,
-      "weekEnding": null,
-      "date": "2023-08-12",
-      "tech": "Chris Ambler",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 9600
     },
     {
       "invoiceNumber": 99,
@@ -18834,34 +18470,6 @@
       "total": 125
     },
     {
-      "invoiceNumber": 99,
-      "weekEnding": null,
-      "date": null,
-      "tech": "Chris Ambler",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 9985
-    },
-    {
-      "invoiceNumber": 99,
-      "weekEnding": null,
-      "date": null,
-      "tech": "Chris Ambler",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 19970
-    },
-    {
       "invoiceNumber": 101,
       "weekEnding": null,
       "date": "Sep 2, 2023",
@@ -19434,34 +19042,6 @@
       "additional1": 40,
       "additional2": 0,
       "total": 165
-    },
-    {
-      "invoiceNumber": 101,
-      "weekEnding": null,
-      "date": null,
-      "tech": "Levi Johnson",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 11015
-    },
-    {
-      "invoiceNumber": 101,
-      "weekEnding": null,
-      "date": null,
-      "tech": "Levi Johnson",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 22030
     },
     {
       "invoiceNumber": 102,
@@ -19910,20 +19490,6 @@
       "additional1": 40,
       "additional2": 0,
       "total": 125
-    },
-    {
-      "invoiceNumber": 102,
-      "weekEnding": null,
-      "date": null,
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 9310
     },
     {
       "invoiceNumber": 104,
@@ -20526,20 +20092,6 @@
       "additional1": 0,
       "additional2": 0,
       "total": 125
-    },
-    {
-      "invoiceNumber": 104,
-      "weekEnding": null,
-      "date": null,
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 10955
     },
     {
       "invoiceNumber": 106,
@@ -21312,20 +20864,6 @@
       "total": 145
     },
     {
-      "invoiceNumber": 106,
-      "weekEnding": "2023-10-07",
-      "date": null,
-      "tech": "Chris Ambler",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 12210
-    },
-    {
       "invoiceNumber": 107,
       "weekEnding": "2023-10-14",
       "date": "Oct 9, 2023",
@@ -21802,20 +21340,6 @@
       "total": 165
     },
     {
-      "invoiceNumber": 107,
-      "weekEnding": "2023-10-14",
-      "date": null,
-      "tech": "Chris Ambler",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 8585
-    },
-    {
       "invoiceNumber": 108,
       "weekEnding": "2023-10-21",
       "date": "Oct 16, 2023",
@@ -22334,20 +21858,6 @@
       "total": 240
     },
     {
-      "invoiceNumber": 108,
-      "weekEnding": "2023-10-21",
-      "date": "2023-10-16",
-      "tech": "Chris Ambler",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 8045
-    },
-    {
       "invoiceNumber": 109,
       "weekEnding": "2023-10-28",
       "date": "Oct 23, 2023",
@@ -22780,20 +22290,6 @@
       "additional1": 0,
       "additional2": 0,
       "total": 40
-    },
-    {
-      "invoiceNumber": 109,
-      "weekEnding": "2023-10-28",
-      "date": null,
-      "tech": "Chris Ambler",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 7980
     },
     {
       "invoiceNumber": 110,
@@ -23160,20 +22656,6 @@
       "total": 165
     },
     {
-      "invoiceNumber": 110,
-      "weekEnding": "2023-11-04",
-      "date": null,
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 6615
-    },
-    {
       "invoiceNumber": 111,
       "weekEnding": "2023-11-11",
       "date": "Nov 6, 2023",
@@ -23692,20 +23174,6 @@
       "total": 145
     },
     {
-      "invoiceNumber": 111,
-      "weekEnding": "2023-11-11",
-      "date": null,
-      "tech": "Chris Ambler",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 7895
-    },
-    {
       "invoiceNumber": 112,
       "weekEnding": "2023-11-18",
       "date": "Nov 13, 2023",
@@ -24140,20 +23608,6 @@
       "total": 40
     },
     {
-      "invoiceNumber": 112,
-      "weekEnding": "2023-11-18",
-      "date": null,
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 7210
-    },
-    {
       "invoiceNumber": 113,
       "weekEnding": null,
       "date": "Nov 20, 2023",
@@ -24474,20 +23928,6 @@
       "additional1": 40,
       "additional2": 30,
       "total": 195
-    },
-    {
-      "invoiceNumber": 113,
-      "weekEnding": null,
-      "date": null,
-      "tech": "Chris Ambler",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 5240
     },
     {
       "invoiceNumber": 113,
@@ -25008,20 +24448,6 @@
       "total": 165
     },
     {
-      "invoiceNumber": 115,
-      "weekEnding": "2023-12-09",
-      "date": null,
-      "tech": "Chris Ambler",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 7325
-    },
-    {
       "invoiceNumber": 116,
       "weekEnding": "2023-12-16",
       "date": "Dec 11, 2023",
@@ -25538,20 +24964,6 @@
       "additional1": 0,
       "additional2": 0,
       "total": 125
-    },
-    {
-      "invoiceNumber": 116,
-      "weekEnding": "2023-12-16",
-      "date": null,
-      "tech": "Chris Ambler",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 7610
     },
     {
       "invoiceNumber": 117,
@@ -26072,20 +25484,6 @@
       "total": 125
     },
     {
-      "invoiceNumber": 117,
-      "weekEnding": "2023-12-22",
-      "date": null,
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 6845
-    },
-    {
       "invoiceNumber": 118,
       "weekEnding": "2023-12-30",
       "date": "Dec 26, 2023",
@@ -26420,20 +25818,6 @@
       "additional1": 40,
       "additional2": 0,
       "total": 165
-    },
-    {
-      "invoiceNumber": 118,
-      "weekEnding": "2023-12-30",
-      "date": null,
-      "tech": "Chris Ambler",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 6135
     },
     {
       "invoiceNumber": 119,
@@ -26800,20 +26184,6 @@
       "total": 165
     },
     {
-      "invoiceNumber": 119,
-      "weekEnding": "2024-01-06",
-      "date": null,
-      "tech": "Chris Ambler",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 5835
-    },
-    {
       "invoiceNumber": 120,
       "weekEnding": "2024-01-13",
       "date": "Jan 8, 2024",
@@ -27176,20 +26546,6 @@
       "additional1": 40,
       "additional2": 0,
       "total": 165
-    },
-    {
-      "invoiceNumber": 120,
-      "weekEnding": "2024-01-13",
-      "date": null,
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 4800
     },
     {
       "invoiceNumber": 121,
@@ -27570,20 +26926,6 @@
       "total": 145
     },
     {
-      "invoiceNumber": 121,
-      "weekEnding": "2024-01-21",
-      "date": null,
-      "tech": "Chris Ambler",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 3749
-    },
-    {
       "invoiceNumber": 122,
       "weekEnding": "2024-01-28",
       "date": "Jan 22, 2024",
@@ -27892,20 +27234,6 @@
       "total": 40
     },
     {
-      "invoiceNumber": 122,
-      "weekEnding": "2024-01-28",
-      "date": null,
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 4725
-    },
-    {
       "invoiceNumber": 123,
       "weekEnding": "2024-02-03",
       "date": "Jan 29, 2024",
@@ -27974,20 +27302,6 @@
       "additional1": 40,
       "additional2": 0,
       "total": 165
-    },
-    {
-      "invoiceNumber": 123,
-      "weekEnding": "2024-02-03",
-      "date": "Jan 30, 2024",
-      "tech": "Chris Ambler",
-      "customerName": "Ref. No. NS0062611931",
-      "address": "Customer Ind",
-      "serviceOrderId": "Customer Type RESIDENTIAL",
-      "workOrderType": "85",
-      "baseCharge": 85,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 85
     },
     {
       "invoiceNumber": 123,
@@ -28240,20 +27554,6 @@
       "additional1": 70,
       "additional2": 0,
       "total": 195
-    },
-    {
-      "invoiceNumber": 123,
-      "weekEnding": "2024-02-03",
-      "date": null,
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 4110
     },
     {
       "invoiceNumber": 124,
@@ -28746,20 +28046,6 @@
       "total": 125
     },
     {
-      "invoiceNumber": 124,
-      "weekEnding": "2024-02-11",
-      "date": null,
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 5080
-    },
-    {
       "invoiceNumber": 125,
       "weekEnding": "2024-02-17",
       "date": "Feb 12, 2024",
@@ -28772,20 +28058,6 @@
       "additional1": 0,
       "additional2": 0,
       "total": 125
-    },
-    {
-      "invoiceNumber": 125,
-      "weekEnding": "2024-02-17",
-      "date": "Feb 12, 2024",
-      "tech": "Chris Ambler",
-      "customerName": "Jim Heeney",
-      "address": "12435 Mastin St",
-      "serviceOrderId": "no contact number",
-      "workOrderType": "155",
-      "baseCharge": 155,
-      "additional1": 40,
-      "additional2": 0,
-      "total": 195
     },
     {
       "invoiceNumber": 125,
@@ -29348,20 +28620,6 @@
       "total": 195
     },
     {
-      "invoiceNumber": 125,
-      "weekEnding": "2024-02-17",
-      "date": null,
-      "tech": "Chris Ambler",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 6025
-    },
-    {
       "invoiceNumber": 126,
       "weekEnding": "2024-02-25",
       "date": "Feb 20, 2024",
@@ -29645,20 +28903,6 @@
       "invoiceNumber": 126,
       "weekEnding": "2024-02-25",
       "date": "Feb 22, 2024",
-      "tech": "Remington Taylor",
-      "customerName": "Brian Dunlay",
-      "address": "14213 Westgate St",
-      "serviceOrderId": "no contact #",
-      "workOrderType": "125",
-      "baseCharge": 125,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 125
-    },
-    {
-      "invoiceNumber": 126,
-      "weekEnding": "2024-02-25",
-      "date": "Feb 22, 2024",
       "tech": "Chris Ambler",
       "customerName": "JCD SUPPORT",
       "address": "9306 W 83RD TER",
@@ -29800,20 +29044,6 @@
       "weekEnding": "2024-02-25",
       "date": "Feb 24, 2024",
       "tech": "Chris Ambler",
-      "customerName": "Mriana Williams",
-      "address": "15720 W 61ST ST",
-      "serviceOrderId": "no contact #",
-      "workOrderType": "125",
-      "baseCharge": 125,
-      "additional1": 40,
-      "additional2": 0,
-      "total": 165
-    },
-    {
-      "invoiceNumber": 126,
-      "weekEnding": "2024-02-25",
-      "date": "Feb 24, 2024",
-      "tech": "Chris Ambler",
       "customerName": "RON MARTIN",
       "address": "4916 PARKHILL ST",
       "serviceOrderId": "9138277543",
@@ -29892,20 +29122,6 @@
       "additional1": 40,
       "additional2": 0,
       "total": 125
-    },
-    {
-      "invoiceNumber": 126,
-      "weekEnding": "2024-02-25",
-      "date": null,
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 5805
     },
     {
       "invoiceNumber": 127,
@@ -30066,20 +29282,6 @@
       "weekEnding": "2024-03-02",
       "date": "Feb 27, 2024",
       "tech": "Chris Ambler",
-      "customerName": "Ho Lee",
-      "address": "21209 W 53RD ST",
-      "serviceOrderId": "no contact #",
-      "workOrderType": "125",
-      "baseCharge": 125,
-      "additional1": 40,
-      "additional2": 0,
-      "total": 165
-    },
-    {
-      "invoiceNumber": 127,
-      "weekEnding": "2024-03-02",
-      "date": "Feb 27, 2024",
-      "tech": "Chris Ambler",
       "customerName": "GREG LENZ",
       "address": "13008 W 78TH ST",
       "serviceOrderId": "9132680686",
@@ -30228,20 +29430,6 @@
       "additional1": 40,
       "additional2": 30,
       "total": 195
-    },
-    {
-      "invoiceNumber": 127,
-      "weekEnding": "2024-03-02",
-      "date": "Feb 29, 2024",
-      "tech": "Chris Ambler",
-      "customerName": "PHIL BROWN",
-      "address": "5600 W 123rd #834",
-      "serviceOrderId": "NO CONTACT #",
-      "workOrderType": "125",
-      "baseCharge": 125,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 125
     },
     {
       "invoiceNumber": 127,
@@ -30482,20 +29670,6 @@
       "total": 165
     },
     {
-      "invoiceNumber": 127,
-      "weekEnding": "2024-03-02",
-      "date": null,
-      "tech": "Chris Ambler",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 6305
-    },
-    {
       "invoiceNumber": 128,
       "weekEnding": "2024-03-10",
       "date": "Mar 4, 2024",
@@ -30508,20 +29682,6 @@
       "additional1": 0,
       "additional2": 0,
       "total": 40
-    },
-    {
-      "invoiceNumber": 128,
-      "weekEnding": "2024-03-10",
-      "date": "Mar 4, 2024",
-      "tech": "Chris Ambler",
-      "customerName": "Gary Wolf",
-      "address": "10662 S LANGLEY ST",
-      "serviceOrderId": "no contact #",
-      "workOrderType": "155",
-      "baseCharge": 155,
-      "additional1": 40,
-      "additional2": 0,
-      "total": 195
     },
     {
       "invoiceNumber": 128,
@@ -30626,20 +29786,6 @@
       "weekEnding": "2024-03-10",
       "date": "Mar 5, 2024",
       "tech": "Chris Ambler",
-      "customerName": "Eliza Roman",
-      "address": "9523 W 86TH ST",
-      "serviceOrderId": "no contact #",
-      "workOrderType": "125",
-      "baseCharge": 125,
-      "additional1": 40,
-      "additional2": 30,
-      "total": 195
-    },
-    {
-      "invoiceNumber": 128,
-      "weekEnding": "2024-03-10",
-      "date": "Mar 5, 2024",
-      "tech": "Chris Ambler",
       "customerName": "ROBERT LE PIQUE",
       "address": "6418 WORNALL TER",
       "serviceOrderId": "8164190586",
@@ -30652,39 +29798,11 @@
     {
       "invoiceNumber": 128,
       "weekEnding": "2024-03-10",
-      "date": "Mar 5, 2024",
-      "tech": "Chris Ambler",
-      "customerName": "JOHN HIRSCH",
-      "address": "10507 GODDARD ST #277",
-      "serviceOrderId": "NO CONTACT #",
-      "workOrderType": "125",
-      "baseCharge": 125,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 125
-    },
-    {
-      "invoiceNumber": 128,
-      "weekEnding": "2024-03-10",
       "date": "Mar 6, 2024",
       "tech": "Remington Taylor",
       "customerName": "PHIL CYRULIK",
       "address": "10601 W 88TH TER",
       "serviceOrderId": "9135996263",
-      "workOrderType": "125",
-      "baseCharge": 125,
-      "additional1": 40,
-      "additional2": 0,
-      "total": 165
-    },
-    {
-      "invoiceNumber": 128,
-      "weekEnding": "2024-03-10",
-      "date": "Mar 6, 2024",
-      "tech": "Remington Taylor",
-      "customerName": "Bernita Bush",
-      "address": "7800 W 93RD ST",
-      "serviceOrderId": "no contact #",
       "workOrderType": "125",
       "baseCharge": 125,
       "additional1": 40,
@@ -30864,20 +29982,6 @@
       "weekEnding": "2024-03-10",
       "date": "Mar 7, 2024",
       "tech": "Remington Taylor",
-      "customerName": "Gary Wolf",
-      "address": "10662 S LANGLEY ST",
-      "serviceOrderId": "NO CONTACT #",
-      "workOrderType": "125",
-      "baseCharge": 125,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 125
-    },
-    {
-      "invoiceNumber": 128,
-      "weekEnding": "2024-03-10",
-      "date": "Mar 7, 2024",
-      "tech": "Remington Taylor",
       "customerName": "TED HAMILTON",
       "address": "1311 N LEEVIEW CIR",
       "serviceOrderId": "9137822410",
@@ -31039,20 +30143,6 @@
       "baseCharge": 125,
       "additional1": 40,
       "additional2": 30,
-      "total": 195
-    },
-    {
-      "invoiceNumber": 128,
-      "weekEnding": "2024-03-10",
-      "date": "Mar 8, 2024",
-      "tech": "Chris Ambler",
-      "customerName": "Gerry Dock",
-      "address": "14070 W 88TH TER",
-      "serviceOrderId": "no contact #",
-      "workOrderType": "155",
-      "baseCharge": 155,
-      "additional1": 40,
-      "additional2": 0,
       "total": 195
     },
     {
@@ -31238,20 +30328,6 @@
       "total": 170
     },
     {
-      "invoiceNumber": 128,
-      "weekEnding": "2024-03-10",
-      "date": null,
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 8310
-    },
-    {
       "invoiceNumber": 129,
       "weekEnding": "2024-03-17",
       "date": "Mar 11, 2024",
@@ -31368,20 +30444,6 @@
       "weekEnding": "2024-03-17",
       "date": "Mar 12, 2024",
       "tech": "Chris Ambler",
-      "customerName": "LUCILLE MCMANUS",
-      "address": "8505 PFLUMM RD #227",
-      "serviceOrderId": "NO CONTACT #",
-      "workOrderType": "85",
-      "baseCharge": 85,
-      "additional1": 40,
-      "additional2": 0,
-      "total": 125
-    },
-    {
-      "invoiceNumber": 129,
-      "weekEnding": "2024-03-17",
-      "date": "Mar 12, 2024",
-      "tech": "Chris Ambler",
       "customerName": "Robert Prentiss",
       "address": "22503 W 72ND ST",
       "serviceOrderId": "NO CONTACT #",
@@ -31474,20 +30536,6 @@
       "additional1": 40,
       "additional2": 0,
       "total": 195
-    },
-    {
-      "invoiceNumber": 129,
-      "weekEnding": "2024-03-17",
-      "date": "Mar 13, 2024",
-      "tech": "Chris Ambler",
-      "customerName": "Steve Harringa",
-      "address": "16170 S LOCUST ST",
-      "serviceOrderId": "no contact #",
-      "workOrderType": "125",
-      "baseCharge": 125,
-      "additional1": 90,
-      "additional2": 40,
-      "total": 255
     },
     {
       "invoiceNumber": 129,
@@ -31628,20 +30676,6 @@
       "additional1": 40,
       "additional2": 0,
       "total": 165
-    },
-    {
-      "invoiceNumber": 129,
-      "weekEnding": "2024-03-17",
-      "date": "Mar 14, 2024",
-      "tech": "Chris Ambler",
-      "customerName": "Greg Lenz",
-      "address": "13008 W 78th St",
-      "serviceOrderId": "9132680686",
-      "workOrderType": "125",
-      "baseCharge": 125,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 125
     },
     {
       "invoiceNumber": 129,
@@ -32064,20 +31098,6 @@
       "total": 165
     },
     {
-      "invoiceNumber": 129,
-      "weekEnding": "2024-03-17",
-      "date": null,
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 8095
-    },
-    {
       "invoiceNumber": 131,
       "weekEnding": "2024-03-30",
       "date": "Mar 25, 2024",
@@ -32487,38 +31507,10 @@
       "invoiceNumber": 131,
       "weekEnding": "2024-03-30",
       "date": "Mar 28, 2024",
-      "tech": "Chris Ambler",
-      "customerName": "SANDRA ROSS",
-      "address": "8410 MAURER RD 1713",
-      "serviceOrderId": "no contact #",
-      "workOrderType": "125",
-      "baseCharge": 125,
-      "additional1": 40,
-      "additional2": 0,
-      "total": 165
-    },
-    {
-      "invoiceNumber": 131,
-      "weekEnding": "2024-03-30",
-      "date": "Mar 28, 2024",
       "tech": "Remington Taylor",
       "customerName": "SAMUEL KORTH",
       "address": "9413 REEDER AVE",
       "serviceOrderId": "9136091135",
-      "workOrderType": "125",
-      "baseCharge": 125,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 125
-    },
-    {
-      "invoiceNumber": 131,
-      "weekEnding": "2024-03-30",
-      "date": "Mar 28, 2024",
-      "tech": "Remington Taylor",
-      "customerName": "TRICIA HADLEY",
-      "address": "23531 W 74TH ST",
-      "serviceOrderId": "no contact #",
       "workOrderType": "125",
       "baseCharge": 125,
       "additional1": 0,
@@ -32694,20 +31686,6 @@
       "total": 40
     },
     {
-      "invoiceNumber": 131,
-      "weekEnding": "2024-03-30",
-      "date": null,
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 6160
-    },
-    {
       "invoiceNumber": 132,
       "weekEnding": "2024-04-07",
       "date": "Apr 1, 2024",
@@ -32767,20 +31745,6 @@
       "invoiceNumber": 132,
       "weekEnding": "2024-04-07",
       "date": "Apr 1, 2024",
-      "tech": "Chris Ambler",
-      "customerName": "JASON CLARK",
-      "address": "8023 W 146TH TER",
-      "serviceOrderId": "NO CONTACT #",
-      "workOrderType": "125",
-      "baseCharge": 125,
-      "additional1": 40,
-      "additional2": 0,
-      "total": 165
-    },
-    {
-      "invoiceNumber": 132,
-      "weekEnding": "2024-04-07",
-      "date": "Apr 1, 2024",
       "tech": "Remington Taylor",
       "customerName": "RICHARD CUNNINGHAM",
       "address": "7939 COLONY LN",
@@ -32790,20 +31754,6 @@
       "additional1": 40,
       "additional2": 0,
       "total": 195
-    },
-    {
-      "invoiceNumber": 132,
-      "weekEnding": "2024-04-07",
-      "date": "Apr 1, 2024",
-      "tech": "Remington Taylor",
-      "customerName": "CHARLIE DAWSON",
-      "address": "6400 WOODSTOCK ST",
-      "serviceOrderId": "9139634104",
-      "workOrderType": "125",
-      "baseCharge": 125,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 125
     },
     {
       "invoiceNumber": 132,
@@ -33118,20 +32068,6 @@
       "weekEnding": "2024-04-07",
       "date": "Apr 3, 2024",
       "tech": "Remington Taylor",
-      "customerName": "JOAN EMAS",
-      "address": "10240 GLENWOOD ST",
-      "serviceOrderId": "NO CONTACT #",
-      "workOrderType": "125",
-      "baseCharge": 125,
-      "additional1": 40,
-      "additional2": 0,
-      "total": 165
-    },
-    {
-      "invoiceNumber": 132,
-      "weekEnding": "2024-04-07",
-      "date": "Apr 3, 2024",
-      "tech": "Remington Taylor",
       "customerName": "GEETHA GANGIPALLI",
       "address": "13611 HAUSER ST APT 203",
       "serviceOrderId": "(913)485-2885",
@@ -33280,20 +32216,6 @@
       "additional1": 0,
       "additional2": 0,
       "total": 125
-    },
-    {
-      "invoiceNumber": 132,
-      "weekEnding": "2024-04-07",
-      "date": "Apr 4, 2024",
-      "tech": "Remington Taylor",
-      "customerName": "ELLEN ROSE",
-      "address": "12224 DEARBORN ST",
-      "serviceOrderId": "no contact #",
-      "workOrderType": "125",
-      "baseCharge": 125,
-      "additional1": 40,
-      "additional2": 0,
-      "total": 165
     },
     {
       "invoiceNumber": 132,
@@ -33604,20 +32526,6 @@
       "total": 125
     },
     {
-      "invoiceNumber": 132,
-      "weekEnding": "2024-04-07",
-      "date": null,
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 9355
-    },
-    {
       "invoiceNumber": 133,
       "weekEnding": "2024-04-14",
       "date": "Apr 8, 2024",
@@ -33658,20 +32566,6 @@
       "additional1": 40,
       "additional2": 30,
       "total": 195
-    },
-    {
-      "invoiceNumber": 133,
-      "weekEnding": "2024-04-14",
-      "date": "Apr 8, 2024",
-      "tech": "Remington Taylor",
-      "customerName": "THERESE MAHONEY",
-      "address": "5500 W 123RD ST #E116",
-      "serviceOrderId": "no contact #",
-      "workOrderType": "85",
-      "baseCharge": 85,
-      "additional1": 40,
-      "additional2": 0,
-      "total": 125
     },
     {
       "invoiceNumber": 133,
@@ -33742,34 +32636,6 @@
       "additional1": 40,
       "additional2": 0,
       "total": 125
-    },
-    {
-      "invoiceNumber": 133,
-      "weekEnding": "2024-04-14",
-      "date": "Apr 8, 2024",
-      "tech": "Chris Ambler",
-      "customerName": "KEN & JEANETTE GRENZ",
-      "address": "14001 W 92ND ST #414",
-      "serviceOrderId": "no contact #",
-      "workOrderType": "125",
-      "baseCharge": 125,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 125
-    },
-    {
-      "invoiceNumber": 133,
-      "weekEnding": "2024-04-14",
-      "date": "Apr 8, 2024",
-      "tech": "Chris Ambler",
-      "customerName": "Wayne Christensen",
-      "address": "1200 N Leeview Cir",
-      "serviceOrderId": "no contact #",
-      "workOrderType": "40",
-      "baseCharge": 40,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 40
     },
     {
       "invoiceNumber": 133,
@@ -33866,20 +32732,6 @@
       "workOrderType": "85",
       "baseCharge": 85,
       "additional1": 40,
-      "additional2": 0,
-      "total": 125
-    },
-    {
-      "invoiceNumber": 133,
-      "weekEnding": "2024-04-14",
-      "date": "Apr 9, 2024",
-      "tech": "Remington Taylor",
-      "customerName": "Gail Holy",
-      "address": "8828 Noland Rd",
-      "serviceOrderId": "no contact #",
-      "workOrderType": "125",
-      "baseCharge": 125,
-      "additional1": 0,
       "additional2": 0,
       "total": 125
     },
@@ -34070,20 +32922,6 @@
       "weekEnding": "2024-04-14",
       "date": "Apr 10, 2024",
       "tech": "Remington Taylor",
-      "customerName": "AMY KESLER",
-      "address": "8419 W 72ND TER",
-      "serviceOrderId": "no contact #",
-      "workOrderType": "40",
-      "baseCharge": 40,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 40
-    },
-    {
-      "invoiceNumber": 133,
-      "weekEnding": "2024-04-14",
-      "date": "Apr 10, 2024",
-      "tech": "Remington Taylor",
       "customerName": "AMANDA CONLEY",
       "address": "6349 DEARBORN DR",
       "serviceOrderId": "9135300365",
@@ -34120,34 +32958,6 @@
       "additional1": 0,
       "additional2": 0,
       "total": 40
-    },
-    {
-      "invoiceNumber": 133,
-      "weekEnding": "2024-04-14",
-      "date": "Apr 11, 2024",
-      "tech": "Chris Ambler",
-      "customerName": "Christa Stirling",
-      "address": "21162 W 126th St",
-      "serviceOrderId": "no contact #",
-      "workOrderType": "125",
-      "baseCharge": 125,
-      "additional1": 40,
-      "additional2": 0,
-      "total": 165
-    },
-    {
-      "invoiceNumber": 133,
-      "weekEnding": "2024-04-14",
-      "date": "Apr 11, 2024",
-      "tech": "Chris Ambler",
-      "customerName": "CAROL BECK",
-      "address": "9000 PARK ST APT 416",
-      "serviceOrderId": "no contact #",
-      "workOrderType": "85",
-      "baseCharge": 85,
-      "additional1": 40,
-      "additional2": 0,
-      "total": 125
     },
     {
       "invoiceNumber": 133,
@@ -34246,20 +33056,6 @@
       "additional1": 40,
       "additional2": 0,
       "total": 165
-    },
-    {
-      "invoiceNumber": 133,
-      "weekEnding": "2024-04-14",
-      "date": "Apr 12, 2024",
-      "tech": "Chris Ambler",
-      "customerName": "CHARLES LARSEN",
-      "address": "8505 PFLUMM RD #139",
-      "serviceOrderId": "no contact #",
-      "workOrderType": "85",
-      "baseCharge": 85,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 85
     },
     {
       "invoiceNumber": 133,
@@ -34528,20 +33324,6 @@
       "total": 125
     },
     {
-      "invoiceNumber": 133,
-      "weekEnding": "2024-04-14",
-      "date": null,
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 8565
-    },
-    {
       "invoiceNumber": 134,
       "weekEnding": "2024-04-21",
       "date": "Apr 15, 2024",
@@ -34644,20 +33426,6 @@
       "weekEnding": "2024-04-21",
       "date": "Apr 15, 2024",
       "tech": "Remington Taylor",
-      "customerName": "ELLEN ROSE",
-      "address": "12224 DEARBORN ST",
-      "serviceOrderId": "no contact #",
-      "workOrderType": "125",
-      "baseCharge": 125,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 125
-    },
-    {
-      "invoiceNumber": 134,
-      "weekEnding": "2024-04-21",
-      "date": "Apr 15, 2024",
-      "tech": "Remington Taylor",
       "customerName": "Mary Crawford",
       "address": "15007 W 147TH ST",
       "serviceOrderId": "5157780434",
@@ -34736,20 +33504,6 @@
       "additional1": 0,
       "additional2": 0,
       "total": 40
-    },
-    {
-      "invoiceNumber": 134,
-      "weekEnding": "2024-04-21",
-      "date": "Apr 16, 2024",
-      "tech": "Chris Ambler",
-      "customerName": "Dirk Fetterolf",
-      "address": "10127 Bond St",
-      "serviceOrderId": "no contact #",
-      "workOrderType": "125",
-      "baseCharge": 125,
-      "additional1": 40,
-      "additional2": 0,
-      "total": 165
     },
     {
       "invoiceNumber": 134,
@@ -34924,20 +33678,6 @@
       "weekEnding": "2024-04-21",
       "date": "Apr 17, 2024",
       "tech": "Remington Taylor",
-      "customerName": "CAROLYN VOTH",
-      "address": "13850 W 91ST TER #504D",
-      "serviceOrderId": "no contact #",
-      "workOrderType": "85",
-      "baseCharge": 85,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 85
-    },
-    {
-      "invoiceNumber": 134,
-      "weekEnding": "2024-04-21",
-      "date": "Apr 17, 2024",
-      "tech": "Remington Taylor",
       "customerName": "PARIS GIRARD",
       "address": "9212 LICHTENAUER DR #528",
       "serviceOrderId": "9136898432",
@@ -34960,20 +33700,6 @@
       "additional1": 0,
       "additional2": 0,
       "total": 40
-    },
-    {
-      "invoiceNumber": 134,
-      "weekEnding": "2024-04-21",
-      "date": "Apr 18, 2024",
-      "tech": "Chris Ambler",
-      "customerName": "PHILIP PURCELL",
-      "address": "10918 REEDER ST",
-      "serviceOrderId": "no contact #",
-      "workOrderType": "125",
-      "baseCharge": 125,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 125
     },
     {
       "invoiceNumber": 134,
@@ -35424,20 +34150,6 @@
       "total": 125
     },
     {
-      "invoiceNumber": 134,
-      "weekEnding": "2024-04-21",
-      "date": null,
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 8250
-    },
-    {
       "invoiceNumber": 135,
       "weekEnding": "2024-04-28",
       "date": "Apr 22, 2024",
@@ -35497,34 +34209,6 @@
       "invoiceNumber": 135,
       "weekEnding": "2024-04-28",
       "date": "Apr 22, 2024",
-      "tech": "Chris Ambler",
-      "customerName": "JEROME TILZER",
-      "address": "5500 W 123RD ST APT 2019",
-      "serviceOrderId": "no contact #",
-      "workOrderType": "85",
-      "baseCharge": 85,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 85
-    },
-    {
-      "invoiceNumber": 135,
-      "weekEnding": "2024-04-28",
-      "date": "Apr 22, 2024",
-      "tech": "Chris Ambler",
-      "customerName": "ARMOUR OAKS - RM 5",
-      "address": "8100 WORNALL RD #5",
-      "serviceOrderId": "no contact #",
-      "workOrderType": "125",
-      "baseCharge": 125,
-      "additional1": 40,
-      "additional2": 0,
-      "total": 165
-    },
-    {
-      "invoiceNumber": 135,
-      "weekEnding": "2024-04-28",
-      "date": "Apr 22, 2024",
       "tech": "Remington Taylor",
       "customerName": "Kegan Vansickle",
       "address": "131 NELSON CIR",
@@ -35576,20 +34260,6 @@
       "additional1": 40,
       "additional2": 0,
       "total": 165
-    },
-    {
-      "invoiceNumber": 135,
-      "weekEnding": "2024-04-28",
-      "date": "Apr 22, 2024",
-      "tech": "Remington Taylor",
-      "customerName": "MITCHELL HANDLEY",
-      "address": "8038 HEMLOCK ST",
-      "serviceOrderId": "no contact #",
-      "workOrderType": "125",
-      "baseCharge": 125,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 125
     },
     {
       "invoiceNumber": 135,
@@ -35694,20 +34364,6 @@
       "weekEnding": "2024-04-28",
       "date": "Apr 24, 2024",
       "tech": "Remington Taylor",
-      "customerName": "JEROME TILZER",
-      "address": "5500 W 123RD ST APT 2019",
-      "serviceOrderId": "no contact #",
-      "workOrderType": "85",
-      "baseCharge": 85,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 85
-    },
-    {
-      "invoiceNumber": 135,
-      "weekEnding": "2024-04-28",
-      "date": "Apr 24, 2024",
-      "tech": "Remington Taylor",
       "customerName": "JOY BOWEN",
       "address": "11115 W 99TH TER",
       "serviceOrderId": "9135222251",
@@ -35767,20 +34423,6 @@
       "customerName": "ALAN HADDOCK",
       "address": "8819 CRAIG DR",
       "serviceOrderId": "(816)506-0371",
-      "workOrderType": "125",
-      "baseCharge": 125,
-      "additional1": 40,
-      "additional2": 0,
-      "total": 165
-    },
-    {
-      "invoiceNumber": 135,
-      "weekEnding": "2024-04-28",
-      "date": "Apr 25, 2024",
-      "tech": "Chris Ambler",
-      "customerName": "BARRY & LINDA KATZ",
-      "address": "12222 OUTLOOK ST",
-      "serviceOrderId": "no contact #",
       "workOrderType": "125",
       "baseCharge": 125,
       "additional1": 40,
@@ -35856,20 +34498,6 @@
       "additional1": 0,
       "additional2": 0,
       "total": 125
-    },
-    {
-      "invoiceNumber": 135,
-      "weekEnding": "2024-04-28",
-      "date": "Apr 25, 2024",
-      "tech": "Remington Taylor",
-      "customerName": "GLORIA SPURLOCK",
-      "address": "5500 W 123RD ST #E212",
-      "serviceOrderId": "no contact #",
-      "workOrderType": "85",
-      "baseCharge": 85,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 85
     },
     {
       "invoiceNumber": 135,
@@ -36278,20 +34906,6 @@
       "total": 125
     },
     {
-      "invoiceNumber": 135,
-      "weekEnding": "2024-04-28",
-      "date": null,
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 8555
-    },
-    {
       "invoiceNumber": 136,
       "weekEnding": "2024-05-04",
       "date": "Apr 29, 2024",
@@ -36478,20 +35092,6 @@
       "weekEnding": "2024-05-04",
       "date": "Apr 30, 2024",
       "tech": "Chris Ambler",
-      "customerName": "JOHN & IRENE BLEDSOE",
-      "address": "8505 PFLUMM RD RM 115",
-      "serviceOrderId": "no contact #",
-      "workOrderType": "85",
-      "baseCharge": 85,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 85
-    },
-    {
-      "invoiceNumber": 136,
-      "weekEnding": "2024-05-04",
-      "date": "Apr 30, 2024",
-      "tech": "Chris Ambler",
       "customerName": "GARRETT STEINLAGE",
       "address": "10404 NIEMAN RD",
       "serviceOrderId": "9139122594",
@@ -36570,20 +35170,6 @@
       "additional1": 0,
       "additional2": 0,
       "total": 40
-    },
-    {
-      "invoiceNumber": 136,
-      "weekEnding": "2024-05-04",
-      "date": "May 1, 2024",
-      "tech": "Chris Ambler",
-      "customerName": "RON AKS",
-      "address": "5500 W 123RD ST #3019",
-      "serviceOrderId": "no contact #",
-      "workOrderType": "85",
-      "baseCharge": 85,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 85
     },
     {
       "invoiceNumber": 136,
@@ -36716,20 +35302,6 @@
       "weekEnding": "2024-05-04",
       "date": "May 2, 2024",
       "tech": "Chris Ambler",
-      "customerName": "SHERRY SELIGSON",
-      "address": "5500 W 123RD ST #3016",
-      "serviceOrderId": "no contact #",
-      "workOrderType": "85",
-      "baseCharge": 85,
-      "additional1": 40,
-      "additional2": 0,
-      "total": 125
-    },
-    {
-      "invoiceNumber": 136,
-      "weekEnding": "2024-05-04",
-      "date": "May 2, 2024",
-      "tech": "Chris Ambler",
       "customerName": "DIANNE FRAZIER",
       "address": "9170 W 122ND ST #315",
       "serviceOrderId": "8162618900",
@@ -36752,20 +35324,6 @@
       "additional1": 40,
       "additional2": 0,
       "total": 165
-    },
-    {
-      "invoiceNumber": 136,
-      "weekEnding": "2024-05-04",
-      "date": "May 2, 2024",
-      "tech": "Remington Taylor",
-      "customerName": "JACK COOPER",
-      "address": "6228 W 126TH ST",
-      "serviceOrderId": "no contact #",
-      "workOrderType": "125",
-      "baseCharge": 125,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 125
     },
     {
       "invoiceNumber": 136,
@@ -36878,20 +35436,6 @@
       "additional1": 40,
       "additional2": 0,
       "total": 165
-    },
-    {
-      "invoiceNumber": 136,
-      "weekEnding": "2024-05-04",
-      "date": "May 3, 2024",
-      "tech": "Chris Ambler",
-      "customerName": "LINDA RONSICK",
-      "address": "9008 MULLEN RD",
-      "serviceOrderId": "no contact #",
-      "workOrderType": "155",
-      "baseCharge": 155,
-      "additional1": 40,
-      "additional2": 0,
-      "total": 195
     },
     {
       "invoiceNumber": 136,
@@ -37018,20 +35562,6 @@
       "additional1": 40,
       "additional2": 0,
       "total": 125
-    },
-    {
-      "invoiceNumber": 136,
-      "weekEnding": "2024-05-04",
-      "date": "May 4, 2024",
-      "tech": "Chris Ambler",
-      "customerName": "MILLIE SAMPSON",
-      "address": "7402 W 148TH ST",
-      "serviceOrderId": "8162134113",
-      "workOrderType": "40",
-      "baseCharge": 40,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 40
     },
     {
       "invoiceNumber": 136,
@@ -37200,34 +35730,6 @@
       "additional1": 0,
       "additional2": 0,
       "total": 125
-    },
-    {
-      "invoiceNumber": 136,
-      "weekEnding": "2024-05-04",
-      "date": null,
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 7755
-    },
-    {
-      "invoiceNumber": 137,
-      "weekEnding": "2024-05-12",
-      "date": "May 6, 2024",
-      "tech": "Chris Ambler",
-      "customerName": "Lee Thaete",
-      "address": "6731 Cottonwood Dr.",
-      "serviceOrderId": "no contact #",
-      "workOrderType": "155",
-      "baseCharge": 155,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 155
     },
     {
       "invoiceNumber": 137,
@@ -38070,20 +36572,6 @@
       "total": 125
     },
     {
-      "invoiceNumber": 137,
-      "weekEnding": "2024-05-12",
-      "date": null,
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 8310
-    },
-    {
       "invoiceNumber": 138,
       "weekEnding": "2024-05-19",
       "date": "May 13, 2024",
@@ -38326,20 +36814,6 @@
       "weekEnding": "2024-05-19",
       "date": "May 14, 2024",
       "tech": "Remington Taylor",
-      "customerName": "premier luxury",
-      "address": "10420 PFLUMM RD #711",
-      "serviceOrderId": "8156038409",
-      "workOrderType": "85",
-      "baseCharge": 85,
-      "additional1": 40,
-      "additional2": 0,
-      "total": 125
-    },
-    {
-      "invoiceNumber": 138,
-      "weekEnding": "2024-05-19",
-      "date": "May 14, 2024",
-      "tech": "Remington Taylor",
       "customerName": "Ken Dvorak",
       "address": "5434 ROSEWOOD ST",
       "serviceOrderId": "(913)940-1841",
@@ -38502,20 +36976,6 @@
       "additional1": 0,
       "additional2": 0,
       "total": 125
-    },
-    {
-      "invoiceNumber": 138,
-      "weekEnding": "2024-05-19",
-      "date": "May 16, 2024",
-      "tech": "Remington Taylor",
-      "customerName": "CAROL FIELDS",
-      "address": "5500W W 123RD ST #L3008",
-      "serviceOrderId": "no contact #",
-      "workOrderType": "40",
-      "baseCharge": 40,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 40
     },
     {
       "invoiceNumber": 138,
@@ -38840,20 +37300,6 @@
       "total": 165
     },
     {
-      "invoiceNumber": 138,
-      "weekEnding": "2024-05-19",
-      "date": null,
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 8530
-    },
-    {
       "invoiceNumber": 139,
       "weekEnding": "2024-05-26",
       "date": "May 20, 2024",
@@ -39020,20 +37466,6 @@
       "additional1": 0,
       "additional2": 0,
       "total": 85
-    },
-    {
-      "invoiceNumber": 139,
-      "weekEnding": "2024-05-26",
-      "date": "May 21, 2024",
-      "tech": "Remington Taylor",
-      "customerName": "Jeanette Marcel",
-      "address": "11809 W 99TH ST #B",
-      "serviceOrderId": "8168077000",
-      "workOrderType": "40",
-      "baseCharge": 40,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 40
     },
     {
       "invoiceNumber": 139,
@@ -39446,20 +37878,6 @@
       "weekEnding": "2024-05-26",
       "date": "May 25, 2024",
       "tech": "Remington Taylor",
-      "customerName": "H LAVONNE LAY",
-      "address": "9100 PARK ST #107",
-      "serviceOrderId": "no contact #",
-      "workOrderType": "85",
-      "baseCharge": 85,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 85
-    },
-    {
-      "invoiceNumber": 139,
-      "weekEnding": "2024-05-26",
-      "date": "May 25, 2024",
-      "tech": "Remington Taylor",
       "customerName": "CINDY HEY",
       "address": "8706 W 93RD TER",
       "serviceOrderId": "9139636562",
@@ -39538,20 +37956,6 @@
       "additional1": 40,
       "additional2": 0,
       "total": 125
-    },
-    {
-      "invoiceNumber": 139,
-      "weekEnding": "2024-05-26",
-      "date": null,
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 6985
     },
     {
       "invoiceNumber": 140,
@@ -39964,20 +38368,6 @@
       "weekEnding": "2024-06-02",
       "date": "May 30, 2024",
       "tech": "Remington Taylor",
-      "customerName": "MATTHEW BIXLER",
-      "address": "12819 LUCILLE ST",
-      "serviceOrderId": "no contact #",
-      "workOrderType": "125",
-      "baseCharge": 125,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 125
-    },
-    {
-      "invoiceNumber": 140,
-      "weekEnding": "2024-06-02",
-      "date": "May 30, 2024",
-      "tech": "Remington Taylor",
       "customerName": "JENNIFER WARE",
       "address": "9751 W 121ST ST",
       "serviceOrderId": "9137078637",
@@ -40268,20 +38658,6 @@
       "total": 125
     },
     {
-      "invoiceNumber": 140,
-      "weekEnding": "2024-06-02",
-      "date": null,
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 7830
-    },
-    {
       "invoiceNumber": 141,
       "weekEnding": "2024-06-09",
       "date": "Jun 3, 2024",
@@ -40429,20 +38805,6 @@
       "customerName": "Kenyon Strickland",
       "address": "9121 SCHWEIGER CT #268",
       "serviceOrderId": "8165591507",
-      "workOrderType": "85",
-      "baseCharge": 85,
-      "additional1": 40,
-      "additional2": 0,
-      "total": 125
-    },
-    {
-      "invoiceNumber": 141,
-      "weekEnding": "2024-06-09",
-      "date": "Jun 3, 2024",
-      "tech": "Remington Taylor",
-      "customerName": "CHUCK & LINDA BUCHMUELLER",
-      "address": "9028 SALEM DR #2",
-      "serviceOrderId": "no contact #",
       "workOrderType": "85",
       "baseCharge": 85,
       "additional1": 40,
@@ -40714,20 +39076,6 @@
       "additional1": 40,
       "additional2": 30,
       "total": 195
-    },
-    {
-      "invoiceNumber": 141,
-      "weekEnding": "2024-06-09",
-      "date": "Jun 5, 2024",
-      "tech": "Remington Taylor",
-      "customerName": "MAGGIE RAMING",
-      "address": "9532 W 85TH ST",
-      "serviceOrderId": "9138323784",
-      "workOrderType": "125",
-      "baseCharge": 125,
-      "additional1": 40,
-      "additional2": 0,
-      "total": 165
     },
     {
       "invoiceNumber": 141,
@@ -41206,20 +39554,6 @@
       "total": 125
     },
     {
-      "invoiceNumber": 141,
-      "weekEnding": "2024-06-09",
-      "date": null,
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 9855
-    },
-    {
       "invoiceNumber": 142,
       "weekEnding": "2024-06-16",
       "date": "Jun 10, 2024",
@@ -41260,20 +39594,6 @@
       "additional1": 40,
       "additional2": 0,
       "total": 165
-    },
-    {
-      "invoiceNumber": 142,
-      "weekEnding": "2024-06-16",
-      "date": "Jun 10, 2024",
-      "tech": "Chris Ambler",
-      "customerName": "DENNIS & MARCIA TIGHE",
-      "address": "9003 SALEM DR",
-      "serviceOrderId": "no contact #",
-      "workOrderType": "185",
-      "baseCharge": 185,
-      "additional1": 40,
-      "additional2": 30,
-      "total": 255
     },
     {
       "invoiceNumber": 142,
@@ -41344,20 +39664,6 @@
       "additional1": 40,
       "additional2": 90,
       "total": 255
-    },
-    {
-      "invoiceNumber": 142,
-      "weekEnding": "2024-06-16",
-      "date": "Jun 11, 2024",
-      "tech": "Chris Ambler",
-      "customerName": "Joan Streck",
-      "address": "14001 w 92nd st",
-      "serviceOrderId": "no contact #",
-      "workOrderType": "85",
-      "baseCharge": 85,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 85
     },
     {
       "invoiceNumber": 142,
@@ -41540,20 +39846,6 @@
       "additional1": 40,
       "additional2": 0,
       "total": 125
-    },
-    {
-      "invoiceNumber": 142,
-      "weekEnding": "2024-06-16",
-      "date": "Jun 12, 2024",
-      "tech": "Chris Ambler",
-      "customerName": "ELWOOD COLE",
-      "address": "14001 W 92ND ST APT 212",
-      "serviceOrderId": "no contact #",
-      "workOrderType": "85",
-      "baseCharge": 85,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 85
     },
     {
       "invoiceNumber": 142,
@@ -41990,20 +40282,6 @@
       "total": 125
     },
     {
-      "invoiceNumber": 142,
-      "weekEnding": "2024-06-16",
-      "date": null,
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 8100
-    },
-    {
       "invoiceNumber": 143,
       "weekEnding": "2024-06-23",
       "date": "Jun 17, 2024",
@@ -42161,20 +40439,6 @@
       "invoiceNumber": 143,
       "weekEnding": "2024-06-23",
       "date": "Jun 18, 2024",
-      "tech": "Chris Ambler",
-      "customerName": "KATHLEEN STULL",
-      "address": "10208 W 54TH ST",
-      "serviceOrderId": "no contact #",
-      "workOrderType": "125",
-      "baseCharge": 125,
-      "additional1": 40,
-      "additional2": 0,
-      "total": 165
-    },
-    {
-      "invoiceNumber": 143,
-      "weekEnding": "2024-06-23",
-      "date": "Jun 18, 2024",
       "tech": "Remington Taylor",
       "customerName": "MICHAEL TURNER",
       "address": "4401 W 62ND ST",
@@ -42254,20 +40518,6 @@
       "additional1": 40,
       "additional2": 0,
       "total": 165
-    },
-    {
-      "invoiceNumber": 143,
-      "weekEnding": "2024-06-23",
-      "date": "Jun 19, 2024",
-      "tech": "Chris Ambler",
-      "customerName": "BONNELL MADDEN",
-      "address": "600 NW PRYOR #211D",
-      "serviceOrderId": "no contact #",
-      "workOrderType": "85",
-      "baseCharge": 85,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 85
     },
     {
       "invoiceNumber": 143,
@@ -42540,20 +40790,6 @@
       "weekEnding": "2024-06-23",
       "date": "Jun 20, 2024",
       "tech": "Remington Taylor",
-      "customerName": "LAVERNE O'NEILL",
-      "address": "14100 W 90TH TER #212",
-      "serviceOrderId": "no contact #",
-      "workOrderType": "40",
-      "baseCharge": 40,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 40
-    },
-    {
-      "invoiceNumber": 143,
-      "weekEnding": "2024-06-23",
-      "date": "Jun 20, 2024",
-      "tech": "Remington Taylor",
       "customerName": "ALEX HOULTON",
       "address": "13921 W 72ND ST",
       "serviceOrderId": "9139075888",
@@ -42792,20 +41028,6 @@
       "weekEnding": "2024-06-23",
       "date": "Jun 22, 2024",
       "tech": "Chris Ambler",
-      "customerName": "BINTA BARRY",
-      "address": "8430 CARTER ST",
-      "serviceOrderId": "no contact #",
-      "workOrderType": "125",
-      "baseCharge": 125,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 125
-    },
-    {
-      "invoiceNumber": 143,
-      "weekEnding": "2024-06-23",
-      "date": "Jun 22, 2024",
-      "tech": "Chris Ambler",
       "customerName": "MARY MATHEIS",
       "address": "13840 W 91ST TER #123B",
       "serviceOrderId": "9133021774",
@@ -42926,20 +41148,6 @@
       "additional1": 40,
       "additional2": 0,
       "total": 165
-    },
-    {
-      "invoiceNumber": 143,
-      "weekEnding": "2024-06-23",
-      "date": null,
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 8690
     },
     {
       "invoiceNumber": 144,
@@ -43254,20 +41462,6 @@
       "weekEnding": "2024-06-30",
       "date": "Jun 26, 2024",
       "tech": "Chris Ambler",
-      "customerName": "NATHAN O'BLENNIS",
-      "address": "10729 BARTON ST",
-      "serviceOrderId": "5734899383",
-      "workOrderType": "40",
-      "baseCharge": 40,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 40
-    },
-    {
-      "invoiceNumber": 144,
-      "weekEnding": "2024-06-30",
-      "date": "Jun 26, 2024",
-      "tech": "Chris Ambler",
       "customerName": "GEORGE VARGHESE",
       "address": "11012 W 125TH ST",
       "serviceOrderId": "9136812178",
@@ -43332,20 +41526,6 @@
       "additional1": 40,
       "additional2": 0,
       "total": 165
-    },
-    {
-      "invoiceNumber": 144,
-      "weekEnding": "2024-06-30",
-      "date": "Jun 26, 2024",
-      "tech": "Remington Taylor",
-      "customerName": "SIYUNG CHO",
-      "address": "7927 GRANT ST #51",
-      "serviceOrderId": "no contact #",
-      "workOrderType": "85",
-      "baseCharge": 85,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 85
     },
     {
       "invoiceNumber": 144,
@@ -43593,20 +41773,6 @@
       "customerName": "JAMES GORMAN",
       "address": "5627 W 125TH ST",
       "serviceOrderId": "9133385435",
-      "workOrderType": "125",
-      "baseCharge": 125,
-      "additional1": 40,
-      "additional2": 0,
-      "total": 165
-    },
-    {
-      "invoiceNumber": 144,
-      "weekEnding": "2024-06-30",
-      "date": "Jun 28, 2024",
-      "tech": "Chris Ambler",
-      "customerName": "AKLILU DAMTEW",
-      "address": "21844 W 123RD TER",
-      "serviceOrderId": "6303960741",
       "workOrderType": "125",
       "baseCharge": 125,
       "additional1": 40,
@@ -43948,20 +42114,6 @@
       "additional1": 40,
       "additional2": 0,
       "total": 125
-    },
-    {
-      "invoiceNumber": 144,
-      "weekEnding": "2024-06-30",
-      "date": null,
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 9640
     },
     {
       "invoiceNumber": 145,
@@ -44318,20 +42470,6 @@
       "weekEnding": "2024-07-07",
       "date": "Jul 3, 2024",
       "tech": "Chris Ambler",
-      "customerName": "JULIE DERSHEM",
-      "address": "7205 ROBINSON ST",
-      "serviceOrderId": "no contact #",
-      "workOrderType": "125",
-      "baseCharge": 125,
-      "additional1": 40,
-      "additional2": 0,
-      "total": 165
-    },
-    {
-      "invoiceNumber": 145,
-      "weekEnding": "2024-07-07",
-      "date": "Jul 3, 2024",
-      "tech": "Chris Ambler",
       "customerName": "JOSE BLANCO",
       "address": "9228 LEGLER CIR #450",
       "serviceOrderId": "9133963873",
@@ -44662,20 +42800,6 @@
       "additional1": 40,
       "additional2": 0,
       "total": 125
-    },
-    {
-      "invoiceNumber": 145,
-      "weekEnding": "2024-07-07",
-      "date": null,
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 7085
     },
     {
       "invoiceNumber": 146,
@@ -45644,20 +43768,6 @@
       "total": 125
     },
     {
-      "invoiceNumber": 146,
-      "weekEnding": "2024-07-14",
-      "date": null,
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 10079
-    },
-    {
       "invoiceNumber": 147,
       "weekEnding": "2024-07-21",
       "date": "Jul 15, 2024",
@@ -46332,20 +44442,6 @@
     {
       "invoiceNumber": 147,
       "weekEnding": "2024-07-21",
-      "date": "Jul 18, 2024",
-      "tech": "Remington Taylor",
-      "customerName": "LINDA NADING",
-      "address": "5500 W 123RD ST #E118",
-      "serviceOrderId": "No Contact #",
-      "workOrderType": "85",
-      "baseCharge": 85,
-      "additional1": 40,
-      "additional2": 0,
-      "total": 125
-    },
-    {
-      "invoiceNumber": 147,
-      "weekEnding": "2024-07-21",
       "date": "Jul 19, 2024",
       "tech": "Chris Ambler",
       "customerName": "Omar Molina",
@@ -46624,20 +44720,6 @@
       "total": 125
     },
     {
-      "invoiceNumber": 147,
-      "weekEnding": "2024-07-21",
-      "date": null,
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 10405
-    },
-    {
       "invoiceNumber": 148,
       "weekEnding": "2024-07-28",
       "date": "Jul 22, 2024",
@@ -46799,20 +44881,6 @@
       "customerName": "SUSAN FEINBERG",
       "address": "5500 W 123RD ST #716",
       "serviceOrderId": "9136605301",
-      "workOrderType": "85",
-      "baseCharge": 85,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 85
-    },
-    {
-      "invoiceNumber": 148,
-      "weekEnding": "2024-07-28",
-      "date": "Jul 23, 2024",
-      "tech": "Chris Ambler",
-      "customerName": "STEVE PRICE",
-      "address": "5500 W 123RD ST #105",
-      "serviceOrderId": "no contact #",
       "workOrderType": "85",
       "baseCharge": 85,
       "additional1": 0,
@@ -47632,34 +45700,6 @@
       "total": 40
     },
     {
-      "invoiceNumber": 148,
-      "weekEnding": "2024-07-28",
-      "date": null,
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 9270
-    },
-    {
-      "invoiceNumber": 149,
-      "weekEnding": "2024-08-04",
-      "date": "Jul 29, 2024",
-      "tech": "Chris Ambler",
-      "customerName": "TANYA MONTGOMERY",
-      "address": "621 NW JACOB DR #313",
-      "serviceOrderId": "no contact #",
-      "workOrderType": "125",
-      "baseCharge": 125,
-      "additional1": 40,
-      "additional2": 0,
-      "total": 165
-    },
-    {
       "invoiceNumber": 149,
       "weekEnding": "2024-08-04",
       "date": "Jul 29, 2024",
@@ -47798,20 +45838,6 @@
       "additional1": 40,
       "additional2": 0,
       "total": 165
-    },
-    {
-      "invoiceNumber": 149,
-      "weekEnding": "2024-08-04",
-      "date": "Jul 29, 2024",
-      "tech": "Remington Taylor",
-      "customerName": "Progressive Technology",
-      "address": "13651 HAUSER ST #206",
-      "serviceOrderId": "9015911900",
-      "workOrderType": "85",
-      "baseCharge": 85,
-      "additional1": 40,
-      "additional2": 0,
-      "total": 125
     },
     {
       "invoiceNumber": 149,
@@ -48778,20 +46804,6 @@
       "additional1": 0,
       "additional2": 0,
       "total": 125
-    },
-    {
-      "invoiceNumber": 149,
-      "weekEnding": "2024-08-04",
-      "date": null,
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 11555
     },
     {
       "invoiceNumber": 150,
@@ -49968,20 +47980,6 @@
       "additional1": 0,
       "additional2": 0,
       "total": 85
-    },
-    {
-      "invoiceNumber": 150,
-      "weekEnding": "2024-08-10",
-      "date": "2024-08-10",
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 11770
     },
     {
       "invoiceNumber": 151,
@@ -51270,20 +49268,6 @@
       "additional1": 0,
       "additional2": 0,
       "total": 125
-    },
-    {
-      "invoiceNumber": 151,
-      "weekEnding": "2024-08-18",
-      "date": "2024-08-17",
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 13300
     },
     {
       "invoiceNumber": 152,
@@ -52726,20 +50710,6 @@
       "additional1": 40,
       "additional2": 0,
       "total": 125
-    },
-    {
-      "invoiceNumber": 152,
-      "weekEnding": "2024-08-25",
-      "date": "2024-08-24",
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 15105
     },
     {
       "invoiceNumber": 153,
@@ -54252,20 +52222,6 @@
       "additional1": 40,
       "additional2": 0,
       "total": 125
-    },
-    {
-      "invoiceNumber": 153,
-      "weekEnding": "2024-09-01",
-      "date": "2024-08-31",
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 16365
     },
     {
       "invoiceNumber": 156,
@@ -56088,20 +54044,6 @@
       "total": 195
     },
     {
-      "invoiceNumber": 156,
-      "weekEnding": "2024-09-15",
-      "date": "2024-09-14",
-      "tech": "Tanya",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 25890
-    },
-    {
       "invoiceNumber": 157,
       "weekEnding": "2024-09-28",
       "date": "2024-09-23",
@@ -57474,20 +55416,6 @@
       "total": 40
     },
     {
-      "invoiceNumber": 157,
-      "weekEnding": "2024-09-28",
-      "date": "2024-09-28",
-      "tech": "Tanya",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 22510
-    },
-    {
       "invoiceNumber": 159,
       "weekEnding": "2024-10-06",
       "date": "2024-09-30",
@@ -58648,20 +56576,6 @@
       "additional1": 40,
       "additional2": 30,
       "total": 195
-    },
-    {
-      "invoiceNumber": 159,
-      "weekEnding": "2024-10-06",
-      "date": "2024-10-05",
-      "tech": "Tanya",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 20930
     },
     {
       "invoiceNumber": 160,
@@ -59908,20 +57822,6 @@
       "additional1": 40,
       "additional2": 0,
       "total": 195
-    },
-    {
-      "invoiceNumber": 160,
-      "weekEnding": "2024-10-13",
-      "date": "2024-10-12",
-      "tech": "Tanya",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 21550
     },
     {
       "invoiceNumber": 161,
@@ -61224,20 +59124,6 @@
       "additional1": 0,
       "additional2": 0,
       "total": 155
-    },
-    {
-      "invoiceNumber": 161,
-      "weekEnding": "2024-10-20",
-      "date": "2024-10-19",
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 22370
     },
     {
       "invoiceNumber": 162,
@@ -62680,20 +60566,6 @@
       "additional1": 0,
       "additional2": 0,
       "total": 125
-    },
-    {
-      "invoiceNumber": 162,
-      "weekEnding": "2024-10-27",
-      "date": "2024-10-26",
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 23755
     },
     {
       "invoiceNumber": 163,
@@ -64278,20 +62150,6 @@
       "total": 195
     },
     {
-      "invoiceNumber": 163,
-      "weekEnding": "2024-11-03",
-      "date": "2024-11-02",
-      "tech": "Chris Ambler",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 22415
-    },
-    {
       "invoiceNumber": 164,
       "weekEnding": "2024-11-11",
       "date": "2024-11-04",
@@ -65706,20 +63564,6 @@
       "total": 40
     },
     {
-      "invoiceNumber": 164,
-      "weekEnding": "2024-11-11",
-      "date": "2024-11-09",
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 23060
-    },
-    {
       "invoiceNumber": 165,
       "weekEnding": "2024-11-17",
       "date": "2024-11-11",
@@ -66574,20 +64418,6 @@
       "total": 40
     },
     {
-      "invoiceNumber": 165,
-      "weekEnding": "2024-11-17",
-      "date": "2024-11-16",
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 13160
-    },
-    {
       "invoiceNumber": 166,
       "weekEnding": "2024-11-24",
       "date": "2024-11-18",
@@ -67358,20 +65188,6 @@
       "total": 40
     },
     {
-      "invoiceNumber": 166,
-      "weekEnding": "2024-11-24",
-      "date": "2024-11-22",
-      "tech": "Chris Ambler",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 12665
-    },
-    {
       "invoiceNumber": 167,
       "weekEnding": "2024-12-01",
       "date": "2024-11-25",
@@ -67804,20 +65620,6 @@
       "additional1": 40,
       "additional2": 0,
       "total": 125
-    },
-    {
-      "invoiceNumber": 167,
-      "weekEnding": "2024-12-01",
-      "date": "2024-11-30",
-      "tech": "Angel",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 5560
     },
     {
       "invoiceNumber": 168,
@@ -68434,20 +66236,6 @@
       "additional1": 40,
       "additional2": 0,
       "total": 145
-    },
-    {
-      "invoiceNumber": 168,
-      "weekEnding": "2024-12-08",
-      "date": "2024-12-07",
-      "tech": "Chris Ambler",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 9390
     },
     {
       "invoiceNumber": 169,
@@ -69122,20 +66910,6 @@
       "total": 165
     },
     {
-      "invoiceNumber": 169,
-      "weekEnding": "2024-12-15",
-      "date": "2024-12-14",
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 8690
-    },
-    {
       "invoiceNumber": 171,
       "weekEnding": "2024-12-29",
       "date": "2024-12-23",
@@ -69542,20 +67316,6 @@
       "total": 125
     },
     {
-      "invoiceNumber": 171,
-      "weekEnding": "2024-12-29",
-      "date": "2024-12-28",
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 5560
-    },
-    {
       "invoiceNumber": 172,
       "weekEnding": "2025-01-18",
       "date": "2025-01-07",
@@ -69960,20 +67720,6 @@
       "additional1": 40,
       "additional2": 0,
       "total": 125
-    },
-    {
-      "invoiceNumber": 172,
-      "weekEnding": "2025-01-18",
-      "date": "2025-01-11",
-      "tech": "Angel",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 5545
     },
     {
       "invoiceNumber": 173,
@@ -70494,20 +68240,6 @@
       "total": 40
     },
     {
-      "invoiceNumber": 173,
-      "weekEnding": "2025-01-18",
-      "date": "2025-01-18",
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 7385
-    },
-    {
       "invoiceNumber": 174,
       "weekEnding": "2025-01-25",
       "date": "2025-01-20",
@@ -70786,20 +68518,6 @@
       "additional1": 40,
       "additional2": 45,
       "total": 210
-    },
-    {
-      "invoiceNumber": 174,
-      "weekEnding": "2025-01-25",
-      "date": "2025-01-25",
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 5020
     },
     {
       "invoiceNumber": 175,
@@ -71250,20 +68968,6 @@
       "total": 165
     },
     {
-      "invoiceNumber": 175,
-      "weekEnding": "2025-02-01",
-      "date": "2025-02-01",
-      "tech": "Chris Ambler",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 6695
-    },
-    {
       "invoiceNumber": 176,
       "weekEnding": "2025-02-08",
       "date": "2025-02-03",
@@ -71640,20 +69344,6 @@
       "additional1": 30,
       "additional2": 0,
       "total": 155
-    },
-    {
-      "invoiceNumber": 176,
-      "weekEnding": "2025-02-08",
-      "date": "2025-02-08",
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 6335
     },
     {
       "invoiceNumber": 177,
@@ -72158,20 +69848,6 @@
       "additional1": 0,
       "additional2": 0,
       "total": 125
-    },
-    {
-      "invoiceNumber": 177,
-      "weekEnding": "2025-02-15",
-      "date": "2025-02-15",
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 9000
     },
     {
       "invoiceNumber": 178,
@@ -73084,20 +70760,6 @@
       "total": 40
     },
     {
-      "invoiceNumber": 178,
-      "weekEnding": "2025-02-22",
-      "date": "2025-02-22",
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 8610
-    },
-    {
       "invoiceNumber": 179,
       "weekEnding": "2025-03-01",
       "date": "2025-02-24",
@@ -73676,20 +71338,6 @@
       "weekEnding": "2025-03-01",
       "date": "2025-02-28",
       "tech": "Chris Ambler",
-      "customerName": "Fabian Alban",
-      "address": "11916 W 109TH ST #120",
-      "serviceOrderId": "128719",
-      "workOrderType": "40",
-      "baseCharge": 40,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 40
-    },
-    {
-      "invoiceNumber": 179,
-      "weekEnding": "2025-03-01",
-      "date": "2025-02-28",
-      "tech": "Chris Ambler",
       "customerName": "Casey Cohorst",
       "address": "13840 HAUSER ST",
       "serviceOrderId": "128847",
@@ -74062,20 +71710,6 @@
       "additional1": 40,
       "additional2": 0,
       "total": 165
-    },
-    {
-      "invoiceNumber": 179,
-      "weekEnding": "2025-03-01",
-      "date": "2025-03-01",
-      "tech": "Chris Ambler",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 9585
     },
     {
       "invoiceNumber": 180,
@@ -74622,20 +72256,6 @@
       "additional1": 0,
       "additional2": 0,
       "total": 125
-    },
-    {
-      "invoiceNumber": 180,
-      "weekEnding": "2025-03-08",
-      "date": "2025-03-08",
-      "tech": "Chris Ambler",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 4765
     },
     {
       "invoiceNumber": 181,
@@ -75224,20 +72844,6 @@
       "additional1": 0,
       "additional2": 0,
       "total": 155
-    },
-    {
-      "invoiceNumber": 181,
-      "weekEnding": "2025-03-15",
-      "date": "2025-03-15",
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 5715
     },
     {
       "invoiceNumber": 182,
@@ -75940,20 +73546,6 @@
       "total": 165
     },
     {
-      "invoiceNumber": 182,
-      "weekEnding": "2025-03-22",
-      "date": "2025-03-22",
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 7350
-    },
-    {
       "invoiceNumber": 183,
       "weekEnding": "2025-03-29",
       "date": "2025-03-24",
@@ -76008,20 +73600,6 @@
       "additional1": 40,
       "additional2": 0,
       "total": 145
-    },
-    {
-      "invoiceNumber": 183,
-      "weekEnding": "2025-03-29",
-      "date": "2025-03-24",
-      "tech": "Chris Ambler",
-      "customerName": "ELIZABETH RICHARDS",
-      "address": "8304 VALLEY VIEW DR",
-      "serviceOrderId": "128534",
-      "workOrderType": "40",
-      "baseCharge": 40,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 40
     },
     {
       "invoiceNumber": 183,
@@ -76638,20 +74216,6 @@
       "additional1": 0,
       "additional2": 0,
       "total": 40
-    },
-    {
-      "invoiceNumber": 183,
-      "weekEnding": "2025-03-29",
-      "date": "2025-03-29",
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 6960
     },
     {
       "invoiceNumber": 185,
@@ -77438,20 +75002,6 @@
       "total": 40
     },
     {
-      "invoiceNumber": 185,
-      "weekEnding": "2025-04-12",
-      "date": "2025-04-12",
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 8270
-    },
-    {
       "invoiceNumber": 186,
       "weekEnding": "2025-04-19",
       "date": "2025-04-14",
@@ -78152,20 +75702,6 @@
       "total": 165
     },
     {
-      "invoiceNumber": 186,
-      "weekEnding": "2025-04-19",
-      "date": "2025-04-19",
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 7110
-    },
-    {
       "invoiceNumber": 187,
       "weekEnding": "2025-04-26",
       "date": "2025-04-21",
@@ -78556,20 +76092,6 @@
       "additional1": 40,
       "additional2": 0,
       "total": 165
-    },
-    {
-      "invoiceNumber": 187,
-      "weekEnding": "2025-04-26",
-      "date": "2025-04-25",
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 3850
     },
     {
       "invoiceNumber": 189,
@@ -79158,20 +76680,6 @@
       "additional1": 0,
       "additional2": 0,
       "total": 125
-    },
-    {
-      "invoiceNumber": 189,
-      "weekEnding": "2025-05-10",
-      "date": "2025-05-10",
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 5485
     },
     {
       "invoiceNumber": 190,
@@ -79788,20 +77296,6 @@
       "additional1": 0,
       "additional2": 0,
       "total": 40
-    },
-    {
-      "invoiceNumber": 190,
-      "weekEnding": "2025-05-17",
-      "date": "2025-05-17",
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 5180
     },
     {
       "invoiceNumber": 191,
@@ -80516,20 +78010,6 @@
       "additional1": 40,
       "additional2": 30,
       "total": 195
-    },
-    {
-      "invoiceNumber": 191,
-      "weekEnding": "2025-05-24",
-      "date": "2025-05-24",
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 6905
     },
     {
       "invoiceNumber": 192,
@@ -81358,20 +78838,6 @@
       "total": 125
     },
     {
-      "invoiceNumber": 192,
-      "weekEnding": "2025-05-31",
-      "date": "2025-02-28",
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 7420
-    },
-    {
       "invoiceNumber": 193,
       "weekEnding": "2025-06-08",
       "date": "2025-06-02",
@@ -81542,20 +79008,6 @@
     {
       "invoiceNumber": 193,
       "weekEnding": "2025-06-08",
-      "date": "2025-06-02",
-      "tech": "Remington Taylor",
-      "customerName": "John Hincapie",
-      "address": "10910 W 65TH PL #106",
-      "serviceOrderId": "139911",
-      "workOrderType": "40",
-      "baseCharge": 40,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 40
-    },
-    {
-      "invoiceNumber": 193,
-      "weekEnding": "2025-06-08",
       "date": "2025-06-03",
       "tech": "Chris Ambler",
       "customerName": "Keghan de Moulpied",
@@ -81580,20 +79032,6 @@
       "additional1": 0,
       "additional2": 0,
       "total": 125
-    },
-    {
-      "invoiceNumber": 193,
-      "weekEnding": "2025-06-08",
-      "date": "2025-06-03",
-      "tech": "Chris Ambler",
-      "customerName": "CAROL POTRATZ",
-      "address": "9000 PARK ST #410A",
-      "serviceOrderId": "138434",
-      "workOrderType": "40",
-      "baseCharge": 40,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 40
     },
     {
       "invoiceNumber": 193,
@@ -82226,20 +79664,6 @@
       "total": 125
     },
     {
-      "invoiceNumber": 193,
-      "weekEnding": "2025-06-08",
-      "date": "2025-06-07",
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 8345
-    },
-    {
       "invoiceNumber": 194,
       "weekEnding": "2025-06-14",
       "date": "2025-06-09",
@@ -82678,20 +80102,6 @@
       "weekEnding": "2025-06-14",
       "date": "2025-06-13",
       "tech": "Chris Ambler",
-      "customerName": "Laura Jenkins",
-      "address": "9528 W 85TH ST",
-      "serviceOrderId": "138159",
-      "workOrderType": "40",
-      "baseCharge": 40,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 40
-    },
-    {
-      "invoiceNumber": 194,
-      "weekEnding": "2025-06-14",
-      "date": "2025-06-13",
-      "tech": "Chris Ambler",
       "customerName": "Adam Chiconas",
       "address": "12614 W 110TH TER",
       "serviceOrderId": "142518",
@@ -82868,20 +80278,6 @@
       "additional1": 40,
       "additional2": 0,
       "total": 125
-    },
-    {
-      "invoiceNumber": 194,
-      "weekEnding": "2025-06-14",
-      "date": "2025-06-14",
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 6590
     },
     {
       "invoiceNumber": 195,
@@ -83570,20 +80966,6 @@
       "total": 125
     },
     {
-      "invoiceNumber": 195,
-      "weekEnding": "2025-06-21",
-      "date": "2025-06-21",
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 7020
-    },
-    {
       "invoiceNumber": 196,
       "weekEnding": "2025-06-28",
       "date": "2025-06-23",
@@ -83978,160 +81360,6 @@
     {
       "invoiceNumber": 196,
       "weekEnding": "2025-06-28",
-      "date": "2025-06-26",
-      "tech": "Chris Ambler",
-      "customerName": "Camilo Toledo",
-      "address": "8112 WOODWARD ST",
-      "serviceOrderId": "19023702",
-      "workOrderType": "125",
-      "baseCharge": 125,
-      "additional1": 40,
-      "additional2": 30,
-      "total": 195
-    },
-    {
-      "invoiceNumber": 196,
-      "weekEnding": "2025-06-28",
-      "date": "2025-06-26",
-      "tech": "Chris Ambler",
-      "customerName": "PAULA THOMAS",
-      "address": "6801 W 129TH TER apt 202",
-      "serviceOrderId": "19023606",
-      "workOrderType": "85",
-      "baseCharge": 85,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 85
-    },
-    {
-      "invoiceNumber": 196,
-      "weekEnding": "2025-06-28",
-      "date": "2025-06-26",
-      "tech": "Chris Ambler",
-      "customerName": "SUE MURPHY-ANDRUS",
-      "address": "14315 W 58TH TER",
-      "serviceOrderId": "19023652",
-      "workOrderType": "125",
-      "baseCharge": 125,
-      "additional1": 40,
-      "additional2": 30,
-      "total": 195
-    },
-    {
-      "invoiceNumber": 196,
-      "weekEnding": "2025-06-28",
-      "date": "2025-06-26",
-      "tech": "Remington Taylor",
-      "customerName": "DENNIS SHOOK",
-      "address": "12831 BARKLEY ST apt 103",
-      "serviceOrderId": "19000628",
-      "workOrderType": "85",
-      "baseCharge": 85,
-      "additional1": 40,
-      "additional2": 0,
-      "total": 125
-    },
-    {
-      "invoiceNumber": 196,
-      "weekEnding": "2025-06-28",
-      "date": "2025-06-26",
-      "tech": "Chris Ambler",
-      "customerName": "John Walpole",
-      "address": "10800 OASIS CT apt 116",
-      "serviceOrderId": "19023707",
-      "workOrderType": "85",
-      "baseCharge": 85,
-      "additional1": 40,
-      "additional2": 0,
-      "total": 125
-    },
-    {
-      "invoiceNumber": 196,
-      "weekEnding": "2025-06-28",
-      "date": "2025-06-26",
-      "tech": "Remington Taylor",
-      "customerName": "DAVID STONEKING",
-      "address": "12901 GLENWOOD ST apt 202",
-      "serviceOrderId": "19023669",
-      "workOrderType": "85",
-      "baseCharge": 85,
-      "additional1": 40,
-      "additional2": 0,
-      "total": 125
-    },
-    {
-      "invoiceNumber": 196,
-      "weekEnding": "2025-06-28",
-      "date": "2025-06-26",
-      "tech": "Remington Taylor",
-      "customerName": "JORGE URIONA",
-      "address": "6335 MAURER RD apt 131",
-      "serviceOrderId": "19023703",
-      "workOrderType": "105",
-      "baseCharge": 105,
-      "additional1": 40,
-      "additional2": 0,
-      "total": 145
-    },
-    {
-      "invoiceNumber": 196,
-      "weekEnding": "2025-06-28",
-      "date": "2025-06-26",
-      "tech": "Remington Taylor",
-      "customerName": "Kevin Benton",
-      "address": "10307 GODDARD ST apt 4",
-      "serviceOrderId": "19023688",
-      "workOrderType": "85",
-      "baseCharge": 85,
-      "additional1": 40,
-      "additional2": 0,
-      "total": 125
-    },
-    {
-      "invoiceNumber": 196,
-      "weekEnding": "2025-06-28",
-      "date": "2025-06-26",
-      "tech": "Remington Taylor",
-      "customerName": "BRADY CHILDS",
-      "address": "12911 BARKLEY ST apt 205",
-      "serviceOrderId": "19023699",
-      "workOrderType": "85",
-      "baseCharge": 85,
-      "additional1": 40,
-      "additional2": 0,
-      "total": 125
-    },
-    {
-      "invoiceNumber": 196,
-      "weekEnding": "2025-06-28",
-      "date": "2025-06-26",
-      "tech": "Remington Taylor",
-      "customerName": "PHILIP BOYNE",
-      "address": "12710 RIGGS RD apt 106",
-      "serviceOrderId": "19023705",
-      "workOrderType": "85",
-      "baseCharge": 85,
-      "additional1": 40,
-      "additional2": 0,
-      "total": 125
-    },
-    {
-      "invoiceNumber": 196,
-      "weekEnding": "2025-06-28",
-      "date": "2025-06-26",
-      "tech": "Remington Taylor",
-      "customerName": "JULIAN HALLOY",
-      "address": "12810 W 136TH ST apt 105",
-      "serviceOrderId": "19023698",
-      "workOrderType": "85",
-      "baseCharge": 85,
-      "additional1": 40,
-      "additional2": 0,
-      "total": 125
-    },
-    {
-      "invoiceNumber": 196,
-      "weekEnding": "2025-06-28",
       "date": "2025-06-27",
       "tech": "Chris Ambler",
       "customerName": "Kristofer Kastner",
@@ -84394,20 +81622,6 @@
       "additional1": 40,
       "additional2": 0,
       "total": 125
-    },
-    {
-      "invoiceNumber": 196,
-      "weekEnding": "2025-06-28",
-      "date": "2025-06-28",
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 7980
     },
     {
       "invoiceNumber": 197,
@@ -85208,20 +82422,6 @@
       "total": 210
     },
     {
-      "invoiceNumber": 197,
-      "weekEnding": "2025-07-05",
-      "date": "2025-07-05",
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 8280
-    },
-    {
       "invoiceNumber": 198,
       "weekEnding": "2025-07-12",
       "date": "2025-07-07",
@@ -85948,20 +83148,6 @@
       "additional1": 40,
       "additional2": 30,
       "total": 195
-    },
-    {
-      "invoiceNumber": 198,
-      "weekEnding": "2025-07-12",
-      "date": "2025-07-12",
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 6815
     },
     {
       "invoiceNumber": 199,
@@ -86902,20 +84088,6 @@
       "total": 165
     },
     {
-      "invoiceNumber": 199,
-      "weekEnding": "2025-07-19",
-      "date": "2025-07-19",
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 8959
-    },
-    {
       "invoiceNumber": 200,
       "weekEnding": "2025-07-26",
       "date": "2025-07-21",
@@ -87770,20 +84942,6 @@
       "total": 125
     },
     {
-      "invoiceNumber": 200,
-      "weekEnding": "2025-07-26",
-      "date": "2025-07-26",
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 9670
-    },
-    {
       "invoiceNumber": 201,
       "weekEnding": "2025-08-02",
       "date": "2025-07-28",
@@ -88362,20 +85520,6 @@
       "weekEnding": "2025-08-02",
       "date": "2025-07-31",
       "tech": "Marcus Martin",
-      "customerName": "MARY DIANE HERBSMAN",
-      "address": "315 NW CRAIGMONT DR",
-      "serviceOrderId": "148590",
-      "workOrderType": "40",
-      "baseCharge": 40,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 40
-    },
-    {
-      "invoiceNumber": 201,
-      "weekEnding": "2025-08-02",
-      "date": "2025-07-31",
-      "tech": "Marcus Martin",
       "customerName": "SUSAN OLTREMARI",
       "address": "10000 W 70TH ST",
       "serviceOrderId": "149108",
@@ -88664,20 +85808,6 @@
       "additional1": 0,
       "additional2": 0,
       "total": 40
-    },
-    {
-      "invoiceNumber": 201,
-      "weekEnding": "2025-08-02",
-      "date": "2025-08-02",
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 10690
     },
     {
       "invoiceNumber": 202,
@@ -89996,20 +87126,6 @@
       "total": 145
     },
     {
-      "invoiceNumber": 202,
-      "weekEnding": "2025-08-09",
-      "date": "2025-08-09",
-      "tech": "Marcus Martin",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 13515
-    },
-    {
       "invoiceNumber": 203,
       "weekEnding": "2025-08-16",
       "date": "2025-08-11",
@@ -90904,20 +88020,6 @@
       "additional1": 40,
       "additional2": 45,
       "total": 210
-    },
-    {
-      "invoiceNumber": 203,
-      "weekEnding": "2025-08-16",
-      "date": "2025-08-16",
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 9320
     },
     {
       "invoiceNumber": 204,
@@ -91830,20 +88932,6 @@
       "total": 40
     },
     {
-      "invoiceNumber": 204,
-      "weekEnding": "2025-08-23",
-      "date": "2025-08-23",
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 9075
-    },
-    {
       "invoiceNumber": 205,
       "weekEnding": "2025-08-30",
       "date": "2025-08-25",
@@ -92392,20 +89480,6 @@
     {
       "invoiceNumber": 205,
       "weekEnding": "2025-08-30",
-      "date": "2025-08-28",
-      "tech": "Chris Ambler",
-      "customerName": "SANDY KOLDERUP",
-      "address": "13200 W 85TH CT",
-      "serviceOrderId": "152370",
-      "workOrderType": "125",
-      "baseCharge": 125,
-      "additional1": 40,
-      "additional2": 0,
-      "total": 165
-    },
-    {
-      "invoiceNumber": 205,
-      "weekEnding": "2025-08-30",
       "date": "2025-08-29",
       "tech": "Chris Ambler",
       "customerName": "DAVID BAKER",
@@ -92780,20 +89854,6 @@
       "additional1": 40,
       "additional2": 0,
       "total": 125
-    },
-    {
-      "invoiceNumber": 205,
-      "weekEnding": "2025-08-30",
-      "date": "2025-08-30",
-      "tech": "Chris Ambler",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 9780
     },
     {
       "invoiceNumber": 206,
@@ -93538,20 +90598,6 @@
       "total": 195
     },
     {
-      "invoiceNumber": 206,
-      "weekEnding": "2025-09-06",
-      "date": "2025-09-06",
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 8035
-    },
-    {
       "invoiceNumber": 207,
       "weekEnding": "2025-09-13",
       "date": "2025-09-08",
@@ -93928,20 +90974,6 @@
       "additional1": 40,
       "additional2": 0,
       "total": 125
-    },
-    {
-      "invoiceNumber": 207,
-      "weekEnding": "2025-09-13",
-      "date": "2025-09-10",
-      "tech": "Chris Ambler",
-      "customerName": "DOROTHY LINTZ",
-      "address": "1704 NW OBRIEN RD #193",
-      "serviceOrderId": "154159",
-      "workOrderType": "40",
-      "baseCharge": 40,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 40
     },
     {
       "invoiceNumber": 207,
@@ -94474,20 +91506,6 @@
       "additional1": 40,
       "additional2": 30,
       "total": 195
-    },
-    {
-      "invoiceNumber": 207,
-      "weekEnding": "2025-09-13",
-      "date": "2025-09-13",
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 9985
     },
     {
       "invoiceNumber": 208,
@@ -95344,20 +92362,6 @@
       "total": 125
     },
     {
-      "invoiceNumber": 208,
-      "weekEnding": "2025-09-20",
-      "date": "2025-09-20",
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 9650
-    },
-    {
       "invoiceNumber": 209,
       "weekEnding": "2025-09-27",
       "date": "2025-09-23",
@@ -95762,34 +92766,6 @@
       "additional1": 40,
       "additional2": 0,
       "total": 125
-    },
-    {
-      "invoiceNumber": 209,
-      "weekEnding": "2025-09-27",
-      "date": "2025-09-27",
-      "tech": "Chris Ambler",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 4560
-    },
-    {
-      "invoiceNumber": 209,
-      "weekEnding": "2025-09-27",
-      "date": "2025-09-27",
-      "tech": "Chris Ambler",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 9120
     },
     {
       "invoiceNumber": 211,
@@ -96422,20 +93398,6 @@
       "total": 195
     },
     {
-      "invoiceNumber": 211,
-      "weekEnding": "2025-10-04",
-      "date": "2025-10-04",
-      "tech": "Chris Ambler",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 7255
-    },
-    {
       "invoiceNumber": 212,
       "weekEnding": "2025-10-11",
       "date": "2025-10-06",
@@ -96980,20 +93942,6 @@
       "additional1": 40,
       "additional2": 0,
       "total": 125
-    },
-    {
-      "invoiceNumber": 212,
-      "weekEnding": "2025-10-11",
-      "date": "2025-10-11",
-      "tech": "Chris Ambler",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 6015
     },
     {
       "invoiceNumber": 213,
@@ -97582,20 +94530,6 @@
       "additional1": 0,
       "additional2": 0,
       "total": 125
-    },
-    {
-      "invoiceNumber": 213,
-      "weekEnding": "2025-10-18",
-      "date": "2025-10-18",
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 5805
     },
     {
       "invoiceNumber": 214,
@@ -98298,20 +95232,6 @@
       "total": 125
     },
     {
-      "invoiceNumber": 214,
-      "weekEnding": "2025-10-25",
-      "date": "2025-10-25",
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 7650
-    },
-    {
       "invoiceNumber": 215,
       "weekEnding": "2025-11-01",
       "date": "2025-10-27",
@@ -98898,20 +95818,6 @@
       "additional1": 0,
       "additional2": 0,
       "total": 40
-    },
-    {
-      "invoiceNumber": 215,
-      "weekEnding": "2025-11-01",
-      "date": "2025-11-01",
-      "tech": "Chris Ambler",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 5720
     },
     {
       "invoiceNumber": 216,
@@ -99740,20 +96646,6 @@
       "total": 165
     },
     {
-      "invoiceNumber": 216,
-      "weekEnding": "2025-11-08",
-      "date": "2025-11-08",
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 9250
-    },
-    {
       "invoiceNumber": 217,
       "weekEnding": "2025-11-15",
       "date": "2025-11-10",
@@ -100010,20 +96902,6 @@
       "weekEnding": "2025-11-15",
       "date": "2025-11-13",
       "tech": "Chris Ambler",
-      "customerName": "Deborah Linares",
-      "address": "11205 W 65TH ST #106",
-      "serviceOrderId": "159405",
-      "workOrderType": "85",
-      "baseCharge": 85,
-      "additional1": 40,
-      "additional2": 0,
-      "total": 125
-    },
-    {
-      "invoiceNumber": 217,
-      "weekEnding": "2025-11-15",
-      "date": "2025-11-13",
-      "tech": "Chris Ambler",
       "customerName": "JOHN & MARY MONDI",
       "address": "12901 TRAVIS ST #106",
       "serviceOrderId": "159687",
@@ -100256,20 +97134,6 @@
       "additional1": 40,
       "additional2": 0,
       "total": 125
-    },
-    {
-      "invoiceNumber": 217,
-      "weekEnding": "2025-11-15",
-      "date": "2025-11-15",
-      "tech": "Chris Ambler",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 4719
     },
     {
       "invoiceNumber": 218,
@@ -100704,20 +97568,6 @@
       "additional1": 40,
       "additional2": 0,
       "total": 125
-    },
-    {
-      "invoiceNumber": 218,
-      "weekEnding": "2025-11-22",
-      "date": "2025-11-22",
-      "tech": "Chris Ambler",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 4889
     },
     {
       "invoiceNumber": 219,
@@ -101196,20 +98046,6 @@
       "total": 40
     },
     {
-      "invoiceNumber": 219,
-      "weekEnding": "2025-11-29",
-      "date": "2025-11-29",
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 4925
-    },
-    {
       "invoiceNumber": 220,
       "weekEnding": "2025-12-06",
       "date": "2025-12-01",
@@ -101618,20 +98454,6 @@
     {
       "invoiceNumber": 220,
       "weekEnding": "2025-12-06",
-      "date": "2025-12-04",
-      "tech": "Chris Ambler",
-      "customerName": "SUSAN FRIEND",
-      "address": "12817 S BLACKFOOT DR",
-      "serviceOrderId": "160960",
-      "workOrderType": "40",
-      "baseCharge": 40,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 40
-    },
-    {
-      "invoiceNumber": 220,
-      "weekEnding": "2025-12-06",
       "date": "2025-12-05",
       "tech": "Chris Ambler",
       "customerName": "Edwin Cruz",
@@ -101774,20 +98596,6 @@
       "weekEnding": "2025-12-06",
       "date": "2025-12-06",
       "tech": "Chris Ambler",
-      "customerName": "ISAIAH ELSENER",
-      "address": "8472 MAURER RD #534",
-      "serviceOrderId": "160832",
-      "workOrderType": "40",
-      "baseCharge": 40,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 40
-    },
-    {
-      "invoiceNumber": 220,
-      "weekEnding": "2025-12-06",
-      "date": "2025-12-06",
-      "tech": "Chris Ambler",
       "customerName": "DAVID CHELLBERG",
       "address": "6802 W 128TH CT #206",
       "serviceOrderId": "161435",
@@ -101908,20 +98716,6 @@
       "additional1": 40,
       "additional2": 0,
       "total": 125
-    },
-    {
-      "invoiceNumber": 220,
-      "weekEnding": "2025-12-06",
-      "date": "2025-12-06",
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 7065
     },
     {
       "invoiceNumber": 221,
@@ -102356,20 +99150,6 @@
       "additional1": 40,
       "additional2": 0,
       "total": 125
-    },
-    {
-      "invoiceNumber": 221,
-      "weekEnding": "2025-12-13",
-      "date": "2025-12-12",
-      "tech": "Remington Taylor",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 4630
     },
     {
       "invoiceNumber": 240,
@@ -102888,20 +99668,6 @@
       "additional1": 40,
       "additional2": 0,
       "total": 125
-    },
-    {
-      "invoiceNumber": 240,
-      "weekEnding": "2026-04-25",
-      "date": "2026-04-25",
-      "tech": "Marcus Martin",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 5635
     },
     {
       "invoiceNumber": 241,
@@ -103672,20 +100438,6 @@
       "additional1": 40,
       "additional2": 0,
       "total": 125
-    },
-    {
-      "invoiceNumber": 241,
-      "weekEnding": "2026-05-02",
-      "date": "2026-05-02",
-      "tech": "Marcus Martin",
-      "customerName": "",
-      "address": "",
-      "serviceOrderId": "",
-      "workOrderType": "",
-      "baseCharge": 0,
-      "additional1": 0,
-      "additional2": 0,
-      "total": 8160
     },
     {
       "invoiceNumber": 51,
