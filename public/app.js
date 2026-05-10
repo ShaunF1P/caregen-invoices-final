@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   loadRates();
   loadContacts();
   loadFiles();
+  loadInvoiceHistory();
   setInterval(refreshStatus, 10000);
 
   // Set default dates
@@ -379,11 +380,70 @@ function renderInvoiceResult(pkg) {
     <p style="color:var(--text-secondary);font-size:13px;">Week Ending: ${pkg.weekEnding} • ${pkg.recordCount} work orders</p>
     <div class="invoice-total">$${pkg.grandTotal.toLocaleString()}</div>
     <div class="invoice-downloads">
-      <a href="${pkg.downloadLinks.excel}" class="btn btn-primary" download>📊 Download Excel</a>
-      <a href="${pkg.downloadLinks.pdf}" class="btn btn-secondary" download>📄 Download PDF</a>
+      <a href="${pkg.downloadLinks.excel}" class="btn btn-primary" download>📊 Download Dataset</a>
+      <a href="${pkg.downloadLinks.pdf}" class="btn btn-secondary" download>📄 Download Invoice PDF</a>
     </div>
     <p style="margin-top:12px;font-size:11px;color:var(--text-tertiary);">
-      Master Consolidated updated • Ready to send to Kevin & Mike
+      Archived to invoice history • Ready to send to Kevin & Mike
     </p>
   </div>`;
+
+  // Refresh invoice history
+  loadInvoiceHistory();
 }
+
+// ============================================================
+// INVOICE HISTORY
+// ============================================================
+async function loadInvoiceHistory() {
+  try {
+    const res = await fetch(`${API}/api/invoices`);
+    const data = await res.json();
+    const container = document.getElementById('history-body');
+    const badge = document.getElementById('history-count');
+
+    if (!data.invoices || data.invoices.length === 0) {
+      container.innerHTML = '<div class="empty-state-sm">No invoices generated yet. Upload a dataset and generate your first invoice.</div>';
+      badge.textContent = '0';
+      return;
+    }
+
+    badge.textContent = data.invoices.length + ' invoices';
+
+    let html = `<div style="overflow-x:auto;">
+      <table style="width:100%;border-collapse:collapse;font-size:13px;">
+        <thead>
+          <tr style="border-bottom:2px solid var(--border);">
+            <th style="text-align:left;padding:10px 12px;color:var(--text-tertiary);font-size:11px;text-transform:uppercase;letter-spacing:0.5px;">Invoice #</th>
+            <th style="text-align:left;padding:10px 12px;color:var(--text-tertiary);font-size:11px;text-transform:uppercase;letter-spacing:0.5px;">Week Ending</th>
+            <th style="text-align:left;padding:10px 12px;color:var(--text-tertiary);font-size:11px;text-transform:uppercase;letter-spacing:0.5px;">Date</th>
+            <th style="text-align:right;padding:10px 12px;color:var(--text-tertiary);font-size:11px;text-transform:uppercase;letter-spacing:0.5px;">Orders</th>
+            <th style="text-align:right;padding:10px 12px;color:var(--text-tertiary);font-size:11px;text-transform:uppercase;letter-spacing:0.5px;">Total</th>
+            <th style="text-align:center;padding:10px 12px;color:var(--text-tertiary);font-size:11px;text-transform:uppercase;letter-spacing:0.5px;">Downloads</th>
+          </tr>
+        </thead>
+        <tbody>`;
+
+    for (const inv of data.invoices) {
+      html += `<tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:10px 12px;font-weight:600;color:var(--accent);">#${inv.invoiceNumber}</td>
+        <td style="padding:10px 12px;">${inv.weekEnding || '—'}</td>
+        <td style="padding:10px 12px;color:var(--text-secondary);">${inv.invoiceDate || '—'}</td>
+        <td style="padding:10px 12px;text-align:right;">${inv.recordCount}</td>
+        <td style="padding:10px 12px;text-align:right;font-weight:700;color:var(--success);">$${(inv.grandTotal || 0).toLocaleString()}</td>
+        <td style="padding:10px 12px;text-align:center;">
+          ${inv.downloadLinks.excel ? `<a href="${inv.downloadLinks.excel}" class="btn btn-ghost btn-sm" download title="Download Excel Dataset">📊</a>` : ''}
+          ${inv.downloadLinks.pdf ? `<a href="${inv.downloadLinks.pdf}" class="btn btn-ghost btn-sm" download title="Download Invoice PDF">📄</a>` : ''}
+        </td>
+      </tr>`;
+    }
+
+    html += '</tbody></table></div>';
+    container.innerHTML = html;
+
+  } catch (e) {
+    console.error('Failed to load invoice history:', e);
+    document.getElementById('history-body').innerHTML = '<div class="empty-state-sm">Could not load invoice history</div>';
+  }
+}
+

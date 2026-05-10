@@ -1,6 +1,7 @@
 /**
  * CareGen Alliance Invoice Automation - Invoice Generator
- * Generates Excel invoices (dataset + pivot table) and PDF invoices
+ * Generates client-ready Excel datasets and PDF invoices
+ * Format matches the actual invoices sent to EverFast
  */
 
 const XLSX = require('xlsx');
@@ -22,24 +23,24 @@ class InvoiceGenerator {
 
   /**
    * Generate the complete invoice package:
-   * 1. Dataset Excel (raw data sheet)
-   * 2. Invoice Excel (pivot table sheet)
-   * 3. PDF Invoice
-   * Returns paths to all generated files
+   * 1. Dataset Excel (client-facing raw data)
+   * 2. PDF Invoice (professional summary)
+   * Archives both files persistently
    */
-  generateInvoicePackage(records, invoiceNumber, weekEnding, invoiceDate = null) {
-    if (!invoiceDate) {
-      invoiceDate = new Date();
-    }
+  async generateInvoicePackage(records, invoiceNumber, weekEnding, invoiceDate = null) {
+    if (!invoiceDate) invoiceDate = new Date();
 
     const weekEndingStr = this._formatDate(weekEnding);
     const invoiceDateStr = this._formatDate(invoiceDate);
 
-    // Generate the combined Excel workbook (Dataset + Invoice sheets)
-    const excelPath = this._generateExcelWorkbook(records, invoiceNumber, weekEndingStr, invoiceDateStr);
+    // Generate client-ready Excel dataset
+    const excelPath = this._generateDatasetExcel(records, invoiceNumber, weekEndingStr, invoiceDateStr);
 
-    // Generate PDF invoice
-    const pdfPath = this._generatePDFInvoice(records, invoiceNumber, weekEndingStr, invoiceDateStr);
+    // Generate professional PDF invoice
+    const pdfPath = await this._generatePDFInvoice(records, invoiceNumber, weekEndingStr, invoiceDateStr);
+
+    // Archive copies (after PDF is fully written)
+    this._archiveInvoice(invoiceNumber, excelPath, pdfPath, records, weekEndingStr, invoiceDateStr);
 
     return {
       excelPath,
@@ -53,129 +54,72 @@ class InvoiceGenerator {
   }
 
   /**
-   * Generate Excel workbook with Dataset and Invoice (pivot) sheets
+   * Generate client-facing Excel dataset
+   * Matches the exact format of the real datasets sent to EverFast
    */
-  _generateExcelWorkbook(records, invoiceNumber, weekEnding, invoiceDate) {
+  _generateDatasetExcel(records, invoiceNumber, weekEnding, invoiceDate) {
     const wb = XLSX.utils.book_new();
-
-    // === DATASET SHEET ===
-    const datasetRows = [];
-    
-    // Header block
-    datasetRows.push([config.company.name]);
-    datasetRows.push([`Bill To: ${config.company.billTo}`, null, 'INVOICE DATE:', invoiceDate]);
-    datasetRows.push([`Attn: ${config.company.billToAttn}`, null, 'Week Ending:', weekEnding]);
-    datasetRows.push([config.company.billToAddress, null, 'INVOICE #:', invoiceNumber]);
-    datasetRows.push([config.company.billToCity, null, 'Type:', config.company.type]);
-    datasetRows.push([null, null, 'PO Number:']);
-    
+    const rows = [];
     const grandTotal = records.reduce((sum, r) => sum + (r.total || 0), 0);
-    datasetRows.push([null, null, 'Total', grandTotal]);
-    
-    // Column headers
-    datasetRows.push([
-      'Work Order Date', 'Work Order Number', 'Tech Name', 'Base Work Order Type',
-      'Additional Work Performed (Not On Order)', 'Additional Work Performed (Not On Order)',
-      'Base Work Order', 'Additional (1)', 'Additional (2)', 'Total'
+
+    // ── Header block (matches real Dataset 241) ──────────────
+    rows.push([config.company.name]);
+    rows.push([`Bill To: ${config.company.billTo}`, '', 'INVOICE DATE:', invoiceDate]);
+    rows.push([`Attn: ${config.company.billToAttn}`, '', 'Week Ending:', weekEnding]);
+    rows.push([config.company.billToAddress, '', 'INVOICE #:', invoiceNumber]);
+    rows.push([config.company.billToCity, '', 'Type:', config.company.type]);
+
+    // ── Column headers ───────────────────────────────────────
+    rows.push([
+      'Work Order Date',
+      'Tech Name',
+      'Services Order',
+      'Base Work Order Type',
+      'Additional Work Performed (Not On Order)',
+      'Additional Work Performed (Not On Order)',
+      'Base Work Order',
+      'Additional (1)',
+      'Additional (2)',
+      'Total',
     ]);
 
-    // Data rows
+    // ── Data rows ────────────────────────────────────────────
     for (const record of records) {
-      datasetRows.push([
-        record.workOrderDate || '',
-        record.workOrderNumber || '',
-        record.techName || '',
-        record.baseWorkOrderType || '',
+      rows.push([
+        record.workOrderDate || record.date || '',
+        record.techName || record.tech || '',
+        record.serviceOrder || record.serviceOrderId || record.workOrderNumber || '',
+        record.baseWorkOrderType || record.workOrderType || '',
         record.additionalWork1 || '',
         record.additionalWork2 || '',
-        record.baseWorkOrderAmount || '',
-        record.additionalAmount1 || '',
-        record.additionalAmount2 || '',
+        record.baseWorkOrderAmount || record.baseCharge || '',
+        record.additionalAmount1 || record.additional1 || '',
+        record.additionalAmount2 || record.additional2 || '',
         record.total || 0,
       ]);
     }
 
-    // Totals row
-    datasetRows.push([
-      '', '', '', '', '', '', '', '', 'Grand Total:', grandTotal
-    ]);
+    // ── Grand Total row ──────────────────────────────────────
+    rows.push(['', '', '', '', '', '', '', '', 'Grand Total:', grandTotal]);
 
-    const datasetWs = XLSX.utils.aoa_to_sheet(datasetRows);
-    
-    // Set column widths
-    datasetWs['!cols'] = [
-      { wch: 15 }, { wch: 18 }, { wch: 20 }, { wch: 30 },
-      { wch: 35 }, { wch: 35 },
-      { wch: 15 }, { wch: 12 }, { wch: 12 }, { wch: 10 },
+    const ws = XLSX.utils.aoa_to_sheet(rows);
+
+    // Column widths to match the client format
+    ws['!cols'] = [
+      { wch: 14 },  // Work Order Date
+      { wch: 18 },  // Tech Name
+      { wch: 35 },  // Services Order
+      { wch: 28 },  // Base Work Order Type
+      { wch: 32 },  // Additional Work 1
+      { wch: 32 },  // Additional Work 2
+      { wch: 14 },  // Base Work Order
+      { wch: 13 },  // Additional (1)
+      { wch: 13 },  // Additional (2)
+      { wch: 10 },  // Total
     ];
 
-    XLSX.utils.book_append_sheet(wb, datasetWs, `Dataset ${invoiceNumber}`);
+    XLSX.utils.book_append_sheet(wb, ws, `Data Set ${invoiceNumber}`);
 
-    // === INVOICE (PIVOT) SHEET ===
-    const pivotRows = [];
-    
-    // Header block
-    pivotRows.push([config.company.name, null, 'INVOICE DATE:', invoiceDate]);
-    pivotRows.push([`Bill To: ${config.company.billTo}`, null, 'Week Ending:', weekEnding]);
-    pivotRows.push([`Attn: ${config.company.billToAttn}`, null, 'INVOICE #:', invoiceNumber]);
-    pivotRows.push([config.company.billToAddress, null, 'Type:', config.company.type]);
-    pivotRows.push([config.company.billToCity, null, 'Grand Total ', grandTotal]);
-
-    // Pivot header
-    pivotRows.push([
-      'Row Labels', 'Sum of Base Work Order', 'Sum of Additional (1)', 
-      'Sum of Additional (2)', 'Sum of Total'
-    ]);
-
-    // Pivot data - aggregate by Work Order Number
-    const pivotMap = new Map();
-    for (const record of records) {
-      const woNum = record.workOrderNumber;
-      if (pivotMap.has(woNum)) {
-        const existing = pivotMap.get(woNum);
-        existing.baseWorkOrder += record.baseWorkOrderAmount || 0;
-        existing.additional1 += record.additionalAmount1 || 0;
-        existing.additional2 += record.additionalAmount2 || 0;
-        existing.total += record.total || 0;
-      } else {
-        pivotMap.set(woNum, {
-          baseWorkOrder: record.baseWorkOrderAmount || 0,
-          additional1: record.additionalAmount1 || 0,
-          additional2: record.additionalAmount2 || 0,
-          total: record.total || 0,
-        });
-      }
-    }
-
-    // Sort by work order number
-    const sortedWOs = [...pivotMap.entries()].sort((a, b) => a[0].localeCompare(b[0]));
-    
-    let totalBase = 0, totalAdd1 = 0, totalAdd2 = 0, totalAll = 0;
-    for (const [woNum, data] of sortedWOs) {
-      pivotRows.push([
-        woNum,
-        data.baseWorkOrder || '',
-        data.additional1 || '',
-        data.additional2 || '',
-        data.total,
-      ]);
-      totalBase += data.baseWorkOrder;
-      totalAdd1 += data.additional1;
-      totalAdd2 += data.additional2;
-      totalAll += data.total;
-    }
-
-    // Grand total row
-    pivotRows.push(['Grand Total', totalBase, totalAdd1, totalAdd2, totalAll]);
-
-    const pivotWs = XLSX.utils.aoa_to_sheet(pivotRows);
-    pivotWs['!cols'] = [
-      { wch: 20 }, { wch: 22 }, { wch: 20 }, { wch: 20 }, { wch: 15 },
-    ];
-
-    XLSX.utils.book_append_sheet(wb, pivotWs, `Inv ${invoiceNumber}`);
-
-    // Write the file
     const fileName = `${config.invoice.datasetPrefix} ${invoiceNumber}.xlsx`;
     const outputPath = path.join(config.paths.outputDir, fileName);
     XLSX.writeFile(wb, outputPath);
@@ -184,7 +128,8 @@ class InvoiceGenerator {
   }
 
   /**
-   * Generate PDF invoice
+   * Generate professional PDF invoice for the client
+   * Clean pivot-style summary grouped by work order
    */
   _generatePDFInvoice(records, invoiceNumber, weekEnding, invoiceDate) {
     const fileName = `${config.invoice.prefix} ${invoiceNumber}.pdf`;
@@ -194,101 +139,98 @@ class InvoiceGenerator {
     return new Promise((resolve, reject) => {
       const doc = new PDFDocument({ margin: 50, size: 'LETTER' });
       const writeStream = fs.createWriteStream(outputPath);
-      
       doc.pipe(writeStream);
 
-      // Header
-      doc.fontSize(20).font('Helvetica-Bold')
-        .text(config.company.name, 50, 50);
-      
-      doc.fontSize(10).font('Helvetica');
-      doc.text(`Bill To: ${config.company.billTo}`, 50, 80);
-      doc.text(`Attn: ${config.company.billToAttn}`, 50, 95);
-      doc.text(config.company.billToAddress, 50, 110);
-      doc.text(config.company.billToCity, 50, 125);
+      // ── Company Header ─────────────────────────────────────
+      doc.fontSize(22).font('Helvetica-Bold')
+        .fillColor('#004797')
+        .text(config.company.name, 50, 45);
 
-      // Invoice details (right side)
-      doc.text(`INVOICE DATE: ${invoiceDate}`, 380, 80);
-      doc.text(`Week Ending: ${weekEnding}`, 380, 95);
-      doc.text(`INVOICE #: ${invoiceNumber}`, 380, 110);
-      doc.text(`Type: ${config.company.type}`, 380, 125);
+      doc.moveTo(50, 72).lineTo(562, 72).strokeColor('#FDB913').lineWidth(2).stroke();
 
-      // Grand total
-      doc.fontSize(14).font('Helvetica-Bold');
-      doc.text(`Grand Total: $${grandTotal.toLocaleString()}`, 380, 145);
+      doc.fontSize(10).font('Helvetica').fillColor('#333333');
+      doc.text(`Bill To: ${config.company.billTo}`, 50, 85);
+      doc.text(`Attn: ${config.company.billToAttn}`, 50, 100);
+      doc.text(config.company.billToAddress, 50, 115);
+      doc.text(config.company.billToCity, 50, 130);
 
-      // Table header
-      const tableTop = 180;
-      doc.fontSize(8).font('Helvetica-Bold');
-      
-      const colWidths = [90, 130, 95, 95, 95];
-      const colStarts = [50];
-      for (let i = 1; i < colWidths.length; i++) {
-        colStarts.push(colStarts[i-1] + colWidths[i-1]);
-      }
+      // ── Invoice Details (right side) ───────────────────────
+      doc.font('Helvetica-Bold').fillColor('#333333');
+      doc.text('INVOICE DATE:', 380, 85, { continued: true }).font('Helvetica').text(`  ${invoiceDate}`);
+      doc.font('Helvetica-Bold').text('Week Ending:', 380, 100, { continued: true }).font('Helvetica').text(`  ${weekEnding}`);
+      doc.font('Helvetica-Bold').text('INVOICE #:', 380, 115, { continued: true }).font('Helvetica').text(`  ${invoiceNumber}`);
+      doc.font('Helvetica-Bold').text('Type:', 380, 130, { continued: true }).font('Helvetica').text(`  ${config.company.type}`);
 
-      const headers = ['Row Labels', 'Sum of Base WO', 'Sum of Add (1)', 'Sum of Add (2)', 'Sum of Total'];
-      
-      // Header background
-      doc.rect(50, tableTop - 5, 510, 18).fill('#1a237e');
-      doc.fill('#ffffff');
-      headers.forEach((header, i) => {
-        doc.text(header, colStarts[i] + 3, tableTop, { width: colWidths[i] - 6 });
-      });
+      // ── Grand Total banner ─────────────────────────────────
+      doc.rect(380, 148, 182, 26).fill('#004797');
+      doc.fontSize(13).font('Helvetica-Bold').fillColor('#FDB913');
+      doc.text(`Grand Total: $${grandTotal.toLocaleString()}`, 390, 154);
 
-      // Pivot data
+      // ── Build pivot data by work order ─────────────────────
       const pivotMap = new Map();
       for (const record of records) {
-        const woNum = record.workOrderNumber;
+        const woNum = record.workOrderNumber || record.serviceOrderId || record.serviceOrder || '';
         if (pivotMap.has(woNum)) {
           const existing = pivotMap.get(woNum);
-          existing.baseWorkOrder += record.baseWorkOrderAmount || 0;
-          existing.additional1 += record.additionalAmount1 || 0;
-          existing.additional2 += record.additionalAmount2 || 0;
+          existing.baseWorkOrder += record.baseWorkOrderAmount || record.baseCharge || 0;
+          existing.additional1 += record.additionalAmount1 || record.additional1 || 0;
+          existing.additional2 += record.additionalAmount2 || record.additional2 || 0;
           existing.total += record.total || 0;
         } else {
           pivotMap.set(woNum, {
-            baseWorkOrder: record.baseWorkOrderAmount || 0,
-            additional1: record.additionalAmount1 || 0,
-            additional2: record.additionalAmount2 || 0,
+            baseWorkOrder: record.baseWorkOrderAmount || record.baseCharge || 0,
+            additional1: record.additionalAmount1 || record.additional1 || 0,
+            additional2: record.additionalAmount2 || record.additional2 || 0,
             total: record.total || 0,
           });
         }
       }
 
-      const sortedWOs = [...pivotMap.entries()].sort((a, b) => a[0].localeCompare(b[0]));
-      let y = tableTop + 18;
+      const sortedWOs = [...pivotMap.entries()].sort((a, b) => String(a[0]).localeCompare(String(b[0])));
+
+      // ── Table ──────────────────────────────────────────────
+      const colWidths = [110, 120, 95, 95, 92];
+      const colStarts = [50];
+      for (let i = 1; i < colWidths.length; i++) colStarts.push(colStarts[i - 1] + colWidths[i - 1]);
+      const tableWidth = colWidths.reduce((a, b) => a + b, 0);
+
+      const headers = ['Work Order', 'Base Work Order', 'Additional (1)', 'Additional (2)', 'Total'];
+
+      let tableTop = 195;
+
+      const drawTableHeader = (y) => {
+        doc.rect(50, y - 4, tableWidth, 20).fill('#004797');
+        doc.fontSize(8).font('Helvetica-Bold').fillColor('#ffffff');
+        headers.forEach((h, i) => {
+          doc.text(h, colStarts[i] + 5, y, { width: colWidths[i] - 10 });
+        });
+        return y + 20;
+      };
+
+      let y = drawTableHeader(tableTop);
       let totalBase = 0, totalAdd1 = 0, totalAdd2 = 0, totalAll = 0;
       let rowIdx = 0;
 
-      doc.font('Helvetica').fontSize(7);
+      doc.font('Helvetica').fontSize(7.5);
 
       for (const [woNum, data] of sortedWOs) {
-        if (y > 700) {
+        if (y > 710) {
           doc.addPage();
-          y = 50;
-          // Re-draw header on new page
-          doc.fontSize(8).font('Helvetica-Bold');
-          doc.rect(50, y - 5, 510, 18).fill('#1a237e');
-          doc.fill('#ffffff');
-          headers.forEach((header, i) => {
-            doc.text(header, colStarts[i] + 3, y, { width: colWidths[i] - 6 });
-          });
-          y += 18;
-          doc.font('Helvetica').fontSize(7);
+          y = drawTableHeader(50);
+          doc.font('Helvetica').fontSize(7.5);
         }
 
-        // Alternating row colors
+        // Alternating row background
         if (rowIdx % 2 === 0) {
-          doc.rect(50, y - 3, 510, 14).fill('#f5f5f5');
+          doc.rect(50, y - 3, tableWidth, 14).fill('#f0f4f8');
         }
-        
-        doc.fill('#000000');
-        doc.text(woNum, colStarts[0] + 3, y, { width: colWidths[0] - 6 });
-        doc.text(data.baseWorkOrder ? `$${data.baseWorkOrder}` : '', colStarts[1] + 3, y, { width: colWidths[1] - 6 });
-        doc.text(data.additional1 ? `$${data.additional1}` : '', colStarts[2] + 3, y, { width: colWidths[2] - 6 });
-        doc.text(data.additional2 ? `$${data.additional2}` : '', colStarts[3] + 3, y, { width: colWidths[3] - 6 });
-        doc.text(`$${data.total}`, colStarts[4] + 3, y, { width: colWidths[4] - 6 });
+
+        doc.fillColor('#333333');
+        doc.text(String(woNum), colStarts[0] + 5, y, { width: colWidths[0] - 10 });
+        doc.text(data.baseWorkOrder ? `$${data.baseWorkOrder.toLocaleString()}` : '', colStarts[1] + 5, y, { width: colWidths[1] - 10 });
+        doc.text(data.additional1 ? `$${data.additional1.toLocaleString()}` : '', colStarts[2] + 5, y, { width: colWidths[2] - 10 });
+        doc.text(data.additional2 ? `$${data.additional2.toLocaleString()}` : '', colStarts[3] + 5, y, { width: colWidths[3] - 10 });
+        doc.text(`$${data.total.toLocaleString()}`, colStarts[4] + 5, y, { width: colWidths[4] - 10 });
 
         totalBase += data.baseWorkOrder;
         totalAdd1 += data.additional1;
@@ -300,25 +242,139 @@ class InvoiceGenerator {
       }
 
       // Grand total row
-      y += 5;
-      doc.rect(50, y - 3, 510, 18).fill('#1a237e');
-      doc.fill('#ffffff').fontSize(9).font('Helvetica-Bold');
-      doc.text('Grand Total', colStarts[0] + 3, y);
-      doc.text(`$${totalBase.toLocaleString()}`, colStarts[1] + 3, y);
-      doc.text(`$${totalAdd1.toLocaleString()}`, colStarts[2] + 3, y);
-      doc.text(`$${totalAdd2.toLocaleString()}`, colStarts[3] + 3, y);
-      doc.text(`$${totalAll.toLocaleString()}`, colStarts[4] + 3, y);
+      y += 4;
+      doc.rect(50, y - 3, tableWidth, 20).fill('#004797');
+      doc.fillColor('#FDB913').fontSize(9).font('Helvetica-Bold');
+      doc.text('Grand Total', colStarts[0] + 5, y);
+      doc.text(`$${totalBase.toLocaleString()}`, colStarts[1] + 5, y);
+      doc.text(`$${totalAdd1.toLocaleString()}`, colStarts[2] + 5, y);
+      doc.text(`$${totalAdd2.toLocaleString()}`, colStarts[3] + 5, y);
+      doc.text(`$${totalAll.toLocaleString()}`, colStarts[4] + 5, y);
 
-      // Footer
-      doc.fontSize(8).fill('#666666').font('Helvetica');
-      doc.text(`Generated: ${new Date().toLocaleString()}`, 50, 740);
-      doc.text('CareGen Alliance Invoice Automation', 350, 740);
+      // Footer — subtle, professional
+      doc.fontSize(7).fillColor('#999999').font('Helvetica');
+      doc.text(`${config.company.name}`, 50, 745);
+      doc.text(`Invoice #${invoiceNumber}  •  ${invoiceDate}`, 350, 745, { align: 'right', width: 212 });
 
       doc.end();
 
       writeStream.on('finish', () => resolve(outputPath));
       writeStream.on('error', reject);
     });
+  }
+
+  /**
+   * Archive generated files persistently
+   */
+  _archiveInvoice(invoiceNumber, excelPath, pdfPath, records, weekEnding, invoiceDate) {
+    const archiveDir = path.join(config.paths.archiveDir, String(invoiceNumber));
+    if (!fs.existsSync(archiveDir)) fs.mkdirSync(archiveDir, { recursive: true });
+
+    // Copy generated files to archive
+    if (typeof excelPath === 'string' && fs.existsSync(excelPath)) {
+      fs.copyFileSync(excelPath, path.join(archiveDir, path.basename(excelPath)));
+    }
+    if (typeof pdfPath === 'string' && fs.existsSync(pdfPath)) {
+      fs.copyFileSync(pdfPath, path.join(archiveDir, path.basename(pdfPath)));
+    }
+
+    // Save metadata
+    const grandTotal = records.reduce((sum, r) => sum + (r.total || 0), 0);
+    const techBreakdown = {};
+    records.forEach(r => {
+      const t = r.techName || r.tech || 'Unknown';
+      techBreakdown[t] = (techBreakdown[t] || 0) + (r.total || 0);
+    });
+
+    const metadata = {
+      invoiceNumber,
+      weekEnding,
+      invoiceDate,
+      grandTotal,
+      recordCount: records.length,
+      techBreakdown,
+      createdAt: new Date().toISOString(),
+      files: {
+        excel: path.basename(excelPath),
+        pdf: typeof pdfPath === 'string' ? path.basename(pdfPath) : null,
+      },
+    };
+
+    fs.writeFileSync(
+      path.join(archiveDir, 'metadata.json'),
+      JSON.stringify(metadata, null, 2)
+    );
+
+    // Update invoice history registry
+    this._updateHistoryRegistry(metadata);
+
+    return archiveDir;
+  }
+
+  /**
+   * Update the central invoice history registry
+   */
+  _updateHistoryRegistry(metadata) {
+    const historyPath = path.join(config.paths.dataDir, 'invoice_history.json');
+    let history = { invoices: [] };
+
+    if (fs.existsSync(historyPath)) {
+      try { history = JSON.parse(fs.readFileSync(historyPath, 'utf8')); }
+      catch (e) { /* start fresh */ }
+    }
+
+    // Remove existing entry for this invoice if re-generating
+    history.invoices = history.invoices.filter(
+      inv => inv.invoiceNumber !== metadata.invoiceNumber
+    );
+    history.invoices.push(metadata);
+    history.invoices.sort((a, b) => b.invoiceNumber - a.invoiceNumber);
+
+    fs.writeFileSync(historyPath, JSON.stringify(history, null, 2));
+  }
+
+  /**
+   * Get invoice history
+   */
+  getInvoiceHistory() {
+    const historyPath = path.join(config.paths.dataDir, 'invoice_history.json');
+    if (!fs.existsSync(historyPath)) return [];
+    try {
+      return JSON.parse(fs.readFileSync(historyPath, 'utf8')).invoices || [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  /**
+   * Get the next invoice number from historical data
+   */
+  getNextInvoiceNumber() {
+    // Check historical data first
+    const histDataPath = path.join(config.paths.dataDir, 'historical_data.json');
+    if (fs.existsSync(histDataPath)) {
+      try {
+        const data = JSON.parse(fs.readFileSync(histDataPath, 'utf8'));
+        if (data.invoices && data.invoices.length) {
+          const maxNum = Math.max(...data.invoices.map(i => i.invoiceNumber || 0));
+          if (maxNum > 0) return maxNum + 1;
+        }
+      } catch (e) { /* fall through */ }
+    }
+
+    // Check master consolidated file
+    const masterPath = config.paths.masterFile;
+    if (!fs.existsSync(masterPath)) return config.invoice.startingNumber;
+
+    try {
+      const wb = XLSX.readFile(masterPath);
+      const invSheets = wb.SheetNames.filter(s => s.startsWith('Inv '));
+      if (invSheets.length === 0) return config.invoice.startingNumber;
+      const numbers = invSheets.map(s => parseInt(s.replace('Inv ', '')) || 0);
+      return Math.max(...numbers) + 1;
+    } catch (e) {
+      return config.invoice.startingNumber;
+    }
   }
 
   /**
@@ -332,8 +388,6 @@ class InvoiceGenerator {
       wb = XLSX.readFile(masterPath);
     } else {
       wb = XLSX.utils.book_new();
-      
-      // Create Rates sheet
       const ratesData = [['Job Type', 'Rate']];
       for (const [type, rate] of Object.entries(config.rates)) {
         ratesData.push([type, rate]);
@@ -346,71 +400,20 @@ class InvoiceGenerator {
     const weekEndingStr = this._formatDate(weekEnding);
     const invoiceDateStr = this._formatDate(invoiceDate || new Date());
 
-    // Add Dataset sheet
-    const datasetSheetName = `Dataset ${invoiceNumber}`;
-    if (!wb.SheetNames.includes(datasetSheetName)) {
-      const datasetRows = this._buildDatasetRows(records, invoiceNumber, weekEndingStr, invoiceDateStr);
-      const datasetWs = XLSX.utils.aoa_to_sheet(datasetRows);
-      datasetWs['!cols'] = [
-        { wch: 15 }, { wch: 18 }, { wch: 20 }, { wch: 30 },
-        { wch: 35 }, { wch: 35 }, { wch: 15 }, { wch: 12 }, { wch: 12 }, { wch: 10 },
-      ];
-      XLSX.utils.book_append_sheet(wb, datasetWs, datasetSheetName);
-    }
-
-    // Add Invoice (Pivot) sheet
-    const invSheetName = `Inv ${invoiceNumber}`;
-    if (!wb.SheetNames.includes(invSheetName)) {
+    const sheetName = `Inv ${invoiceNumber}`;
+    if (!wb.SheetNames.includes(sheetName)) {
       const pivotRows = this._buildPivotRows(records, invoiceNumber, weekEndingStr, invoiceDateStr);
       const pivotWs = XLSX.utils.aoa_to_sheet(pivotRows);
       pivotWs['!cols'] = [
         { wch: 20 }, { wch: 22 }, { wch: 20 }, { wch: 20 }, { wch: 15 },
       ];
-      XLSX.utils.book_append_sheet(wb, pivotWs, invSheetName);
+      XLSX.utils.book_append_sheet(wb, pivotWs, sheetName);
     }
 
     XLSX.writeFile(wb, masterPath);
     return masterPath;
   }
 
-  /**
-   * Build dataset rows for a sheet
-   */
-  _buildDatasetRows(records, invoiceNumber, weekEnding, invoiceDate) {
-    const grandTotal = records.reduce((sum, r) => sum + (r.total || 0), 0);
-    const rows = [];
-    
-    rows.push([config.company.name]);
-    rows.push([`Bill To: ${config.company.billTo}`, null, 'INVOICE DATE:', invoiceDate]);
-    rows.push([`Attn: ${config.company.billToAttn}`, null, 'Week Ending:', weekEnding]);
-    rows.push([config.company.billToAddress, null, 'INVOICE #:', invoiceNumber]);
-    rows.push([config.company.billToCity, null, 'Type:', config.company.type]);
-    rows.push([null, null, 'PO Number:']);
-    rows.push([null, null, 'Total', grandTotal]);
-    
-    rows.push([
-      'Work Order Date', 'Work Order Number', 'Tech Name', 'Base Work Order Type',
-      'Additional Work Performed (Not On Order)', 'Additional Work Performed (Not On Order)',
-      'Base Work Order', 'Additional (1)', 'Additional (2)', 'Total'
-    ]);
-
-    for (const record of records) {
-      rows.push([
-        record.workOrderDate || '', record.workOrderNumber || '',
-        record.techName || '', record.baseWorkOrderType || '',
-        record.additionalWork1 || '', record.additionalWork2 || '',
-        record.baseWorkOrderAmount || '', record.additionalAmount1 || '',
-        record.additionalAmount2 || '', record.total || 0,
-      ]);
-    }
-
-    rows.push(['', '', '', '', '', '', '', '', 'Grand Total:', grandTotal]);
-    return rows;
-  }
-
-  /**
-   * Build pivot table rows
-   */
   _buildPivotRows(records, invoiceNumber, weekEnding, invoiceDate) {
     const grandTotal = records.reduce((sum, r) => sum + (r.total || 0), 0);
     const rows = [];
@@ -425,24 +428,24 @@ class InvoiceGenerator {
 
     const pivotMap = new Map();
     for (const record of records) {
-      const woNum = record.workOrderNumber;
+      const woNum = record.workOrderNumber || record.serviceOrderId || '';
       if (pivotMap.has(woNum)) {
         const existing = pivotMap.get(woNum);
-        existing.baseWorkOrder += record.baseWorkOrderAmount || 0;
-        existing.additional1 += record.additionalAmount1 || 0;
-        existing.additional2 += record.additionalAmount2 || 0;
+        existing.baseWorkOrder += record.baseWorkOrderAmount || record.baseCharge || 0;
+        existing.additional1 += record.additionalAmount1 || record.additional1 || 0;
+        existing.additional2 += record.additionalAmount2 || record.additional2 || 0;
         existing.total += record.total || 0;
       } else {
         pivotMap.set(woNum, {
-          baseWorkOrder: record.baseWorkOrderAmount || 0,
-          additional1: record.additionalAmount1 || 0,
-          additional2: record.additionalAmount2 || 0,
+          baseWorkOrder: record.baseWorkOrderAmount || record.baseCharge || 0,
+          additional1: record.additionalAmount1 || record.additional1 || 0,
+          additional2: record.additionalAmount2 || record.additional2 || 0,
           total: record.total || 0,
         });
       }
     }
 
-    const sortedWOs = [...pivotMap.entries()].sort((a, b) => a[0].localeCompare(b[0]));
+    const sortedWOs = [...pivotMap.entries()].sort((a, b) => String(a[0]).localeCompare(String(b[0])));
     let totalBase = 0, totalAdd1 = 0, totalAdd2 = 0, totalAll = 0;
 
     for (const [woNum, data] of sortedWOs) {
@@ -457,33 +460,10 @@ class InvoiceGenerator {
     return rows;
   }
 
-  /**
-   * Get the next invoice number from the master consolidated file
-   */
-  getNextInvoiceNumber() {
-    const masterPath = config.paths.masterFile;
-    if (!fs.existsSync(masterPath)) return config.invoice.startingNumber;
-
-    try {
-      const wb = XLSX.readFile(masterPath);
-      const invSheets = wb.SheetNames.filter(s => s.startsWith('Inv '));
-      if (invSheets.length === 0) return config.invoice.startingNumber;
-
-      const numbers = invSheets.map(s => parseInt(s.replace('Inv ', '')) || 0);
-      return Math.max(...numbers) + 1;
-    } catch (e) {
-      return config.invoice.startingNumber;
-    }
-  }
-
-  /**
-   * Format a date value to string
-   */
   _formatDate(val) {
     if (!val) return new Date().toLocaleDateString('en-US', { month: '2-digit', day: '2-digit', year: 'numeric' });
     if (typeof val === 'string') return val;
     if (val instanceof Date) return val.toLocaleDateString('en-US', { month: '2-digit', day: '2-digit', year: 'numeric' });
-    // Excel serial date
     if (typeof val === 'number' && val > 40000) {
       const date = new Date((val - 25569) * 86400 * 1000);
       return date.toLocaleDateString('en-US', { month: '2-digit', day: '2-digit', year: 'numeric' });

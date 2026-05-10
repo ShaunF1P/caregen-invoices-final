@@ -8,11 +8,11 @@ const path = require('path');
 module.exports = {
   // Company Information
   company: {
-    name: 'SmartLink Services',
-    billTo: 'EverFast Fiber',
+    name: 'Caregen Alliance',
+    billTo: 'Everfast Fiber Networks LLC',
     billToAttn: 'Accounts Payable',
-    billToAddress: '9701 Lackman Rd',
-    billToCity: 'Lenexa, KS 66219',
+    billToAddress: '121 South 17th Street',
+    billToCity: 'Matoon, IL 61938',
     type: 'Installation',
   },
 

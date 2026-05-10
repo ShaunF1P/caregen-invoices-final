@@ -343,39 +343,33 @@ app.post('/api/generate-invoice', async (req, res) => {
 
     addLog('info', `Generating Invoice #${invNum} for week ending ${wkEnd}...`);
 
-    // Generate Excel (Dataset + Pivot sheets)
-    const excelResult = generator._generateExcelWorkbook(records, invNum, wkEnd, invDate);
-    addLog('success', `Generated Excel: ${path.basename(excelResult)}`);
-
-    // Generate PDF
-    const pdfResult = await generator._generatePDFInvoice(records, invNum, wkEnd, invDate);
-    addLog('success', `Generated PDF: ${path.basename(pdfResult)}`);
+    // Generate full package: Excel dataset + PDF invoice + archive
+    const result = await generator.generateInvoicePackage(records, invNum, wkEnd, invDate);
+    addLog('success', `Generated Dataset: ${path.basename(result.excelPath)}`);
+    addLog('success', `Generated PDF: ${path.basename(result.pdfPath)}`);
 
     // Update Master Consolidated
     const masterResult = generator.updateMasterConsolidated(records, invNum, wkEnd, invDate);
     addLog('success', `Updated Master Consolidated: ${path.basename(masterResult)}`);
 
-    const grandTotal = records.reduce((sum, r) => sum + (r.total || 0), 0);
-
     currentSession.invoicePackage = {
       invoiceNumber: invNum,
-      weekEnding: wkEnd,
-      invoiceDate: invDate,
-      recordCount: records.length,
-      grandTotal,
+      weekEnding: result.weekEnding,
+      invoiceDate: result.invoiceDate,
+      recordCount: result.recordCount,
+      grandTotal: result.grandTotal,
       files: {
-        excel: path.basename(excelResult),
-        pdf: path.basename(pdfResult),
-        master: path.basename(masterResult),
+        excel: path.basename(result.excelPath),
+        pdf: path.basename(result.pdfPath),
       },
       downloadLinks: {
-        excel: `/output/${path.basename(excelResult)}`,
-        pdf: `/output/${path.basename(pdfResult)}`,
+        excel: `/output/${path.basename(result.excelPath)}`,
+        pdf: `/output/${path.basename(result.pdfPath)}`,
       },
     };
 
     currentSession.status = 'invoice_ready';
-    addLog('success', `Invoice package #${invNum} ready! Grand Total: $${grandTotal.toLocaleString()}`);
+    addLog('success', `Invoice #${invNum} ready! Grand Total: $${result.grandTotal.toLocaleString()}`);
 
     res.json({ success: true, invoicePackage: currentSession.invoicePackage });
   } catch (error) {
@@ -466,6 +460,27 @@ app.get('/api/output-files', (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
+
+// GET /api/invoices - Invoice history
+app.get('/api/invoices', (req, res) => {
+  try {
+    const invoices = generator.getInvoiceHistory();
+    // Add download links
+    const enriched = invoices.map(inv => ({
+      ...inv,
+      downloadLinks: {
+        excel: `/archive/${inv.invoiceNumber}/${inv.files.excel}`,
+        pdf: inv.files.pdf ? `/archive/${inv.invoiceNumber}/${inv.files.pdf}` : null,
+      },
+    }));
+    res.json({ invoices: enriched });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Serve archive files
+app.use('/archive', express.static(config.paths.archiveDir));
 
 // GET /api/analytics - Full analytics dashboard
 app.get('/api/analytics', (req, res) => {
