@@ -48,6 +48,21 @@
     .season-label { font-size:10px; color:var(--text-tertiary); }
     .season-val { font-size:10px; color:var(--text-secondary); font-weight:600; }
     @media(max-width:900px) { .analytics-grid { grid-template-columns:1fr; } .metric-row { grid-template-columns:1fr 1fr; } .yoy-grid { grid-template-columns:1fr; } }
+    .forecast-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:16px; }
+    .forecast-card { background:var(--bg-input); border-radius:var(--radius-sm); padding:16px; text-align:center; border:1px solid var(--border); }
+    .forecast-value { font-size:24px; font-weight:800; color:var(--accent-gold); }
+    .forecast-range { font-size:10px; color:var(--text-tertiary); margin-top:2px; }
+    .scenario-panel { display:grid; grid-template-columns:1fr 1fr auto; gap:12px; align-items:end; margin-bottom:16px; }
+    .scenario-input { display:flex; flex-direction:column; gap:4px; }
+    .scenario-input label { font-size:11px; color:var(--text-tertiary); text-transform:uppercase; letter-spacing:0.5px; }
+    .scenario-input input { padding:8px 12px; border:1px solid var(--border); border-radius:var(--radius-sm); background:var(--bg-input); color:var(--text-primary); font-size:14px; }
+    .scenario-result { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:12px; }
+    .scenario-card { background:var(--bg-input); border-radius:var(--radius-sm); padding:14px; text-align:center; border:1px solid var(--border); }
+    .pnl-table { width:100%; border-collapse:collapse; font-size:12px; }
+    .pnl-table th { text-align:left; padding:8px 10px; color:var(--text-tertiary); font-size:10px; text-transform:uppercase; letter-spacing:0.5px; border-bottom:2px solid var(--border); }
+    .pnl-table td { padding:8px 10px; border-bottom:1px solid var(--border); }
+    .pnl-table .positive { color:var(--success); }
+    .pnl-table .negative { color:var(--error); }
   </style>
 </head>
 <body>
@@ -55,7 +70,7 @@
     <div class="header-content">
       <div class="logo-area">
         <div class="logo-icon">
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="url(#lg)"/><path d="M6 22L12 12L18 17L26 8" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="lg" x1="0" y1="0" x2="32" y2="32"><stop stop-color="#6366f1"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient></defs></svg>
+          <img src="/caregen-logo.png" alt="CareGen" style="width:32px;height:32px;border-radius:6px;">
         </div>
         <div><h1>CareGen Alliance</h1><span class="subtitle">Revenue Intelligence Dashboard</span></div>
       </div>
@@ -119,13 +134,51 @@
         <div class="card-header"><h2>👷 Technician Performance (Historical)</h2></div>
         <div class="card-body" id="tech-body"><div class="empty-state">Loading...</div></div>
       </div>
+
+      <!-- REVENUE FORECASTING -->
+      <div class="card full-width">
+        <div class="card-header">
+          <h2>🔮 Revenue Forecasting</h2>
+          <span class="badge" id="forecast-confidence">—</span>
+        </div>
+        <div class="card-body" id="forecast-body"><div class="empty-state">Loading forecasts...</div></div>
+      </div>
+
+      <!-- WHAT-IF SCENARIOS -->
+      <div class="card full-width">
+        <div class="card-header"><h2>⚡ What-If Scenarios</h2></div>
+        <div class="card-body" id="scenario-body">
+          <div class="scenario-panel">
+            <div class="scenario-input">
+              <label>Tech Count Change</label>
+              <input type="number" id="scenario-techs" value="0" min="-5" max="10" placeholder="+/- techs">
+            </div>
+            <div class="scenario-input">
+              <label>Rate Change %</label>
+              <input type="number" id="scenario-rate" value="0" min="-20" max="50" placeholder="% change">
+            </div>
+            <button class="btn btn-primary" onclick="runScenario()">Run Scenario</button>
+          </div>
+          <div id="scenario-results"></div>
+        </div>
+      </div>
+
+      <!-- P&L VARIANCE -->
+      <div class="card full-width">
+        <div class="card-header"><h2>📊 Monthly P&L Variance</h2></div>
+        <div class="card-body" id="pnl-body"><div class="empty-state">Loading...</div></div>
+      </div>
     </div>
   </main>
 
   <script>
   let analyticsData = null;
 
-  document.addEventListener('DOMContentLoaded', loadAnalytics);
+  document.addEventListener('DOMContentLoaded', () => {
+    loadAnalytics();
+    loadForecasts();
+    loadPnL();
+  });
 
   async function loadAnalytics() {
     try {
@@ -354,6 +407,163 @@
     html += '</div>';
     document.getElementById('tech-body').innerHTML = html;
   }
+
+  // ============================================================
+  // FORECASTING
+  // ============================================================
+  async function loadForecasts() {
+    try {
+      const res = await fetch('/api/analytics/forecast');
+      const f = await res.json();
+      if (f.error) { document.getElementById('forecast-body').innerHTML = `<div class="empty-state">${f.error}</div>`; return; }
+
+      document.getElementById('forecast-confidence').textContent = `${f.confidence}% confidence • Trend: ${f.trendDirection}`;
+      document.getElementById('forecast-confidence').style.background = f.trendDirection === 'up' ? 'var(--success)' : f.trendDirection === 'down' ? 'var(--error)' : 'var(--accent)';
+
+      const trendIcon = f.trendDirection === 'up' ? '📈' : f.trendDirection === 'down' ? '📉' : '➡️';
+      let html = `<div class="forecast-cards">
+        <div class="forecast-card">
+          <span class="metric-label">Next Week Forecast</span>
+          <span class="forecast-value">$${f.nextWeek.forecast4.toLocaleString()}</span>
+          <span class="forecast-range">Range: $${f.nextWeek.range.low.toLocaleString()} – $${f.nextWeek.range.high.toLocaleString()}</span>
+        </div>
+        <div class="forecast-card">
+          <span class="metric-label">Next 4 Weeks</span>
+          <span class="forecast-value">$${f.next4Weeks.projected.toLocaleString()}</span>
+          <span class="forecast-range">Range: $${f.next4Weeks.range.low.toLocaleString()} – $${f.next4Weeks.range.high.toLocaleString()}</span>
+        </div>
+        <div class="forecast-card">
+          <span class="metric-label">Next 12 Weeks</span>
+          <span class="forecast-value">$${f.next12Weeks.projected.toLocaleString()}</span>
+          <span class="forecast-range">Range: $${f.next12Weeks.range.low.toLocaleString()} – $${f.next12Weeks.range.high.toLocaleString()}</span>
+        </div>
+      </div>`;
+
+      // Monthly projections
+      if (f.monthlyProjection && f.monthlyProjection.projections) {
+        html += '<div style="margin-top:12px;"><h4 style="font-size:12px;color:var(--text-tertiary);margin-bottom:8px;">MONTHLY PROJECTIONS</h4>';
+        html += '<div class="forecast-cards">';
+        for (const p of f.monthlyProjection.projections) {
+          html += `<div class="forecast-card">
+            <span class="metric-label">${p.monthName}</span>
+            <span class="forecast-value">$${p.projected.toLocaleString()}</span>
+            <span class="forecast-range">Based on 6-month avg: $${f.monthlyProjection.avgMonthly.toLocaleString()}/mo</span>
+          </div>`;
+        }
+        html += '</div></div>';
+      }
+
+      // Actual vs Forecast mini chart
+      if (f.actualVsForecast && f.actualVsForecast.length > 0) {
+        html += '<div style="margin-top:16px;"><h4 style="font-size:12px;color:var(--text-tertiary);margin-bottom:8px;">ACTUAL vs PREDICTED (Last 20 Weeks)</h4>';
+        html += '<div class="chart-container" style="height:200px;"><canvas id="forecastChart"></canvas></div></div>';
+      }
+
+      document.getElementById('forecast-body').innerHTML = html;
+
+      // Render forecast chart
+      if (f.actualVsForecast && f.actualVsForecast.length > 0) {
+        const ctx = document.getElementById('forecastChart').getContext('2d');
+        new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: f.actualVsForecast.map(d => d.week),
+            datasets: [{
+              label: 'Actual', data: f.actualVsForecast.map(d => d.actual),
+              borderColor: '#004797', backgroundColor: 'rgba(0,71,151,0.1)', fill: true, tension: 0.3, pointRadius: 3,
+            }, {
+              label: 'Predicted', data: f.actualVsForecast.map(d => d.predicted),
+              borderColor: '#FDB913', borderDash: [5, 5], tension: 0.3, pointRadius: 2,
+            }],
+          },
+          options: {
+            responsive: true, maintainAspectRatio: false,
+            plugins: { legend: { labels: { color: '#aaa', font: { size: 11 } } } },
+            scales: {
+              x: { ticks: { color: '#606075', font: { size: 9 }, maxTicksLimit: 10 }, grid: { color: 'rgba(255,255,255,0.05)' } },
+              y: { ticks: { color: '#606075', callback: v => '$' + (v/1000).toFixed(1) + 'K' }, grid: { color: 'rgba(255,255,255,0.05)' } },
+            },
+          },
+        });
+      }
+    } catch (e) {
+      console.error('Forecast load failed:', e);
+      document.getElementById('forecast-body').innerHTML = '<div class="empty-state">Could not load forecasts</div>';
+    }
+  }
+
+  // ============================================================
+  // WHAT-IF SCENARIOS
+  // ============================================================
+  async function runScenario() {
+    const techChange = parseInt(document.getElementById('scenario-techs').value) || 0;
+    const rateChange = parseInt(document.getElementById('scenario-rate').value) || 0;
+
+    try {
+      const res = await fetch('/api/analytics/scenario', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ techCountChange: techChange, rateChangePct: rateChange }),
+      });
+      const data = await res.json();
+      if (data.error) { document.getElementById('scenario-results').innerHTML = `<div class="empty-state">${data.error}</div>`; return; }
+
+      const weeklyDelta = data.scenario.weeklyDelta;
+      const cls = weeklyDelta >= 0 ? 'positive' : 'negative';
+      const sign = weeklyDelta >= 0 ? '+' : '';
+
+      document.getElementById('scenario-results').innerHTML = `<div class="scenario-result">
+        <div class="scenario-card">
+          <div class="metric-label">Current Weekly Avg</div>
+          <div class="metric-value" style="font-size:22px;">$${data.current.avgWeeklyRevenue.toLocaleString()}</div>
+          <div style="font-size:11px;color:var(--text-tertiary);margin-top:4px;">${data.current.techCount} techs • $${data.current.avgRevenuePerTech.toLocaleString()}/tech/week</div>
+        </div>
+        <div class="scenario-card" style="border-color:var(--accent);">
+          <div class="metric-label">Projected Weekly</div>
+          <div class="forecast-value">$${data.scenario.projectedWeekly.toLocaleString()}</div>
+          <div class="${cls}" style="font-size:14px;font-weight:700;margin-top:4px;">${sign}$${weeklyDelta.toLocaleString()}/week</div>
+          <div class="${cls}" style="font-size:12px;">${sign}$${data.scenario.monthlyDelta.toLocaleString()}/month</div>
+          <div style="font-size:11px;color:var(--text-tertiary);margin-top:4px;">${data.scenario.techCount} techs • ${data.scenario.rateChange > 0 ? '+' : ''}${data.scenario.rateChange}% rates</div>
+        </div>
+      </div>`;
+    } catch (e) {
+      document.getElementById('scenario-results').innerHTML = '<div class="empty-state">Scenario failed — admin access required</div>';
+    }
+  }
+
+  // ============================================================
+  // P&L VARIANCE
+  // ============================================================
+  async function loadPnL() {
+    try {
+      const res = await fetch('/api/analytics/pnl');
+      const data = await res.json();
+      if (!data.length) { document.getElementById('pnl-body').innerHTML = '<div class="empty-state">No P&L data</div>'; return; }
+
+      // Show last 12 months
+      const recent = data.slice(-12);
+      let html = '<div style="max-height:400px;overflow-y:auto;"><table class="pnl-table"><thead><tr>';
+      html += '<th>Month</th><th style="text-align:right;">Revenue</th><th style="text-align:right;">Weeks</th>';
+      html += '<th style="text-align:right;">Avg/Week</th><th style="text-align:right;">Variance</th><th style="text-align:right;">Running Total</th>';
+      html += '</tr></thead><tbody>';
+
+      for (const row of recent) {
+        const vCls = row.variance >= 0 ? 'positive' : 'negative';
+        const vSign = row.variance >= 0 ? '+' : '';
+        html += `<tr>
+          <td style="font-weight:600;">${row.month}</td>
+          <td style="text-align:right;font-weight:600;">$${row.revenue.toLocaleString()}</td>
+          <td style="text-align:right;">${row.weeks}</td>
+          <td style="text-align:right;color:var(--accent);">$${row.avgPerWeek.toLocaleString()}</td>
+          <td style="text-align:right;" class="${vCls}">${vSign}$${row.variance.toLocaleString()} (${row.variancePct > 0 ? '+' : ''}${row.variancePct}%)</td>
+          <td style="text-align:right;color:var(--text-tertiary);">$${row.runningTotal.toLocaleString()}</td>
+        </tr>`;
+      }
+      html += '</tbody></table></div>';
+      document.getElementById('pnl-body').innerHTML = html;
+    } catch (e) {
+      console.error('P&L load failed:', e);
+      document.getElementById('pnl-body').innerHTML = '<div class="empty-state">Could not load P&L data</div>';
+    }
+  }
   </script>
-</body>
 </html>
