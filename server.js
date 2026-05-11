@@ -27,15 +27,54 @@ app.use(express.json());
 // AUTH SYSTEM
 // ============================================================
 const AUTH_SECRET = process.env.AUTH_SECRET || 'caregen-alliance-2026-secret-key';
-const activeSessions = new Map(); // token -> { user, created }
+const SESSION_FILE = path.join(__dirname, 'data', 'sessions.json');
+const USERS_FILE = path.join(__dirname, 'data', 'users.json');
 const SESSION_TTL = 24 * 60 * 60 * 1000; // 24 hours
 
-// Users — add more here as needed
-const USERS = {
-  'admin':  { password: 'CareGen2026!', role: 'admin',  name: 'Admin' },
-  'shaun':  { password: 'F1rst2026!',   role: 'admin',  name: 'Shaun Muhammad' },
-  'marcus': { password: 'CareGen!',     role: 'viewer', name: 'Marcus Martin' },
-};
+// Persistent sessions — survive server restarts
+function loadSessions() {
+  try {
+    if (fs.existsSync(SESSION_FILE)) {
+      const data = JSON.parse(fs.readFileSync(SESSION_FILE, 'utf8'));
+      const map = new Map();
+      for (const [k, v] of Object.entries(data)) {
+        if (Date.now() - v.created < SESSION_TTL) map.set(k, v);
+      }
+      return map;
+    }
+  } catch (e) { /* fresh start */ }
+  return new Map();
+}
+
+function saveSessions() {
+  try {
+    const obj = Object.fromEntries(activeSessions);
+    fs.writeFileSync(SESSION_FILE, JSON.stringify(obj, null, 2));
+  } catch (e) { console.error('Session save failed:', e.message); }
+}
+
+const activeSessions = loadSessions();
+
+// Persistent users — loadable from file
+function loadUsers() {
+  const defaults = {
+    'admin':  { password: 'CareGen2026!', role: 'admin',  name: 'Admin' },
+    'shaun':  { password: 'F1rst2026!',   role: 'admin',  name: 'Shaun Muhammad' },
+    'marcus': { password: 'CareGen!',     role: 'viewer', name: 'Marcus Martin' },
+  };
+  try {
+    if (fs.existsSync(USERS_FILE)) return JSON.parse(fs.readFileSync(USERS_FILE, 'utf8'));
+  } catch (e) { /* use defaults */ }
+  // Save defaults on first run
+  fs.writeFileSync(USERS_FILE, JSON.stringify(defaults, null, 2));
+  return defaults;
+}
+
+function saveUsers(users) {
+  fs.writeFileSync(USERS_FILE, JSON.stringify(users, null, 2));
+}
+
+let USERS = loadUsers();
 
 // Role middleware — admin only for destructive operations
 function requireAdmin(req, res, next) {
@@ -118,6 +157,7 @@ app.post('/api/auth/login', (req, res) => {
     user: { username: lower, name: user.name, role: user.role },
     created: Date.now(),
   });
+  saveSessions();
 
   res.setHeader('Set-Cookie', `cg_session=${token}; Path=/; HttpOnly; SameSite=Lax; Max-Age=${SESSION_TTL / 1000}`);
   res.json({ success: true, redirect: '/', user: { name: user.name, role: user.role } });
@@ -127,8 +167,44 @@ app.post('/api/auth/logout', (req, res) => {
   const cookies = parseCookies(req);
   const token = cookies['cg_session'];
   if (token) activeSessions.delete(token);
+  saveSessions();
   res.setHeader('Set-Cookie', 'cg_session=; Path=/; HttpOnly; Max-Age=0');
   res.json({ success: true });
+});
+
+// Password change
+app.post('/api/auth/change-password', (req, res) => {
+  const session = getSession(req);
+  if (!session) return res.status(401).json({ error: 'Not authenticated' });
+
+  const { currentPassword, newPassword } = req.body;
+  const user = USERS[session.user.username];
+  if (!user) return res.status(400).json({ error: 'User not found' });
+  if (user.password !== currentPassword) return res.status(400).json({ error: 'Current password is incorrect' });
+  if (!newPassword || newPassword.length < 6) return res.status(400).json({ error: 'New password must be at least 6 characters' });
+
+  user.password = newPassword;
+  saveUsers(USERS);
+  res.json({ success: true, message: 'Password changed successfully' });
+});
+
+// User management (admin only)
+app.get('/api/users', requireAdmin, (req, res) => {
+  const userList = Object.entries(USERS).map(([username, u]) => ({
+    username, name: u.name, role: u.role,
+  }));
+  res.json({ users: userList });
+});
+
+app.post('/api/users', requireAdmin, (req, res) => {
+  const { username, password, name, role } = req.body;
+  if (!username || !password || !name) return res.status(400).json({ error: 'Username, password, and name required' });
+  const lower = username.toLowerCase().trim();
+  if (USERS[lower]) return res.status(400).json({ error: 'Username already exists' });
+
+  USERS[lower] = { password, name, role: role || 'viewer' };
+  saveUsers(USERS);
+  res.json({ success: true, message: `User '${lower}' created` });
 });
 
 app.get('/api/auth/me', (req, res) => {
@@ -686,6 +762,21 @@ app.get('/api/analytics/pnl', (req, res) => {
     const data = analytics.getPnLSummary();
     res.json(data);
   } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// POST /api/reports/generate - Generate summary report PDF (admin only)
+app.post('/api/reports/generate', requireAdmin, async (req, res) => {
+  try {
+    const { period, periodLabel } = req.body;
+    analytics.loadHistoricalData();
+    const data = analytics.getAnalytics();
+    const result = await generator.generateSummaryReport(data, period || 'monthly', periodLabel || '');
+    addLog('success', `Report generated: ${result.fileName}`);
+    res.json({ success: true, ...result });
+  } catch (error) {
+    addLog('error', `Report generation failed: ${error.message}`);
     res.status(500).json({ error: error.message });
   }
 });

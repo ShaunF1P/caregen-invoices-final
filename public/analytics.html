@@ -75,6 +75,11 @@
         <div><h1>CareGen Alliance</h1><span class="subtitle">Revenue Intelligence Dashboard</span></div>
       </div>
       <div class="header-actions">
+        <select id="report-period" style="padding:6px 10px;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--bg-input);color:var(--text-primary);font-size:12px;">
+          <option value="monthly">Monthly Report</option>
+          <option value="quarterly">Quarterly Report</option>
+        </select>
+        <button class="btn btn-primary btn-sm" onclick="generateReport()">📄 Generate Report</button>
         <div class="status-badge active"><span class="status-dot"></span><span id="inv-count">Loading...</span></div>
       </div>
     </div>
@@ -563,6 +568,24 @@
     } catch (e) {
       console.error('P&L load failed:', e);
       document.getElementById('pnl-body').innerHTML = '<div class="empty-state">Could not load P&L data</div>';
+    }
+  }
+
+  async function generateReport() {
+    const period = document.getElementById('report-period').value;
+    try {
+      const res = await fetch('/api/reports/generate', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ period }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        window.open(data.downloadLink, '_blank');
+      } else {
+        alert(data.error || 'Report generation failed');
+      }
+    } catch (e) {
+      alert('Report generation failed — admin access required');
     }
   }
   </script>

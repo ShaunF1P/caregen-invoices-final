@@ -470,6 +470,140 @@ class InvoiceGenerator {
     }
     return String(val);
   }
+
+  /**
+   * Generate a branded summary report PDF (internal use)
+   * @param {object} analyticsData - from analytics engine
+   * @param {string} period - 'monthly', 'quarterly', or 'custom'
+   * @param {string} periodLabel - e.g. 'May 2026', 'Q2 2026'
+   */
+  generateSummaryReport(analyticsData, period = 'monthly', periodLabel = '') {
+    if (!periodLabel) {
+      const now = new Date();
+      periodLabel = period === 'quarterly'
+        ? `Q${Math.floor(now.getMonth() / 3) + 1} ${now.getFullYear()}`
+        : now.toLocaleString('default', { month: 'long', year: 'numeric' });
+    }
+
+    const fileName = `CareGen_Report_${periodLabel.replace(/\s+/g, '_')}.pdf`;
+    const filePath = path.join(config.paths.outputDir, fileName);
+    const doc = new PDFDocument({ size: 'LETTER', margin: 50 });
+    const stream = fs.createWriteStream(filePath);
+    doc.pipe(stream);
+
+    const blue = '#004797';
+    const gold = '#FDB913';
+    const ov = analyticsData.overview || {};
+    const techs = analyticsData.techPerformance || [];
+    const monthly = analyticsData.monthlyTrend || [];
+
+    // HEADER
+    doc.rect(0, 0, 612, 70).fill(blue);
+    doc.fontSize(22).fillColor('#FFFFFF').text('Caregen Alliance', 50, 20);
+    doc.fontSize(10).fillColor(gold).text(`Performance Report — ${periodLabel}`, 50, 46);
+    doc.rect(0, 70, 612, 3).fill(gold);
+    doc.moveDown(2);
+
+    // REVENUE OVERVIEW
+    const y1 = 100;
+    doc.fontSize(14).fillColor(blue).text('Revenue Overview', 50, y1);
+    doc.rect(50, y1 + 20, 512, 1).fill(gold);
+
+    const metrics = [
+      ['Total Revenue', `$${(ov.totalRevenue || 0).toLocaleString()}`],
+      ['Everfast Revenue', `$${(ov.everfastRevenue || 0).toLocaleString()}`],
+      ['Avg Weekly', `$${(ov.avgWeeklyRevenue || 0).toLocaleString()}`],
+      ['Avg WOs/Week', `${ov.avgWorkOrdersPerWeek || 0}`],
+      ['Revenue/WO', `$${ov.avgRevenuePerWorkOrder || 0}`],
+      ['Last 4-Wk Avg', `$${(ov.last4WeekAvg || 0).toLocaleString()}`],
+    ];
+
+    let my = y1 + 30;
+    doc.fontSize(10).fillColor('#333333');
+    for (let i = 0; i < metrics.length; i += 2) {
+      const left = metrics[i];
+      const right = metrics[i + 1];
+      doc.text(left[0] + ':', 60, my, { width: 150 }).text(left[1], 220, my);
+      if (right) doc.text(right[0] + ':', 320, my, { width: 150 }).text(right[1], 480, my);
+      my += 18;
+    }
+
+    // TECH PERFORMANCE TABLE
+    my += 20;
+    doc.fontSize(14).fillColor(blue).text('Technician Rankings', 50, my);
+    doc.rect(50, my + 20, 512, 1).fill(gold);
+    my += 30;
+
+    // Table header
+    doc.fontSize(9).fillColor('#FFFFFF');
+    doc.rect(50, my, 512, 18).fill(blue);
+    doc.text('TECHNICIAN', 60, my + 5, { width: 180 });
+    doc.text('REVENUE', 260, my + 5, { width: 80, align: 'right' });
+    doc.text('WORK ORDERS', 350, my + 5, { width: 80, align: 'right' });
+    doc.text('AVG/WO', 440, my + 5, { width: 80, align: 'right' });
+    my += 18;
+
+    // Table rows
+    const topTechs = techs.slice(0, 12);
+    for (let i = 0; i < topTechs.length; i++) {
+      const t = topTechs[i];
+      if (i % 2 === 0) doc.rect(50, my, 512, 16).fill('#f5f7fa');
+      doc.fontSize(9).fillColor('#333333');
+      doc.text(t.name, 60, my + 4, { width: 180 });
+      doc.text(`$${t.totalRevenue.toLocaleString()}`, 260, my + 4, { width: 80, align: 'right' });
+      doc.text(`${t.workOrders}`, 350, my + 4, { width: 80, align: 'right' });
+      doc.text(`$${t.avgPerWO}`, 440, my + 4, { width: 80, align: 'right' });
+      my += 16;
+    }
+
+    // MONTHLY TREND (last 6 months)
+    if (monthly.length > 0) {
+      my += 20;
+      if (my > 650) { doc.addPage(); my = 50; }
+      doc.fontSize(14).fillColor(blue).text('Monthly Trend', 50, my);
+      doc.rect(50, my + 20, 512, 1).fill(gold);
+      my += 30;
+
+      doc.fontSize(9).fillColor('#FFFFFF');
+      doc.rect(50, my, 512, 18).fill(blue);
+      doc.text('MONTH', 60, my + 5, { width: 120 });
+      doc.text('REVENUE', 200, my + 5, { width: 80, align: 'right' });
+      doc.text('INVOICES', 300, my + 5, { width: 60, align: 'right' });
+      doc.text('AVG/WEEK', 380, my + 5, { width: 80, align: 'right' });
+      my += 18;
+
+      const recentMonths = monthly.slice(-6);
+      for (let i = 0; i < recentMonths.length; i++) {
+        const m = recentMonths[i];
+        if (i % 2 === 0) doc.rect(50, my, 512, 16).fill('#f5f7fa');
+        doc.fontSize(9).fillColor('#333333');
+        doc.text(m.month, 60, my + 4, { width: 120 });
+        doc.text(`$${m.revenue.toLocaleString()}`, 200, my + 4, { width: 80, align: 'right' });
+        doc.text(`${m.invoiceCount}`, 300, my + 4, { width: 60, align: 'right' });
+        doc.text(`$${m.avgWeeklyRevenue.toLocaleString()}`, 380, my + 4, { width: 80, align: 'right' });
+        my += 16;
+      }
+    }
+
+    // Footer
+    my += 30;
+    if (my > 700) { doc.addPage(); my = 50; }
+    doc.fontSize(8).fillColor('#999999');
+    doc.text(`Generated by CareGen Alliance Revenue Intelligence • ${new Date().toLocaleString()}`, 50, my, { align: 'center', width: 512 });
+    doc.text('INTERNAL USE ONLY — NOT FOR CLIENT DISTRIBUTION', 50, my + 14, { align: 'center', width: 512 });
+
+    doc.end();
+
+    return new Promise((resolve) => {
+      stream.on('finish', () => resolve({
+        filePath,
+        fileName,
+        period,
+        periodLabel,
+        downloadLink: `/output/${fileName}`,
+      }));
+    });
+  }
 }
 
 module.exports = InvoiceGenerator;

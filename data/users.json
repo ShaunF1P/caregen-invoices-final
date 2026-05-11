@@ -1,0 +1,17 @@
+{
+  "admin": {
+    "password": "CareGen2026!",
+    "role": "admin",
+    "name": "Admin"
+  },
+  "shaun": {
+    "password": "F1rst2026!",
+    "role": "admin",
+    "name": "Shaun Muhammad"
+  },
+  "marcus": {
+    "password": "CareGen!",
+    "role": "viewer",
+    "name": "Marcus Martin"
+  }
+}
